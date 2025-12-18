@@ -650,7 +650,7 @@ void AnalogSensor::remove_ha_topic(const int8_t type, const uint8_t gpio) const 
         snprintf(topic, sizeof(topic), "number/%s/%s_%02d/config", Mqtt::basename().c_str(), F_(analogsensor), gpio);
     } else if (type >= AnalogType::PWM_0 && type <= AnalogType::PWM_2) {
         snprintf(topic, sizeof(topic), "number/%s/%s_%02d/config", Mqtt::basename().c_str(), F_(analogsensor), gpio);
-    } else if (type >= AnalogType::RGB) {
+    } else if (type == AnalogType::RGB) {
         snprintf(topic, sizeof(topic), "number/%s/%s_%02d/config", Mqtt::basename().c_str(), F_(analogsensor), gpio);
     } else if (type == AnalogType::DIGITAL_IN) {
         snprintf(topic, sizeof(topic), "binary_sensor/%s/%s_%02d/config", Mqtt::basename().c_str(), F_(analogsensor), gpio);
@@ -675,13 +675,14 @@ void AnalogSensor::publish_values(const bool force) {
     }
 
     JsonDocument doc;
-    JsonObject   obj = doc.to<JsonObject>();
+    JsonObject   obj            = doc.to<JsonObject>();
+    bool         ha_dev_created = false;
 
     for (auto & sensor : sensors_) {
         if (Mqtt::is_nested()) {
             char       s[10];
             JsonObject dataSensor = obj[Helpers::smallitoa(s, sensor.gpio())].to<JsonObject>();
-            dataSensor["name"]    = sensor.name();
+            dataSensor["name"]    = (const char *)sensor.name();
 #if CONFIG_IDF_TARGET_ESP32
             if (sensor.type() == AnalogType::PULSE || (sensor.type() == AnalogType::DIGITAL_OUT && sensor.gpio() != 25 && sensor.gpio() != 26)) {
 #else
@@ -738,7 +739,7 @@ void AnalogSensor::publish_values(const bool force) {
 
             config["~"]       = Mqtt::base();
             config["uniq_id"] = uniq_s;
-            config["name"]    = sensor.name();
+            config["name"]    = (const char *)sensor.name();
 
             if (sensor.uom() != DeviceValueUOM::NONE && sensor.type() != AnalogType::DIGITAL_OUT) {
                 config["unit_of_meas"] = EMSdevice::uom_to_string(sensor.uom());
@@ -798,18 +799,16 @@ void AnalogSensor::publish_values(const bool force) {
                 config["stat_cla"] = "measurement";
             }
 
-            // see if we need to create the [devs] discovery section, as this needs only to be done once for all sensors
-            if (std::none_of(sensors_.begin(), sensors_.end(), [](const auto & sensor) { return sensor.ha_registered; })) {
-                Mqtt::add_ha_dev_section(config.as<JsonObject>(), "Analog Sensors", nullptr, "EMS-ESP", EMSESP_APP_VERSION, true);
-            }
-
             // add default_entity_id
             std::string topic_str(topic);
             config["def_ent_id"] = topic_str.substr(0, topic_str.find("/")) + "." + uniq_s;
 
+            // dev section with model is only created on the 1st sensor
+            Mqtt::add_ha_dev_section(config.as<JsonObject>(), "Analog Sensors", nullptr, "EMS-ESP", EMSESP_APP_VERSION, !ha_dev_created);
             Mqtt::add_ha_avty_section(config.as<JsonObject>(), stat_t, val_cond);
 
             sensor.ha_registered = Mqtt::queue_ha(topic, config.as<JsonObject>());
+            ha_dev_created |= sensor.ha_registered;
         }
     }
 
@@ -857,8 +856,8 @@ bool AnalogSensor::get_value_info(JsonObject output, const char * cmd, const int
 
 // note we don't add the device and state classes here, as we do in the custom entity service
 void AnalogSensor::get_value_json(JsonObject output, const Sensor & sensor) {
-    output["name"]      = sensor.name();
-    output["fullname"]  = sensor.name();
+    output["name"]      = (const char *)sensor.name();
+    output["fullname"]  = (const char *)sensor.name();
     output["gpio"]      = sensor.gpio();
     output["type"]      = F_(number);
     output["analog"]    = FL_(list_sensortype)[sensor.type()];

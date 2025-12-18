@@ -418,8 +418,8 @@ bool TemperatureSensor::get_value_info(JsonObject output, const char * cmd, cons
 // note we don't add the device and state classes here, as we do in the custom entity service
 void TemperatureSensor::get_value_json(JsonObject output, const Sensor & sensor) {
     output["id"]       = sensor.id();
-    output["name"]     = sensor.name();
-    output["fullname"] = sensor.name();
+    output["name"]     = (const char *)sensor.name();
+    output["fullname"] = (const char *)sensor.name();
     if (Helpers::hasValue(sensor.temperature_c)) {
         char val[10];
         output["value"] = serialized(Helpers::render_value(val, sensor.temperature_c, 10, EMSESP::system_.fahrenheit() ? 2 : 0));
@@ -480,6 +480,7 @@ void TemperatureSensor::publish_values(const bool force) {
     }
 
     JsonDocument doc;
+    bool         ha_dev_created = false;
 
     for (auto & sensor : sensors_) {
         bool has_value = Helpers::hasValue(sensor.temperature_c);
@@ -487,7 +488,7 @@ void TemperatureSensor::publish_values(const bool force) {
             char val[10];
             if (Mqtt::is_nested()) {
                 JsonObject dataSensor = doc[sensor.id()].to<JsonObject>();
-                dataSensor["name"]    = sensor.name();
+                dataSensor["name"]    = (const char *)sensor.name();
                 dataSensor["temp"]    = serialized(Helpers::render_value(val, sensor.temperature_c, 10, EMSESP::system_.fahrenheit() ? 2 : 0));
             } else {
                 doc[sensor.name()] = serialized(Helpers::render_value(val, sensor.temperature_c, 10, EMSESP::system_.fahrenheit() ? 2 : 0));
@@ -541,19 +542,17 @@ void TemperatureSensor::publish_values(const bool force) {
 
                 config["uniq_id"]    = uniq_s;
                 config["def_ent_id"] = (std::string) "sensor." + uniq_s;
-                config["name"]       = sensor.name();
+                config["name"]       = (const char *)sensor.name();
 
-                // see if we need to create the [devs] discovery section, as this needs only to be done once for all sensors
-                if (std::none_of(sensors_.begin(), sensors_.end(), [](const auto & sensor) { return sensor.ha_registered; })) {
-                    Mqtt::add_ha_dev_section(config.as<JsonObject>(), "Temperature Sensors", nullptr, "EMS-ESP", EMSESP_APP_VERSION, true);
-                }
-
+                // dev section with model is only created on the 1st sensor
+                Mqtt::add_ha_dev_section(config.as<JsonObject>(), "Temperature Sensors", nullptr, "EMS-ESP", EMSESP_APP_VERSION, !ha_dev_created);
                 Mqtt::add_ha_avty_section(config.as<JsonObject>(), stat_t, val_cond);
 
                 char topic[Mqtt::MQTT_TOPIC_MAX_SIZE];
                 snprintf(topic, sizeof(topic), "sensor/%s/%s_%s/config", Mqtt::basename().c_str(), F_(temperaturesensor), sensor.id());
 
                 sensor.ha_registered = Mqtt::queue_ha(topic, config.as<JsonObject>());
+                ha_dev_created |= sensor.ha_registered;
             }
         }
     }
