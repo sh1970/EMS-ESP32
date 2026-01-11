@@ -436,6 +436,7 @@ void WebSettings::set_board_profile(WebSettings & settings) {
     // as it's already set
     if (settings.board_profile == "CUSTOM") {
         EMSESP::logger().info("Using CUSTOM board profile");
+        EMSESP::system_.set_valid_system_gpios();
         return;
     }
 
