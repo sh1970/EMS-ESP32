@@ -89,6 +89,9 @@ class Thermostat : public EMSdevice {
         uint8_t statusbyte; // from RC300monitor
         uint8_t switchProgMode;
         int8_t  redThreshold;
+        // BC400
+        uint8_t comfortPointTemp;
+        uint8_t comfortPointOffset;
         // RC 10
         uint8_t  reducehours;   // night reduce duration
         uint16_t reduceminutes; // remaining minutes to night->day
@@ -505,6 +508,8 @@ class Thermostat : public EMSdevice {
     bool set_controlmode(const char * value, const int8_t id);
     bool set_wwprio(const char * value, const int8_t id);
     bool set_fastheatup(const char * value, const int8_t id);
+    bool set_comfortPointTemp(const char * value, const int8_t id);
+    bool set_comfortPointOffset(const char * value, const int8_t id);
     bool set_switchonoptimization(const char * value, const int8_t id);
     bool set_heatondelay(const char * value, const int8_t id);
     bool set_heatoffdelay(const char * value, const int8_t id);

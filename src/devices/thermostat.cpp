@@ -1235,6 +1235,8 @@ void Thermostat::process_RC300Summer(std::shared_ptr<const Telegram> telegram) {
     }
 
     has_update(telegram, hc->fastHeatup, 10);
+    has_update(telegram, hc->comfortPointOffset, 11);
+    has_update(telegram, hc->comfortPointTemp, 12);
 }
 
 // types 0x471 ff summer2_typeids
@@ -3326,6 +3328,33 @@ bool Thermostat::set_fastheatup(const char * value, const int8_t id) {
     return true;
 }
 
+// https://github.com/emsesp/EMS-ESP32/issues/2935
+bool Thermostat::set_comfortPointTemp(const char * value, const int8_t id) {
+    auto hc = heating_circuit(id);
+    if (hc == nullptr) {
+        return false;
+    }
+    int set;
+    if (!Helpers::value2temperature(value, set)) {
+        return false;
+    }
+    write_command(summer_typeids[hc->hc()], 12, set, summer_typeids[hc->hc()]);
+    return true;
+}
+
+bool Thermostat::set_comfortPointOffset(const char * value, const int8_t id) {
+    auto hc = heating_circuit(id);
+    if (hc == nullptr) {
+        return false;
+    }
+    int set;
+    if (!Helpers::value2temperature(value, set, true)) {
+        return false;
+    }
+    write_command(summer_typeids[hc->hc()], 11, set, summer_typeids[hc->hc()]);
+    return true;
+}
+
 // Set holidaymode Junkers
 bool Thermostat::set_holidaymode(const char * value, const int8_t id) {
     auto hc = heating_circuit(id);
@@ -4878,6 +4907,13 @@ void Thermostat::register_device_values_hc(std::shared_ptr<Thermostat::HeatingCi
         register_device_value(
             tag, &hc->cooltemp, DeviceValueType::INT8, DeviceValueNumOp::DV_NUMOP_DIV2, FL_(cooltemp), DeviceValueUOM::DEGREES, MAKE_CF_CB(set_cooltemp), -1, 30);
         register_device_value(tag, &hc->fastHeatup, DeviceValueType::UINT8, FL_(fastheatup), DeviceValueUOM::PERCENT, MAKE_CF_CB(set_fastheatup));
+        register_device_value(tag,
+                              &hc->comfortPointOffset,
+                              DeviceValueType::UINT8,
+                              FL_(comfortPointOffset),
+                              DeviceValueUOM::DEGREES_R,
+                              MAKE_CF_CB(set_comfortPointOffset));
+        register_device_value(tag, &hc->comfortPointTemp, DeviceValueType::UINT8, FL_(comfortPointTemp), DeviceValueUOM::DEGREES, MAKE_CF_CB(set_comfortPointTemp));
         register_device_value(tag,
                               &hc->switchonoptimization,
                               DeviceValueType::BOOL,
