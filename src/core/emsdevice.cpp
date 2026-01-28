@@ -2156,6 +2156,7 @@ void EMSdevice::mqtt_ha_entity_config_create() {
             }
 
             // SRC thermostats mapped to connect/src1/...
+            /* removed climate for testing
             if (dv.tag >= DeviceValueTAG::TAG_SRC1 && dv.tag <= DeviceValueTAG::TAG_SRC16 && !strcmp(dv.short_name, FL_(selRoomTemp)[0])) {
                 const char * icon = nullptr;
                 for (auto & d : devicevalues_) {
@@ -2168,6 +2169,7 @@ void EMSdevice::mqtt_ha_entity_config_create() {
                 // https://github.com/emsesp/EMS-ESP32/issues/2636
                 Mqtt::publish_ha_climate_config(dv, true, nullptr, false, icon);
             }
+            */
 
 #ifndef EMSESP_STANDALONE
             // always create minimum one config
