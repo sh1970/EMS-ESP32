@@ -5229,52 +5229,56 @@ int8
 | hc1.cooltemp | cooling temperature | int8 (&gt;=-1&lt;=30) | C | true | HC | 28 | 1 | 1/2 |
 uint8
 | hc1.fastheatup | fast heatup | uint8 (&gt;=0&lt;=0) | % | true | HC | 29 | 1 | 1 |
-| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 30 | 1 | 1 |
-| hc1.reducemode | reduce mode | enum |   | true | HC | 31 | 1 | 1 |
+uint8
+| hc1.comfoffset | comfort point offset | uint8 (&gt;=0&lt;=0) | C | true | HC | 30 | 1 | 1 |
+uint8
+| hc1.comftemp | comfort point temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 31 | 1 | 1 |
+| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 32 | 1 | 1 |
+| hc1.reducemode | reduce mode | enum |   | true | HC | 33 | 1 | 1 |
 int8
-| hc1.noreducetemp | no reduce below temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 32 | 1 | 1 |
+| hc1.noreducetemp | no reduce below temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 34 | 1 | 1 |
 int8
-| hc1.reducetemp | off/reduce switch temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 33 | 1 | 1 |
-| hc1.dhwprio | dhw priority | boolean |   | true | HC | 34 | 1 | 1 |
-| hc1.hpcooling | hp cooling | boolean |   | true | HC | 35 | 1 | 1 |
-| hc1.coolingon | cooling on | boolean |   | false | HC | 36 | 1 | 1 |
-| hc1.hpmode | HP Mode | enum |   | true | HC | 37 | 1 | 1 |
+| hc1.reducetemp | off/reduce switch temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 35 | 1 | 1 |
+| hc1.dhwprio | dhw priority | boolean |   | true | HC | 36 | 1 | 1 |
+| hc1.hpcooling | hp cooling | boolean |   | true | HC | 37 | 1 | 1 |
+| hc1.coolingon | cooling on | boolean |   | false | HC | 38 | 1 | 1 |
+| hc1.hpmode | HP Mode | enum |   | true | HC | 39 | 1 | 1 |
 uint8
-| hc1.dewoffset | dew point offset | uint8 (&gt;=2&lt;=10) | K | true | HC | 38 | 1 | 1 |
+| hc1.dewoffset | dew point offset | uint8 (&gt;=2&lt;=10) | K | true | HC | 40 | 1 | 1 |
 uint8
-| hc1.roomtempdiff | room temp difference | uint8 (&gt;=0&lt;=0) | K | true | HC | 39 | 1 | 1 |
+| hc1.roomtempdiff | room temp difference | uint8 (&gt;=0&lt;=0) | K | true | HC | 41 | 1 | 1 |
 uint8
-| hc1.hpminflowtemp | HP min. flow temp. | uint8 (&gt;=0&lt;=0) | C | true | HC | 40 | 1 | 1 |
-| hc1.control | control device | enum |   | true | HC | 41 | 1 | 1 |
-| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 42 | 1 | 1/10 |
-| hc1.remotehum | room humidity from remote | cmd | % | true | HC | 43 | 1 | 1 |
+| hc1.hpminflowtemp | HP min. flow temp. | uint8 (&gt;=0&lt;=0) | C | true | HC | 42 | 1 | 1 |
+| hc1.control | control device | enum |   | true | HC | 43 | 1 | 1 |
+| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 44 | 1 | 1/10 |
+| hc1.remotehum | room humidity from remote | cmd | % | true | HC | 45 | 1 | 1 |
 uint8
-| hc1.heatondelay | heat-on delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 44 | 1 | 1 |
+| hc1.heatondelay | heat-on delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 46 | 1 | 1 |
 uint8
-| hc1.heatoffdelay | heat-off delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 45 | 1 | 1 |
+| hc1.heatoffdelay | heat-off delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 47 | 1 | 1 |
 uint8
-| hc1.instantstart | instant start | uint8 (&gt;=1&lt;=10) | K | true | HC | 46 | 1 | 1 |
-| hc1.boost | boost mode | boolean |   | true | HC | 47 | 1 | 1 |
+| hc1.instantstart | instant start | uint8 (&gt;=1&lt;=10) | K | true | HC | 48 | 1 | 1 |
+| hc1.boost | boost mode | boolean |   | true | HC | 49 | 1 | 1 |
 uint8
-| hc1.boosttime | boost time | uint8 (&gt;=0&lt;=0) | hours | true | HC | 48 | 1 | 1 |
+| hc1.boosttime | boost time | uint8 (&gt;=0&lt;=0) | hours | true | HC | 50 | 1 | 1 |
 uint8
-| hc1.coolstart | cooling starttemp | uint8 (&gt;=20&lt;=35) | C | true | HC | 49 | 1 | 1 |
+| hc1.coolstart | cooling starttemp | uint8 (&gt;=20&lt;=35) | C | true | HC | 51 | 1 | 1 |
 uint8
-| hc1.coolondelay | cooling on delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 50 | 1 | 1 |
+| hc1.coolondelay | cooling on delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 52 | 1 | 1 |
 uint8
-| hc1.cooloffdelay | cooling off delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 51 | 1 | 1 |
-| hc1.switchprogmode | switch program mode | enum |   | true | HC | 52 | 1 | 1 |
+| hc1.cooloffdelay | cooling off delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 53 | 1 | 1 |
+| hc1.switchprogmode | switch program mode | enum |   | true | HC | 54 | 1 | 1 |
 int8
-| hc1.redthreshold | reduction threshold | int8 (&gt;=12&lt;=22) | C | true | HC | 53 | 1 | 1/2 |
+| hc1.redthreshold | reduction threshold | int8 (&gt;=12&lt;=22) | C | true | HC | 55 | 1 | 1/2 |
 uint8
-| hc1.solarinfl | solar influence | uint8 (&gt;=-5&lt;=4294967295) | C | true | HC | 54 | 1 | 1 |
-| hc1.currsolarinfl | current solar influence | uint8 | C | false | HC | 55 | 1 | 1/10 |
-| hc1.heatingpid | heating PID | enum |   | true | HC | 56 | 1 | 1 |
-| hc1.pumpopt | pump optimization | boolean |   | true | HC | 57 | 1 | 1 |
+| hc1.solarinfl | solar influence | uint8 (&gt;=-5&lt;=4294967295) | C | true | HC | 56 | 1 | 1 |
+| hc1.currsolarinfl | current solar influence | uint8 | C | false | HC | 57 | 1 | 1/10 |
+| hc1.heatingpid | heating PID | enum |   | true | HC | 58 | 1 | 1 |
+| hc1.pumpopt | pump optimization | boolean |   | true | HC | 59 | 1 | 1 |
 uint8
-| hc1.inttimefloor | integral time floor | uint8 (&gt;=160&lt;=320) | minutes | true | HC | 58 | 1 | 10 |
+| hc1.inttimefloor | integral time floor | uint8 (&gt;=160&lt;=320) | minutes | true | HC | 60 | 1 | 10 |
 uint8
-| hc1.inttime | integral time | uint8 (&gt;=3&lt;=80) | minutes | true | HC | 59 | 1 | 1 |
+| hc1.inttime | integral time | uint8 (&gt;=3&lt;=80) | minutes | true | HC | 61 | 1 | 1 |
 | dhw.mode | operating mode | enum |   | true | DHW | 0 | 1 | 1 |
 | dhw.modetype | mode type | enum |   | false | DHW | 1 | 1 | 1 |
 uint8
@@ -5324,9 +5328,9 @@ int16
 | hc1.mode | operating mode | enum |   | true | HC | 3 | 1 | 1 |
 | hc1.modetype | mode type | enum |   | false | HC | 4 | 1 | 1 |
 uint8
-| hc1.daytemp | day temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 60 | 1 | 1/2 |
+| hc1.daytemp | day temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 62 | 1 | 1/2 |
 uint8
-| hc1.nighttemp | night temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 61 | 1 | 1/2 |
+| hc1.nighttemp | night temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 63 | 1 | 1/2 |
 | hc1.program | program | enum |   | true | HC | 26 | 1 | 1 |
 uint8
 | hc1.minflowtemp | min flow temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 11 | 1 | 1 |
@@ -5366,20 +5370,20 @@ int16
 | hc1.mode | operating mode | enum |   | true | HC | 3 | 1 | 1 |
 | hc1.modetype | mode type | enum |   | false | HC | 4 | 1 | 1 |
 uint8
-| hc1.daytemp | day temperature | uint8 (&gt;=10&lt;=30) | C | true | HC | 60 | 1 | 1/2 |
+| hc1.daytemp | day temperature | uint8 (&gt;=10&lt;=30) | C | true | HC | 62 | 1 | 1/2 |
 uint8
-| hc1.nighttemp | night temperature | uint8 (&gt;=10&lt;=30) | C | true | HC | 61 | 1 | 1/2 |
+| hc1.nighttemp | night temperature | uint8 (&gt;=10&lt;=30) | C | true | HC | 63 | 1 | 1/2 |
 uint8
 | hc1.designtemp | design temperature | uint8 (&gt;=30&lt;=90) | C | true | HC | 9 | 1 | 1 |
 int8
 | hc1.offsettemp | offset temperature | int8 (&gt;=-5&lt;=5) | C | true | HC | 10 | 1 | 1/2 |
 uint8
-| hc1.holidaytemp | holiday temperature | uint8 (&gt;=5&lt;=30) | C | true | HC | 62 | 1 | 1/2 |
+| hc1.holidaytemp | holiday temperature | uint8 (&gt;=5&lt;=30) | C | true | HC | 64 | 1 | 1/2 |
 | hc1.targetflowtemp | target flow temperature | uint8 | C | false | HC | 18 | 1 | 1 |
 uint8
 | hc1.summertemp | summer temperature | uint8 (&gt;=9&lt;=25) | C | true | HC | 8 | 1 | 1 |
 | hc1.summermode | summer mode | enum |   | false | HC | 22 | 1 | 1 |
-| hc1.holidaymode | holiday mode | boolean |   | false | HC | 63 | 1 | 1 |
+| hc1.holidaymode | holiday mode | boolean |   | false | HC | 65 | 1 | 1 |
 int8
 | hc1.nofrosttemp | nofrost temperature | int8 (&gt;=-20&lt;=10) | C | true | HC | 17 | 1 | 1 |
 | hc1.nofrostmode | nofrost mode | enum |   | true | HC | 16 | 1 | 1 |
@@ -5390,32 +5394,32 @@ uint8
 uint8
 | hc1.maxflowtemp | max flow temperature | uint8 (&gt;=30&lt;=90) | C | true | HC | 12 | 1 | 1 |
 uint8
-| hc1.flowtempoffset | flow temperature offset for mixer | uint8 (&gt;=0&lt;=20) | C | true | HC | 64 | 1 | 1 |
+| hc1.flowtempoffset | flow temperature offset for mixer | uint8 (&gt;=0&lt;=20) | C | true | HC | 66 | 1 | 1 |
 | hc1.heatingtype | heating type | enum |   | true | HC | 19 | 1 | 1 |
-| hc1.reducemode | reduce mode | enum |   | true | HC | 31 | 1 | 1 |
+| hc1.reducemode | reduce mode | enum |   | true | HC | 33 | 1 | 1 |
 | hc1.controlmode | control mode | enum |   | true | HC | 25 | 1 | 1 |
-| hc1.control | control device | enum |   | true | HC | 41 | 1 | 1 |
-| hc1.holidays | holiday dates | string |   | true | HC | 65 | 13 | 1 |
-| hc1.vacations | vacation dates | string |   | true | HC | 78 | 13 | 1 |
+| hc1.control | control device | enum |   | true | HC | 43 | 1 | 1 |
+| hc1.holidays | holiday dates | string |   | true | HC | 67 | 13 | 1 |
+| hc1.vacations | vacation dates | string |   | true | HC | 80 | 13 | 1 |
 | hc1.program | program | enum |   | true | HC | 26 | 1 | 1 |
 uint8
-| hc1.pause | pause time | uint8 (&gt;=0&lt;=99) | hours | true | HC | 91 | 1 | 1 |
+| hc1.pause | pause time | uint8 (&gt;=0&lt;=99) | hours | true | HC | 93 | 1 | 1 |
 uint8
-| hc1.party | party time | uint8 (&gt;=0&lt;=99) | hours | true | HC | 92 | 1 | 1 |
+| hc1.party | party time | uint8 (&gt;=0&lt;=99) | hours | true | HC | 94 | 1 | 1 |
 uint8
 | hc1.tempautotemp | temporary set temperature automode | uint8 (&gt;=0&lt;=30) | C | true | HC | 27 | 1 | 1/2 |
 int8
-| hc1.noreducetemp | no reduce below temperature | int8 (&gt;=-31&lt;=10) | C | true | HC | 32 | 1 | 1 |
+| hc1.noreducetemp | no reduce below temperature | int8 (&gt;=-31&lt;=10) | C | true | HC | 34 | 1 | 1 |
 int8
-| hc1.reducetemp | off/reduce switch temperature | int8 (&gt;=-20&lt;=10) | C | true | HC | 33 | 1 | 1 |
+| hc1.reducetemp | off/reduce switch temperature | int8 (&gt;=-20&lt;=10) | C | true | HC | 35 | 1 | 1 |
 int8
-| hc1.vacreducetemp | vacations off/reduce switch temperature | int8 (&gt;=-20&lt;=10) | C | true | HC | 93 | 1 | 1 |
-| hc1.vacreducemode | vacations reduce mode | enum |   | true | HC | 94 | 1 | 1 |
-| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 42 | 1 | 1/10 |
-| hc1.dhwprio | dhw priority | boolean |   | true | HC | 34 | 1 | 1 |
-| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 30 | 1 | 1 |
-| hc1.switchtime1 | own1 program switchtime | string |   | true | HC | 95 | 8 | 1 |
-| hc1.switchtime2 | own2 program switchtime | string |   | true | HC | 103 | 8 | 1 |
+| hc1.vacreducetemp | vacations off/reduce switch temperature | int8 (&gt;=-20&lt;=10) | C | true | HC | 95 | 1 | 1 |
+| hc1.vacreducemode | vacations reduce mode | enum |   | true | HC | 96 | 1 | 1 |
+| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 44 | 1 | 1/10 |
+| hc1.dhwprio | dhw priority | boolean |   | true | HC | 36 | 1 | 1 |
+| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 32 | 1 | 1 |
+| hc1.switchtime1 | own1 program switchtime | string |   | true | HC | 97 | 8 | 1 |
+| hc1.switchtime2 | own2 program switchtime | string |   | true | HC | 105 | 8 | 1 |
 | dhw.mode | operating mode | enum |   | true | DHW | 0 | 1 | 1 |
 | dhw.circmode | circulation pump mode | enum |   | true | DHW | 4 | 1 | 1 |
 | dhw.progmode | program | enum |   | true | DHW | 13 | 1 | 1 |
@@ -5447,16 +5451,16 @@ int16
 uint8
 | hc1.manualtemp | manual temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 6 | 1 | 1/2 |
 uint8
-| hc1.offtemp | temperature when mode is off | uint8 (&gt;=0&lt;=0) | C | true | HC | 111 | 1 | 1/2 |
+| hc1.offtemp | temperature when mode is off | uint8 (&gt;=0&lt;=0) | C | true | HC | 113 | 1 | 1/2 |
 uint8
-| hc1.daytemp2 | day temperature T2 | uint8 (&gt;=0&lt;=0) | C | true | HC | 112 | 1 | 1/2 |
+| hc1.daytemp2 | day temperature T2 | uint8 (&gt;=0&lt;=0) | C | true | HC | 114 | 1 | 1/2 |
 uint8
-| hc1.daytemp3 | day temperature T3 | uint8 (&gt;=0&lt;=0) | C | true | HC | 113 | 1 | 1/2 |
+| hc1.daytemp3 | day temperature T3 | uint8 (&gt;=0&lt;=0) | C | true | HC | 115 | 1 | 1/2 |
 uint8
-| hc1.daytemp4 | day temperature T4 | uint8 (&gt;=0&lt;=0) | C | true | HC | 114 | 1 | 1/2 |
+| hc1.daytemp4 | day temperature T4 | uint8 (&gt;=0&lt;=0) | C | true | HC | 116 | 1 | 1/2 |
 uint8
-| hc1.nighttemp | night temperature T1 | uint8 (&gt;=0&lt;=0) | C | true | HC | 61 | 1 | 1/2 |
-| hc1.switchtime | program switchtime | string |   | true | HC | 115 | 8 | 1 |
+| hc1.nighttemp | night temperature T1 | uint8 (&gt;=0&lt;=0) | C | true | HC | 63 | 1 | 1/2 |
+| hc1.switchtime | program switchtime | string |   | true | HC | 117 | 8 | 1 |
 
 ### Moduline 400
 
@@ -5485,34 +5489,34 @@ int16
 | hc1.haclimate | mqtt discovery current room temperature | enum |   | false | HC | 2 | 1 | 1 |
 | hc1.mode | operating mode | enum |   | true | HC | 3 | 1 | 1 |
 uint8
-| hc1.pause | pause time | uint8 (&gt;=0&lt;=0) | hours | true | HC | 91 | 1 | 1 |
+| hc1.pause | pause time | uint8 (&gt;=0&lt;=0) | hours | true | HC | 93 | 1 | 1 |
 uint8
-| hc1.party | party time | uint8 (&gt;=0&lt;=0) | hours | true | HC | 92 | 1 | 1 |
-| hc1.vacations1 | vacation dates 1 | string |   | true | HC | 123 | 11 | 1 |
-| hc1.vacations2 | vacation dates 2 | string |   | true | HC | 134 | 11 | 1 |
-| hc1.vacations3 | vacation dates 3 | string |   | true | HC | 145 | 11 | 1 |
-| hc1.vacations4 | vacation dates 4 | string |   | true | HC | 156 | 11 | 1 |
-| hc1.vacations5 | vacation dates 5 | string |   | true | HC | 167 | 11 | 1 |
-| hc1.vacations6 | vacation dates 6 | string |   | true | HC | 178 | 11 | 1 |
-| hc1.vacations7 | vacation dates 7 | string |   | true | HC | 189 | 11 | 1 |
+| hc1.party | party time | uint8 (&gt;=0&lt;=0) | hours | true | HC | 94 | 1 | 1 |
+| hc1.vacations1 | vacation dates 1 | string |   | true | HC | 125 | 11 | 1 |
+| hc1.vacations2 | vacation dates 2 | string |   | true | HC | 136 | 11 | 1 |
+| hc1.vacations3 | vacation dates 3 | string |   | true | HC | 147 | 11 | 1 |
+| hc1.vacations4 | vacation dates 4 | string |   | true | HC | 158 | 11 | 1 |
+| hc1.vacations5 | vacation dates 5 | string |   | true | HC | 169 | 11 | 1 |
+| hc1.vacations6 | vacation dates 6 | string |   | true | HC | 180 | 11 | 1 |
+| hc1.vacations7 | vacation dates 7 | string |   | true | HC | 191 | 11 | 1 |
 | hc1.program | program | enum |   | true | HC | 26 | 1 | 1 |
-| hc1.switchtime1 | own1 program switchtime | string |   | true | HC | 95 | 8 | 1 |
+| hc1.switchtime1 | own1 program switchtime | string |   | true | HC | 97 | 8 | 1 |
 | hc1.heatingtype | heating type | enum |   | true | HC | 19 | 1 | 1 |
 | hc1.controlmode | control mode | enum |   | true | HC | 25 | 1 | 1 |
 uint8
-| hc1.holidaytemp | holiday temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 62 | 1 | 1/2 |
+| hc1.holidaytemp | holiday temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 64 | 1 | 1/2 |
 uint8
-| hc1.nighttemp | night temperature T1 | uint8 (&gt;=0&lt;=0) | C | true | HC | 61 | 1 | 1/2 |
+| hc1.nighttemp | night temperature T1 | uint8 (&gt;=0&lt;=0) | C | true | HC | 63 | 1 | 1/2 |
 uint8
-| hc1.daytemp2 | day temperature T2 | uint8 (&gt;=0&lt;=0) | C | true | HC | 112 | 1 | 1/2 |
+| hc1.daytemp2 | day temperature T2 | uint8 (&gt;=0&lt;=0) | C | true | HC | 114 | 1 | 1/2 |
 uint8
-| hc1.daytemp3 | day temperature T3 | uint8 (&gt;=0&lt;=0) | C | true | HC | 113 | 1 | 1/2 |
+| hc1.daytemp3 | day temperature T3 | uint8 (&gt;=0&lt;=0) | C | true | HC | 115 | 1 | 1/2 |
 uint8
-| hc1.daytemp4 | day temperature T4 | uint8 (&gt;=0&lt;=0) | C | true | HC | 114 | 1 | 1/2 |
+| hc1.daytemp4 | day temperature T4 | uint8 (&gt;=0&lt;=0) | C | true | HC | 116 | 1 | 1/2 |
 uint8
 | hc1.manualtemp | manual temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 6 | 1 | 1/2 |
 uint8
-| hc1.offtemp | temperature when mode is off | uint8 (&gt;=0&lt;=0) | C | true | HC | 111 | 1 | 1/2 |
+| hc1.offtemp | temperature when mode is off | uint8 (&gt;=0&lt;=0) | C | true | HC | 113 | 1 | 1/2 |
 | dhw.mode | operating mode | enum |   | true | DHW | 0 | 1 | 1 |
 | dhw.whenmodeoff | when thermostat mode off | boolean |   | true | DHW | 60 | 1 | 1 |
 | dhw.disinfecting | disinfecting | boolean |   | true | DHW | 8 | 1 | 1 |
@@ -5536,12 +5540,12 @@ int16
 | hc1.haclimate | mqtt discovery current room temperature | enum |   | false | HC | 2 | 1 | 1 |
 | hc1.mode | operating mode | enum |   | true | HC | 3 | 1 | 1 |
 uint8
-| hc1.daytemp | day temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 60 | 1 | 1/2 |
+| hc1.daytemp | day temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 62 | 1 | 1/2 |
 uint8
-| hc1.nighttemp | night temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 61 | 1 | 1/2 |
+| hc1.nighttemp | night temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 63 | 1 | 1/2 |
 uint8
-| hc1.reducehours | duration for nighttemp | uint8 (&gt;=0&lt;=0) | hours | true | HC | 200 | 1 | 1 |
-| hc1.reduceminutes | remaining time for nightmode | uint16 | minutes | false | HC | 201 | 1 | 1 |
+| hc1.reducehours | duration for nighttemp | uint8 (&gt;=0&lt;=0) | hours | true | HC | 202 | 1 | 1 |
+| hc1.reduceminutes | remaining time for nightmode | uint16 | minutes | false | HC | 203 | 1 | 1 |
 | dhw.mode | operating mode | enum |   | true | DHW | 0 | 1 | 1 |
 | errorcode | error code | string |   | false | DEVICE_DATA | 0 | 8 | 1 |
 | lastcode | last error code | string |   | false | DEVICE_DATA | 8 | 25 | 1 |
@@ -5555,9 +5559,9 @@ int16
 | hc1.mode | operating mode | enum |   | true | HC | 3 | 1 | 1 |
 | hc1.modetype | mode type | enum |   | false | HC | 4 | 1 | 1 |
 uint8
-| hc1.daytemp | day temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 60 | 1 | 1/2 |
+| hc1.daytemp | day temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 62 | 1 | 1/2 |
 uint8
-| hc1.nighttemp | night temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 61 | 1 | 1/2 |
+| hc1.nighttemp | night temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 63 | 1 | 1/2 |
 | hc1.program | program | enum |   | true | HC | 26 | 1 | 1 |
 uint8
 | hc1.minflowtemp | min flow temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 11 | 1 | 1 |
@@ -5586,12 +5590,12 @@ int16
 | hc1.haclimate | mqtt discovery current room temperature | enum |   | false | HC | 2 | 1 | 1 |
 | hc1.mode | operating mode | enum |   | true | HC | 3 | 1 | 1 |
 uint8
-| hc1.daytemp | day temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 60 | 1 | 1/2 |
+| hc1.daytemp | day temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 62 | 1 | 1/2 |
 uint8
-| hc1.nighttemp | night temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 61 | 1 | 1/2 |
+| hc1.nighttemp | night temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 63 | 1 | 1/2 |
 uint8
-| hc1.reducehours | duration for nighttemp | uint8 (&gt;=0&lt;=0) | hours | true | HC | 200 | 1 | 1 |
-| hc1.reduceminutes | remaining time for nightmode | uint16 | minutes | false | HC | 201 | 1 | 1 |
+| hc1.reducehours | duration for nighttemp | uint8 (&gt;=0&lt;=0) | hours | true | HC | 202 | 1 | 1 |
+| hc1.reduceminutes | remaining time for nightmode | uint16 | minutes | false | HC | 203 | 1 | 1 |
 | dhw.mode | operating mode | enum |   | true | DHW | 0 | 1 | 1 |
 
 ### RC35
@@ -5617,20 +5621,20 @@ int16
 | hc1.mode | operating mode | enum |   | true | HC | 3 | 1 | 1 |
 | hc1.modetype | mode type | enum |   | false | HC | 4 | 1 | 1 |
 uint8
-| hc1.daytemp | day temperature | uint8 (&gt;=10&lt;=30) | C | true | HC | 60 | 1 | 1/2 |
+| hc1.daytemp | day temperature | uint8 (&gt;=10&lt;=30) | C | true | HC | 62 | 1 | 1/2 |
 uint8
-| hc1.nighttemp | night temperature | uint8 (&gt;=10&lt;=30) | C | true | HC | 61 | 1 | 1/2 |
+| hc1.nighttemp | night temperature | uint8 (&gt;=10&lt;=30) | C | true | HC | 63 | 1 | 1/2 |
 uint8
 | hc1.designtemp | design temperature | uint8 (&gt;=30&lt;=90) | C | true | HC | 9 | 1 | 1 |
 int8
 | hc1.offsettemp | offset temperature | int8 (&gt;=-5&lt;=5) | C | true | HC | 10 | 1 | 1/2 |
 uint8
-| hc1.holidaytemp | holiday temperature | uint8 (&gt;=5&lt;=30) | C | true | HC | 62 | 1 | 1/2 |
+| hc1.holidaytemp | holiday temperature | uint8 (&gt;=5&lt;=30) | C | true | HC | 64 | 1 | 1/2 |
 | hc1.targetflowtemp | target flow temperature | uint8 | C | false | HC | 18 | 1 | 1 |
 uint8
 | hc1.summertemp | summer temperature | uint8 (&gt;=9&lt;=25) | C | true | HC | 8 | 1 | 1 |
 | hc1.summermode | summer mode | enum |   | false | HC | 22 | 1 | 1 |
-| hc1.holidaymode | holiday mode | boolean |   | false | HC | 63 | 1 | 1 |
+| hc1.holidaymode | holiday mode | boolean |   | false | HC | 65 | 1 | 1 |
 int8
 | hc1.nofrosttemp | nofrost temperature | int8 (&gt;=-20&lt;=10) | C | true | HC | 17 | 1 | 1 |
 | hc1.nofrostmode | nofrost mode | enum |   | true | HC | 16 | 1 | 1 |
@@ -5641,32 +5645,32 @@ uint8
 uint8
 | hc1.maxflowtemp | max flow temperature | uint8 (&gt;=30&lt;=90) | C | true | HC | 12 | 1 | 1 |
 uint8
-| hc1.flowtempoffset | flow temperature offset for mixer | uint8 (&gt;=0&lt;=20) | C | true | HC | 64 | 1 | 1 |
+| hc1.flowtempoffset | flow temperature offset for mixer | uint8 (&gt;=0&lt;=20) | C | true | HC | 66 | 1 | 1 |
 | hc1.heatingtype | heating type | enum |   | true | HC | 19 | 1 | 1 |
-| hc1.reducemode | reduce mode | enum |   | true | HC | 31 | 1 | 1 |
+| hc1.reducemode | reduce mode | enum |   | true | HC | 33 | 1 | 1 |
 | hc1.controlmode | control mode | enum |   | true | HC | 25 | 1 | 1 |
-| hc1.control | control device | enum |   | true | HC | 41 | 1 | 1 |
-| hc1.holidays | holiday dates | string |   | true | HC | 65 | 13 | 1 |
-| hc1.vacations | vacation dates | string |   | true | HC | 78 | 13 | 1 |
+| hc1.control | control device | enum |   | true | HC | 43 | 1 | 1 |
+| hc1.holidays | holiday dates | string |   | true | HC | 67 | 13 | 1 |
+| hc1.vacations | vacation dates | string |   | true | HC | 80 | 13 | 1 |
 | hc1.program | program | enum |   | true | HC | 26 | 1 | 1 |
 uint8
-| hc1.pause | pause time | uint8 (&gt;=0&lt;=99) | hours | true | HC | 91 | 1 | 1 |
+| hc1.pause | pause time | uint8 (&gt;=0&lt;=99) | hours | true | HC | 93 | 1 | 1 |
 uint8
-| hc1.party | party time | uint8 (&gt;=0&lt;=99) | hours | true | HC | 92 | 1 | 1 |
+| hc1.party | party time | uint8 (&gt;=0&lt;=99) | hours | true | HC | 94 | 1 | 1 |
 uint8
 | hc1.tempautotemp | temporary set temperature automode | uint8 (&gt;=0&lt;=30) | C | true | HC | 27 | 1 | 1/2 |
 int8
-| hc1.noreducetemp | no reduce below temperature | int8 (&gt;=-31&lt;=10) | C | true | HC | 32 | 1 | 1 |
+| hc1.noreducetemp | no reduce below temperature | int8 (&gt;=-31&lt;=10) | C | true | HC | 34 | 1 | 1 |
 int8
-| hc1.reducetemp | off/reduce switch temperature | int8 (&gt;=-20&lt;=10) | C | true | HC | 33 | 1 | 1 |
+| hc1.reducetemp | off/reduce switch temperature | int8 (&gt;=-20&lt;=10) | C | true | HC | 35 | 1 | 1 |
 int8
-| hc1.vacreducetemp | vacations off/reduce switch temperature | int8 (&gt;=-20&lt;=10) | C | true | HC | 93 | 1 | 1 |
-| hc1.vacreducemode | vacations reduce mode | enum |   | true | HC | 94 | 1 | 1 |
-| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 42 | 1 | 1/10 |
-| hc1.dhwprio | dhw priority | boolean |   | true | HC | 34 | 1 | 1 |
-| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 30 | 1 | 1 |
-| hc1.switchtime1 | own1 program switchtime | string |   | true | HC | 95 | 8 | 1 |
-| hc1.switchtime2 | own2 program switchtime | string |   | true | HC | 103 | 8 | 1 |
+| hc1.vacreducetemp | vacations off/reduce switch temperature | int8 (&gt;=-20&lt;=10) | C | true | HC | 95 | 1 | 1 |
+| hc1.vacreducemode | vacations reduce mode | enum |   | true | HC | 96 | 1 | 1 |
+| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 44 | 1 | 1/10 |
+| hc1.dhwprio | dhw priority | boolean |   | true | HC | 36 | 1 | 1 |
+| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 32 | 1 | 1 |
+| hc1.switchtime1 | own1 program switchtime | string |   | true | HC | 97 | 8 | 1 |
+| hc1.switchtime2 | own2 program switchtime | string |   | true | HC | 105 | 8 | 1 |
 | dhw.mode | operating mode | enum |   | true | DHW | 0 | 1 | 1 |
 | dhw.circmode | circulation pump mode | enum |   | true | DHW | 4 | 1 | 1 |
 | dhw.progmode | program | enum |   | true | DHW | 13 | 1 | 1 |
@@ -5698,16 +5702,16 @@ int16
 uint8
 | hc1.manualtemp | manual temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 6 | 1 | 1/2 |
 uint8
-| hc1.offtemp | temperature when mode is off | uint8 (&gt;=0&lt;=0) | C | true | HC | 111 | 1 | 1/2 |
+| hc1.offtemp | temperature when mode is off | uint8 (&gt;=0&lt;=0) | C | true | HC | 113 | 1 | 1/2 |
 uint8
-| hc1.daytemp2 | day temperature T2 | uint8 (&gt;=0&lt;=0) | C | true | HC | 112 | 1 | 1/2 |
+| hc1.daytemp2 | day temperature T2 | uint8 (&gt;=0&lt;=0) | C | true | HC | 114 | 1 | 1/2 |
 uint8
-| hc1.daytemp3 | day temperature T3 | uint8 (&gt;=0&lt;=0) | C | true | HC | 113 | 1 | 1/2 |
+| hc1.daytemp3 | day temperature T3 | uint8 (&gt;=0&lt;=0) | C | true | HC | 115 | 1 | 1/2 |
 uint8
-| hc1.daytemp4 | day temperature T4 | uint8 (&gt;=0&lt;=0) | C | true | HC | 114 | 1 | 1/2 |
+| hc1.daytemp4 | day temperature T4 | uint8 (&gt;=0&lt;=0) | C | true | HC | 116 | 1 | 1/2 |
 uint8
-| hc1.nighttemp | night temperature T1 | uint8 (&gt;=0&lt;=0) | C | true | HC | 61 | 1 | 1/2 |
-| hc1.switchtime | program switchtime | string |   | true | HC | 115 | 8 | 1 |
+| hc1.nighttemp | night temperature T1 | uint8 (&gt;=0&lt;=0) | C | true | HC | 63 | 1 | 1/2 |
+| hc1.switchtime | program switchtime | string |   | true | HC | 117 | 8 | 1 |
 
 ### RFM20 Remote
 
@@ -5737,9 +5741,9 @@ int16
 | hc1.mode | operating mode | enum |   | true | HC | 3 | 1 | 1 |
 | hc1.modetype | mode type | enum |   | false | HC | 4 | 1 | 1 |
 uint8
-| hc1.daytemp | day temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 60 | 1 | 1/2 |
+| hc1.daytemp | day temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 62 | 1 | 1/2 |
 uint8
-| hc1.nighttemp | night temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 61 | 1 | 1/2 |
+| hc1.nighttemp | night temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 63 | 1 | 1/2 |
 | hc1.program | program | enum |   | true | HC | 26 | 1 | 1 |
 uint8
 | hc1.minflowtemp | min flow temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 11 | 1 | 1 |
@@ -5834,50 +5838,54 @@ int8
 | hc1.cooltemp | cooling temperature | int8 (&gt;=-1&lt;=30) | C | true | HC | 28 | 1 | 1/2 |
 uint8
 | hc1.fastheatup | fast heatup | uint8 (&gt;=0&lt;=0) | % | true | HC | 29 | 1 | 1 |
-| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 30 | 1 | 1 |
-| hc1.reducemode | reduce mode | enum |   | true | HC | 31 | 1 | 1 |
+uint8
+| hc1.comfoffset | comfort point offset | uint8 (&gt;=0&lt;=0) | C | true | HC | 30 | 1 | 1 |
+uint8
+| hc1.comftemp | comfort point temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 31 | 1 | 1 |
+| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 32 | 1 | 1 |
+| hc1.reducemode | reduce mode | enum |   | true | HC | 33 | 1 | 1 |
 int8
-| hc1.noreducetemp | no reduce below temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 32 | 1 | 1 |
+| hc1.noreducetemp | no reduce below temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 34 | 1 | 1 |
 int8
-| hc1.reducetemp | off/reduce switch temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 33 | 1 | 1 |
-| hc1.dhwprio | dhw priority | boolean |   | true | HC | 34 | 1 | 1 |
-| hc1.hpcooling | hp cooling | boolean |   | true | HC | 35 | 1 | 1 |
-| hc1.coolingon | cooling on | boolean |   | false | HC | 36 | 1 | 1 |
-| hc1.hpmode | HP Mode | enum |   | true | HC | 37 | 1 | 1 |
+| hc1.reducetemp | off/reduce switch temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 35 | 1 | 1 |
+| hc1.dhwprio | dhw priority | boolean |   | true | HC | 36 | 1 | 1 |
+| hc1.hpcooling | hp cooling | boolean |   | true | HC | 37 | 1 | 1 |
+| hc1.coolingon | cooling on | boolean |   | false | HC | 38 | 1 | 1 |
+| hc1.hpmode | HP Mode | enum |   | true | HC | 39 | 1 | 1 |
 uint8
-| hc1.dewoffset | dew point offset | uint8 (&gt;=2&lt;=10) | K | true | HC | 38 | 1 | 1 |
+| hc1.dewoffset | dew point offset | uint8 (&gt;=2&lt;=10) | K | true | HC | 40 | 1 | 1 |
 uint8
-| hc1.roomtempdiff | room temp difference | uint8 (&gt;=0&lt;=0) | K | true | HC | 39 | 1 | 1 |
+| hc1.roomtempdiff | room temp difference | uint8 (&gt;=0&lt;=0) | K | true | HC | 41 | 1 | 1 |
 uint8
-| hc1.hpminflowtemp | HP min. flow temp. | uint8 (&gt;=0&lt;=0) | C | true | HC | 40 | 1 | 1 |
-| hc1.control | control device | enum |   | true | HC | 41 | 1 | 1 |
+| hc1.hpminflowtemp | HP min. flow temp. | uint8 (&gt;=0&lt;=0) | C | true | HC | 42 | 1 | 1 |
+| hc1.control | control device | enum |   | true | HC | 43 | 1 | 1 |
 uint8
-| hc1.heatondelay | heat-on delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 44 | 1 | 1 |
+| hc1.heatondelay | heat-on delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 46 | 1 | 1 |
 uint8
-| hc1.heatoffdelay | heat-off delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 45 | 1 | 1 |
+| hc1.heatoffdelay | heat-off delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 47 | 1 | 1 |
 uint8
-| hc1.instantstart | instant start | uint8 (&gt;=1&lt;=10) | K | true | HC | 46 | 1 | 1 |
-| hc1.boost | boost mode | boolean |   | true | HC | 47 | 1 | 1 |
+| hc1.instantstart | instant start | uint8 (&gt;=1&lt;=10) | K | true | HC | 48 | 1 | 1 |
+| hc1.boost | boost mode | boolean |   | true | HC | 49 | 1 | 1 |
 uint8
-| hc1.boosttime | boost time | uint8 (&gt;=0&lt;=0) | hours | true | HC | 48 | 1 | 1 |
+| hc1.boosttime | boost time | uint8 (&gt;=0&lt;=0) | hours | true | HC | 50 | 1 | 1 |
 uint8
-| hc1.coolstart | cooling starttemp | uint8 (&gt;=20&lt;=35) | C | true | HC | 49 | 1 | 1 |
+| hc1.coolstart | cooling starttemp | uint8 (&gt;=20&lt;=35) | C | true | HC | 51 | 1 | 1 |
 uint8
-| hc1.coolondelay | cooling on delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 50 | 1 | 1 |
+| hc1.coolondelay | cooling on delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 52 | 1 | 1 |
 uint8
-| hc1.cooloffdelay | cooling off delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 51 | 1 | 1 |
-| hc1.switchprogmode | switch program mode | enum |   | true | HC | 52 | 1 | 1 |
+| hc1.cooloffdelay | cooling off delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 53 | 1 | 1 |
+| hc1.switchprogmode | switch program mode | enum |   | true | HC | 54 | 1 | 1 |
 int8
-| hc1.redthreshold | reduction threshold | int8 (&gt;=12&lt;=22) | C | true | HC | 53 | 1 | 1/2 |
+| hc1.redthreshold | reduction threshold | int8 (&gt;=12&lt;=22) | C | true | HC | 55 | 1 | 1/2 |
 uint8
-| hc1.solarinfl | solar influence | uint8 (&gt;=-5&lt;=4294967295) | C | true | HC | 54 | 1 | 1 |
-| hc1.currsolarinfl | current solar influence | uint8 | C | false | HC | 55 | 1 | 1/10 |
-| hc1.heatingpid | heating PID | enum |   | true | HC | 56 | 1 | 1 |
-| hc1.pumpopt | pump optimization | boolean |   | true | HC | 57 | 1 | 1 |
+| hc1.solarinfl | solar influence | uint8 (&gt;=-5&lt;=4294967295) | C | true | HC | 56 | 1 | 1 |
+| hc1.currsolarinfl | current solar influence | uint8 | C | false | HC | 57 | 1 | 1/10 |
+| hc1.heatingpid | heating PID | enum |   | true | HC | 58 | 1 | 1 |
+| hc1.pumpopt | pump optimization | boolean |   | true | HC | 59 | 1 | 1 |
 uint8
-| hc1.inttimefloor | integral time floor | uint8 (&gt;=160&lt;=320) | minutes | true | HC | 58 | 1 | 10 |
+| hc1.inttimefloor | integral time floor | uint8 (&gt;=160&lt;=320) | minutes | true | HC | 60 | 1 | 10 |
 uint8
-| hc1.inttime | integral time | uint8 (&gt;=3&lt;=80) | minutes | true | HC | 59 | 1 | 1 |
+| hc1.inttime | integral time | uint8 (&gt;=3&lt;=80) | minutes | true | HC | 61 | 1 | 1 |
 | dhw.mode | operating mode | enum |   | true | DHW | 0 | 1 | 1 |
 | dhw.modetype | mode type | enum |   | false | DHW | 1 | 1 | 1 |
 uint8
@@ -5978,52 +5986,56 @@ int8
 | hc1.cooltemp | cooling temperature | int8 (&gt;=-1&lt;=30) | C | true | HC | 28 | 1 | 1/2 |
 uint8
 | hc1.fastheatup | fast heatup | uint8 (&gt;=0&lt;=0) | % | true | HC | 29 | 1 | 1 |
-| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 30 | 1 | 1 |
-| hc1.reducemode | reduce mode | enum |   | true | HC | 31 | 1 | 1 |
+uint8
+| hc1.comfoffset | comfort point offset | uint8 (&gt;=0&lt;=0) | C | true | HC | 30 | 1 | 1 |
+uint8
+| hc1.comftemp | comfort point temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 31 | 1 | 1 |
+| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 32 | 1 | 1 |
+| hc1.reducemode | reduce mode | enum |   | true | HC | 33 | 1 | 1 |
 int8
-| hc1.noreducetemp | no reduce below temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 32 | 1 | 1 |
+| hc1.noreducetemp | no reduce below temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 34 | 1 | 1 |
 int8
-| hc1.reducetemp | off/reduce switch temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 33 | 1 | 1 |
-| hc1.dhwprio | dhw priority | boolean |   | true | HC | 34 | 1 | 1 |
-| hc1.hpcooling | hp cooling | boolean |   | true | HC | 35 | 1 | 1 |
-| hc1.coolingon | cooling on | boolean |   | false | HC | 36 | 1 | 1 |
-| hc1.hpmode | HP Mode | enum |   | true | HC | 37 | 1 | 1 |
+| hc1.reducetemp | off/reduce switch temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 35 | 1 | 1 |
+| hc1.dhwprio | dhw priority | boolean |   | true | HC | 36 | 1 | 1 |
+| hc1.hpcooling | hp cooling | boolean |   | true | HC | 37 | 1 | 1 |
+| hc1.coolingon | cooling on | boolean |   | false | HC | 38 | 1 | 1 |
+| hc1.hpmode | HP Mode | enum |   | true | HC | 39 | 1 | 1 |
 uint8
-| hc1.dewoffset | dew point offset | uint8 (&gt;=2&lt;=10) | K | true | HC | 38 | 1 | 1 |
+| hc1.dewoffset | dew point offset | uint8 (&gt;=2&lt;=10) | K | true | HC | 40 | 1 | 1 |
 uint8
-| hc1.roomtempdiff | room temp difference | uint8 (&gt;=0&lt;=0) | K | true | HC | 39 | 1 | 1 |
+| hc1.roomtempdiff | room temp difference | uint8 (&gt;=0&lt;=0) | K | true | HC | 41 | 1 | 1 |
 uint8
-| hc1.hpminflowtemp | HP min. flow temp. | uint8 (&gt;=0&lt;=0) | C | true | HC | 40 | 1 | 1 |
-| hc1.control | control device | enum |   | true | HC | 41 | 1 | 1 |
-| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 42 | 1 | 1/10 |
-| hc1.remotehum | room humidity from remote | cmd | % | true | HC | 43 | 1 | 1 |
+| hc1.hpminflowtemp | HP min. flow temp. | uint8 (&gt;=0&lt;=0) | C | true | HC | 42 | 1 | 1 |
+| hc1.control | control device | enum |   | true | HC | 43 | 1 | 1 |
+| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 44 | 1 | 1/10 |
+| hc1.remotehum | room humidity from remote | cmd | % | true | HC | 45 | 1 | 1 |
 uint8
-| hc1.heatondelay | heat-on delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 44 | 1 | 1 |
+| hc1.heatondelay | heat-on delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 46 | 1 | 1 |
 uint8
-| hc1.heatoffdelay | heat-off delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 45 | 1 | 1 |
+| hc1.heatoffdelay | heat-off delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 47 | 1 | 1 |
 uint8
-| hc1.instantstart | instant start | uint8 (&gt;=1&lt;=10) | K | true | HC | 46 | 1 | 1 |
-| hc1.boost | boost mode | boolean |   | true | HC | 47 | 1 | 1 |
+| hc1.instantstart | instant start | uint8 (&gt;=1&lt;=10) | K | true | HC | 48 | 1 | 1 |
+| hc1.boost | boost mode | boolean |   | true | HC | 49 | 1 | 1 |
 uint8
-| hc1.boosttime | boost time | uint8 (&gt;=0&lt;=0) | hours | true | HC | 48 | 1 | 1 |
+| hc1.boosttime | boost time | uint8 (&gt;=0&lt;=0) | hours | true | HC | 50 | 1 | 1 |
 uint8
-| hc1.coolstart | cooling starttemp | uint8 (&gt;=20&lt;=35) | C | true | HC | 49 | 1 | 1 |
+| hc1.coolstart | cooling starttemp | uint8 (&gt;=20&lt;=35) | C | true | HC | 51 | 1 | 1 |
 uint8
-| hc1.coolondelay | cooling on delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 50 | 1 | 1 |
+| hc1.coolondelay | cooling on delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 52 | 1 | 1 |
 uint8
-| hc1.cooloffdelay | cooling off delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 51 | 1 | 1 |
-| hc1.switchprogmode | switch program mode | enum |   | true | HC | 52 | 1 | 1 |
+| hc1.cooloffdelay | cooling off delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 53 | 1 | 1 |
+| hc1.switchprogmode | switch program mode | enum |   | true | HC | 54 | 1 | 1 |
 int8
-| hc1.redthreshold | reduction threshold | int8 (&gt;=12&lt;=22) | C | true | HC | 53 | 1 | 1/2 |
+| hc1.redthreshold | reduction threshold | int8 (&gt;=12&lt;=22) | C | true | HC | 55 | 1 | 1/2 |
 uint8
-| hc1.solarinfl | solar influence | uint8 (&gt;=-5&lt;=4294967295) | C | true | HC | 54 | 1 | 1 |
-| hc1.currsolarinfl | current solar influence | uint8 | C | false | HC | 55 | 1 | 1/10 |
-| hc1.heatingpid | heating PID | enum |   | true | HC | 56 | 1 | 1 |
-| hc1.pumpopt | pump optimization | boolean |   | true | HC | 57 | 1 | 1 |
+| hc1.solarinfl | solar influence | uint8 (&gt;=-5&lt;=4294967295) | C | true | HC | 56 | 1 | 1 |
+| hc1.currsolarinfl | current solar influence | uint8 | C | false | HC | 57 | 1 | 1/10 |
+| hc1.heatingpid | heating PID | enum |   | true | HC | 58 | 1 | 1 |
+| hc1.pumpopt | pump optimization | boolean |   | true | HC | 59 | 1 | 1 |
 uint8
-| hc1.inttimefloor | integral time floor | uint8 (&gt;=160&lt;=320) | minutes | true | HC | 58 | 1 | 10 |
+| hc1.inttimefloor | integral time floor | uint8 (&gt;=160&lt;=320) | minutes | true | HC | 60 | 1 | 10 |
 uint8
-| hc1.inttime | integral time | uint8 (&gt;=3&lt;=80) | minutes | true | HC | 59 | 1 | 1 |
+| hc1.inttime | integral time | uint8 (&gt;=3&lt;=80) | minutes | true | HC | 61 | 1 | 1 |
 | dhw.mode | operating mode | enum |   | true | DHW | 0 | 1 | 1 |
 | dhw.modetype | mode type | enum |   | false | DHW | 1 | 1 | 1 |
 uint8
@@ -6139,52 +6151,56 @@ int8
 | hc1.cooltemp | cooling temperature | int8 (&gt;=-1&lt;=30) | C | true | HC | 28 | 1 | 1/2 |
 uint8
 | hc1.fastheatup | fast heatup | uint8 (&gt;=0&lt;=0) | % | true | HC | 29 | 1 | 1 |
-| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 30 | 1 | 1 |
-| hc1.reducemode | reduce mode | enum |   | true | HC | 31 | 1 | 1 |
+uint8
+| hc1.comfoffset | comfort point offset | uint8 (&gt;=0&lt;=0) | C | true | HC | 30 | 1 | 1 |
+uint8
+| hc1.comftemp | comfort point temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 31 | 1 | 1 |
+| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 32 | 1 | 1 |
+| hc1.reducemode | reduce mode | enum |   | true | HC | 33 | 1 | 1 |
 int8
-| hc1.noreducetemp | no reduce below temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 32 | 1 | 1 |
+| hc1.noreducetemp | no reduce below temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 34 | 1 | 1 |
 int8
-| hc1.reducetemp | off/reduce switch temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 33 | 1 | 1 |
-| hc1.dhwprio | dhw priority | boolean |   | true | HC | 34 | 1 | 1 |
-| hc1.hpcooling | hp cooling | boolean |   | true | HC | 35 | 1 | 1 |
-| hc1.coolingon | cooling on | boolean |   | false | HC | 36 | 1 | 1 |
-| hc1.hpmode | HP Mode | enum |   | true | HC | 37 | 1 | 1 |
+| hc1.reducetemp | off/reduce switch temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 35 | 1 | 1 |
+| hc1.dhwprio | dhw priority | boolean |   | true | HC | 36 | 1 | 1 |
+| hc1.hpcooling | hp cooling | boolean |   | true | HC | 37 | 1 | 1 |
+| hc1.coolingon | cooling on | boolean |   | false | HC | 38 | 1 | 1 |
+| hc1.hpmode | HP Mode | enum |   | true | HC | 39 | 1 | 1 |
 uint8
-| hc1.dewoffset | dew point offset | uint8 (&gt;=2&lt;=10) | K | true | HC | 38 | 1 | 1 |
+| hc1.dewoffset | dew point offset | uint8 (&gt;=2&lt;=10) | K | true | HC | 40 | 1 | 1 |
 uint8
-| hc1.roomtempdiff | room temp difference | uint8 (&gt;=0&lt;=0) | K | true | HC | 39 | 1 | 1 |
+| hc1.roomtempdiff | room temp difference | uint8 (&gt;=0&lt;=0) | K | true | HC | 41 | 1 | 1 |
 uint8
-| hc1.hpminflowtemp | HP min. flow temp. | uint8 (&gt;=0&lt;=0) | C | true | HC | 40 | 1 | 1 |
-| hc1.control | control device | enum |   | true | HC | 41 | 1 | 1 |
-| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 42 | 1 | 1/10 |
-| hc1.remotehum | room humidity from remote | cmd | % | true | HC | 43 | 1 | 1 |
+| hc1.hpminflowtemp | HP min. flow temp. | uint8 (&gt;=0&lt;=0) | C | true | HC | 42 | 1 | 1 |
+| hc1.control | control device | enum |   | true | HC | 43 | 1 | 1 |
+| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 44 | 1 | 1/10 |
+| hc1.remotehum | room humidity from remote | cmd | % | true | HC | 45 | 1 | 1 |
 uint8
-| hc1.heatondelay | heat-on delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 44 | 1 | 1 |
+| hc1.heatondelay | heat-on delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 46 | 1 | 1 |
 uint8
-| hc1.heatoffdelay | heat-off delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 45 | 1 | 1 |
+| hc1.heatoffdelay | heat-off delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 47 | 1 | 1 |
 uint8
-| hc1.instantstart | instant start | uint8 (&gt;=1&lt;=10) | K | true | HC | 46 | 1 | 1 |
-| hc1.boost | boost mode | boolean |   | true | HC | 47 | 1 | 1 |
+| hc1.instantstart | instant start | uint8 (&gt;=1&lt;=10) | K | true | HC | 48 | 1 | 1 |
+| hc1.boost | boost mode | boolean |   | true | HC | 49 | 1 | 1 |
 uint8
-| hc1.boosttime | boost time | uint8 (&gt;=0&lt;=0) | hours | true | HC | 48 | 1 | 1 |
+| hc1.boosttime | boost time | uint8 (&gt;=0&lt;=0) | hours | true | HC | 50 | 1 | 1 |
 uint8
-| hc1.coolstart | cooling starttemp | uint8 (&gt;=20&lt;=35) | C | true | HC | 49 | 1 | 1 |
+| hc1.coolstart | cooling starttemp | uint8 (&gt;=20&lt;=35) | C | true | HC | 51 | 1 | 1 |
 uint8
-| hc1.coolondelay | cooling on delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 50 | 1 | 1 |
+| hc1.coolondelay | cooling on delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 52 | 1 | 1 |
 uint8
-| hc1.cooloffdelay | cooling off delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 51 | 1 | 1 |
-| hc1.switchprogmode | switch program mode | enum |   | true | HC | 52 | 1 | 1 |
+| hc1.cooloffdelay | cooling off delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 53 | 1 | 1 |
+| hc1.switchprogmode | switch program mode | enum |   | true | HC | 54 | 1 | 1 |
 int8
-| hc1.redthreshold | reduction threshold | int8 (&gt;=12&lt;=22) | C | true | HC | 53 | 1 | 1/2 |
+| hc1.redthreshold | reduction threshold | int8 (&gt;=12&lt;=22) | C | true | HC | 55 | 1 | 1/2 |
 uint8
-| hc1.solarinfl | solar influence | uint8 (&gt;=-5&lt;=4294967295) | C | true | HC | 54 | 1 | 1 |
-| hc1.currsolarinfl | current solar influence | uint8 | C | false | HC | 55 | 1 | 1/10 |
-| hc1.heatingpid | heating PID | enum |   | true | HC | 56 | 1 | 1 |
-| hc1.pumpopt | pump optimization | boolean |   | true | HC | 57 | 1 | 1 |
+| hc1.solarinfl | solar influence | uint8 (&gt;=-5&lt;=4294967295) | C | true | HC | 56 | 1 | 1 |
+| hc1.currsolarinfl | current solar influence | uint8 | C | false | HC | 57 | 1 | 1/10 |
+| hc1.heatingpid | heating PID | enum |   | true | HC | 58 | 1 | 1 |
+| hc1.pumpopt | pump optimization | boolean |   | true | HC | 59 | 1 | 1 |
 uint8
-| hc1.inttimefloor | integral time floor | uint8 (&gt;=160&lt;=320) | minutes | true | HC | 58 | 1 | 10 |
+| hc1.inttimefloor | integral time floor | uint8 (&gt;=160&lt;=320) | minutes | true | HC | 60 | 1 | 10 |
 uint8
-| hc1.inttime | integral time | uint8 (&gt;=3&lt;=80) | minutes | true | HC | 59 | 1 | 1 |
+| hc1.inttime | integral time | uint8 (&gt;=3&lt;=80) | minutes | true | HC | 61 | 1 | 1 |
 | dhw.mode | operating mode | enum |   | true | DHW | 0 | 1 | 1 |
 | dhw.modetype | mode type | enum |   | false | DHW | 1 | 1 | 1 |
 uint8
@@ -6327,52 +6343,56 @@ int8
 | hc1.cooltemp | cooling temperature | int8 (&gt;=-1&lt;=30) | C | true | HC | 28 | 1 | 1/2 |
 uint8
 | hc1.fastheatup | fast heatup | uint8 (&gt;=0&lt;=0) | % | true | HC | 29 | 1 | 1 |
-| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 30 | 1 | 1 |
-| hc1.reducemode | reduce mode | enum |   | true | HC | 31 | 1 | 1 |
+uint8
+| hc1.comfoffset | comfort point offset | uint8 (&gt;=0&lt;=0) | C | true | HC | 30 | 1 | 1 |
+uint8
+| hc1.comftemp | comfort point temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 31 | 1 | 1 |
+| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 32 | 1 | 1 |
+| hc1.reducemode | reduce mode | enum |   | true | HC | 33 | 1 | 1 |
 int8
-| hc1.noreducetemp | no reduce below temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 32 | 1 | 1 |
+| hc1.noreducetemp | no reduce below temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 34 | 1 | 1 |
 int8
-| hc1.reducetemp | off/reduce switch temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 33 | 1 | 1 |
-| hc1.dhwprio | dhw priority | boolean |   | true | HC | 34 | 1 | 1 |
-| hc1.hpcooling | hp cooling | boolean |   | true | HC | 35 | 1 | 1 |
-| hc1.coolingon | cooling on | boolean |   | false | HC | 36 | 1 | 1 |
-| hc1.hpmode | HP Mode | enum |   | true | HC | 37 | 1 | 1 |
+| hc1.reducetemp | off/reduce switch temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 35 | 1 | 1 |
+| hc1.dhwprio | dhw priority | boolean |   | true | HC | 36 | 1 | 1 |
+| hc1.hpcooling | hp cooling | boolean |   | true | HC | 37 | 1 | 1 |
+| hc1.coolingon | cooling on | boolean |   | false | HC | 38 | 1 | 1 |
+| hc1.hpmode | HP Mode | enum |   | true | HC | 39 | 1 | 1 |
 uint8
-| hc1.dewoffset | dew point offset | uint8 (&gt;=2&lt;=10) | K | true | HC | 38 | 1 | 1 |
+| hc1.dewoffset | dew point offset | uint8 (&gt;=2&lt;=10) | K | true | HC | 40 | 1 | 1 |
 uint8
-| hc1.roomtempdiff | room temp difference | uint8 (&gt;=0&lt;=0) | K | true | HC | 39 | 1 | 1 |
+| hc1.roomtempdiff | room temp difference | uint8 (&gt;=0&lt;=0) | K | true | HC | 41 | 1 | 1 |
 uint8
-| hc1.hpminflowtemp | HP min. flow temp. | uint8 (&gt;=0&lt;=0) | C | true | HC | 40 | 1 | 1 |
-| hc1.control | control device | enum |   | true | HC | 41 | 1 | 1 |
-| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 42 | 1 | 1/10 |
-| hc1.remotehum | room humidity from remote | cmd | % | true | HC | 43 | 1 | 1 |
+| hc1.hpminflowtemp | HP min. flow temp. | uint8 (&gt;=0&lt;=0) | C | true | HC | 42 | 1 | 1 |
+| hc1.control | control device | enum |   | true | HC | 43 | 1 | 1 |
+| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 44 | 1 | 1/10 |
+| hc1.remotehum | room humidity from remote | cmd | % | true | HC | 45 | 1 | 1 |
 uint8
-| hc1.heatondelay | heat-on delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 44 | 1 | 1 |
+| hc1.heatondelay | heat-on delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 46 | 1 | 1 |
 uint8
-| hc1.heatoffdelay | heat-off delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 45 | 1 | 1 |
+| hc1.heatoffdelay | heat-off delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 47 | 1 | 1 |
 uint8
-| hc1.instantstart | instant start | uint8 (&gt;=1&lt;=10) | K | true | HC | 46 | 1 | 1 |
-| hc1.boost | boost mode | boolean |   | true | HC | 47 | 1 | 1 |
+| hc1.instantstart | instant start | uint8 (&gt;=1&lt;=10) | K | true | HC | 48 | 1 | 1 |
+| hc1.boost | boost mode | boolean |   | true | HC | 49 | 1 | 1 |
 uint8
-| hc1.boosttime | boost time | uint8 (&gt;=0&lt;=0) | hours | true | HC | 48 | 1 | 1 |
+| hc1.boosttime | boost time | uint8 (&gt;=0&lt;=0) | hours | true | HC | 50 | 1 | 1 |
 uint8
-| hc1.coolstart | cooling starttemp | uint8 (&gt;=20&lt;=35) | C | true | HC | 49 | 1 | 1 |
+| hc1.coolstart | cooling starttemp | uint8 (&gt;=20&lt;=35) | C | true | HC | 51 | 1 | 1 |
 uint8
-| hc1.coolondelay | cooling on delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 50 | 1 | 1 |
+| hc1.coolondelay | cooling on delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 52 | 1 | 1 |
 uint8
-| hc1.cooloffdelay | cooling off delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 51 | 1 | 1 |
-| hc1.switchprogmode | switch program mode | enum |   | true | HC | 52 | 1 | 1 |
+| hc1.cooloffdelay | cooling off delay | uint8 (&gt;=1&lt;=48) | hours | true | HC | 53 | 1 | 1 |
+| hc1.switchprogmode | switch program mode | enum |   | true | HC | 54 | 1 | 1 |
 int8
-| hc1.redthreshold | reduction threshold | int8 (&gt;=12&lt;=22) | C | true | HC | 53 | 1 | 1/2 |
+| hc1.redthreshold | reduction threshold | int8 (&gt;=12&lt;=22) | C | true | HC | 55 | 1 | 1/2 |
 uint8
-| hc1.solarinfl | solar influence | uint8 (&gt;=-5&lt;=4294967295) | C | true | HC | 54 | 1 | 1 |
-| hc1.currsolarinfl | current solar influence | uint8 | C | false | HC | 55 | 1 | 1/10 |
-| hc1.heatingpid | heating PID | enum |   | true | HC | 56 | 1 | 1 |
-| hc1.pumpopt | pump optimization | boolean |   | true | HC | 57 | 1 | 1 |
+| hc1.solarinfl | solar influence | uint8 (&gt;=-5&lt;=4294967295) | C | true | HC | 56 | 1 | 1 |
+| hc1.currsolarinfl | current solar influence | uint8 | C | false | HC | 57 | 1 | 1/10 |
+| hc1.heatingpid | heating PID | enum |   | true | HC | 58 | 1 | 1 |
+| hc1.pumpopt | pump optimization | boolean |   | true | HC | 59 | 1 | 1 |
 uint8
-| hc1.inttimefloor | integral time floor | uint8 (&gt;=160&lt;=320) | minutes | true | HC | 58 | 1 | 10 |
+| hc1.inttimefloor | integral time floor | uint8 (&gt;=160&lt;=320) | minutes | true | HC | 60 | 1 | 10 |
 uint8
-| hc1.inttime | integral time | uint8 (&gt;=3&lt;=80) | minutes | true | HC | 59 | 1 | 1 |
+| hc1.inttime | integral time | uint8 (&gt;=3&lt;=80) | minutes | true | HC | 61 | 1 | 1 |
 | dhw.mode | operating mode | enum |   | true | DHW | 0 | 1 | 1 |
 | dhw.modetype | mode type | enum |   | false | DHW | 1 | 1 | 1 |
 uint8
@@ -6408,9 +6428,9 @@ int16
 | hc1.mode | operating mode | enum |   | true | HC | 3 | 1 | 1 |
 | hc1.modetype | mode type | enum |   | false | HC | 4 | 1 | 1 |
 uint8
-| hc1.daytemp | day temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 60 | 1 | 1/2 |
+| hc1.daytemp | day temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 62 | 1 | 1/2 |
 uint8
-| hc1.nighttemp | night temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 61 | 1 | 1/2 |
+| hc1.nighttemp | night temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 63 | 1 | 1/2 |
 | hc1.program | program | enum |   | true | HC | 26 | 1 | 1 |
 uint8
 | hc1.minflowtemp | min flow temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 11 | 1 | 1 |
@@ -6434,9 +6454,9 @@ int16
 | hc1.mode | operating mode | enum |   | true | HC | 3 | 1 | 1 |
 | hc1.modetype | mode type | enum |   | false | HC | 4 | 1 | 1 |
 uint8
-| hc1.daytemp | day temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 60 | 1 | 1/2 |
+| hc1.daytemp | day temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 62 | 1 | 1/2 |
 uint8
-| hc1.nighttemp | night temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 61 | 1 | 1/2 |
+| hc1.nighttemp | night temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 63 | 1 | 1/2 |
 | hc1.program | program | enum |   | true | HC | 26 | 1 | 1 |
 uint8
 | hc1.minflowtemp | min flow temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 11 | 1 | 1 |
@@ -6476,20 +6496,20 @@ int16
 | hc1.mode | operating mode | enum |   | true | HC | 3 | 1 | 1 |
 | hc1.modetype | mode type | enum |   | false | HC | 4 | 1 | 1 |
 uint8
-| hc1.daytemp | day temperature | uint8 (&gt;=10&lt;=30) | C | true | HC | 60 | 1 | 1/2 |
+| hc1.daytemp | day temperature | uint8 (&gt;=10&lt;=30) | C | true | HC | 62 | 1 | 1/2 |
 uint8
-| hc1.nighttemp | night temperature | uint8 (&gt;=10&lt;=30) | C | true | HC | 61 | 1 | 1/2 |
+| hc1.nighttemp | night temperature | uint8 (&gt;=10&lt;=30) | C | true | HC | 63 | 1 | 1/2 |
 uint8
 | hc1.designtemp | design temperature | uint8 (&gt;=30&lt;=90) | C | true | HC | 9 | 1 | 1 |
 int8
 | hc1.offsettemp | offset temperature | int8 (&gt;=-5&lt;=5) | C | true | HC | 10 | 1 | 1/2 |
 uint8
-| hc1.holidaytemp | holiday temperature | uint8 (&gt;=5&lt;=30) | C | true | HC | 62 | 1 | 1/2 |
+| hc1.holidaytemp | holiday temperature | uint8 (&gt;=5&lt;=30) | C | true | HC | 64 | 1 | 1/2 |
 | hc1.targetflowtemp | target flow temperature | uint8 | C | false | HC | 18 | 1 | 1 |
 uint8
 | hc1.summertemp | summer temperature | uint8 (&gt;=9&lt;=25) | C | true | HC | 8 | 1 | 1 |
 | hc1.summermode | summer mode | enum |   | false | HC | 22 | 1 | 1 |
-| hc1.holidaymode | holiday mode | boolean |   | false | HC | 63 | 1 | 1 |
+| hc1.holidaymode | holiday mode | boolean |   | false | HC | 65 | 1 | 1 |
 int8
 | hc1.nofrosttemp | nofrost temperature | int8 (&gt;=-20&lt;=10) | C | true | HC | 17 | 1 | 1 |
 | hc1.nofrostmode | nofrost mode | enum |   | true | HC | 16 | 1 | 1 |
@@ -6500,32 +6520,32 @@ uint8
 uint8
 | hc1.maxflowtemp | max flow temperature | uint8 (&gt;=30&lt;=90) | C | true | HC | 12 | 1 | 1 |
 uint8
-| hc1.flowtempoffset | flow temperature offset for mixer | uint8 (&gt;=0&lt;=20) | C | true | HC | 64 | 1 | 1 |
+| hc1.flowtempoffset | flow temperature offset for mixer | uint8 (&gt;=0&lt;=20) | C | true | HC | 66 | 1 | 1 |
 | hc1.heatingtype | heating type | enum |   | true | HC | 19 | 1 | 1 |
-| hc1.reducemode | reduce mode | enum |   | true | HC | 31 | 1 | 1 |
+| hc1.reducemode | reduce mode | enum |   | true | HC | 33 | 1 | 1 |
 | hc1.controlmode | control mode | enum |   | true | HC | 25 | 1 | 1 |
-| hc1.control | control device | enum |   | true | HC | 41 | 1 | 1 |
-| hc1.holidays | holiday dates | string |   | true | HC | 65 | 13 | 1 |
-| hc1.vacations | vacation dates | string |   | true | HC | 78 | 13 | 1 |
+| hc1.control | control device | enum |   | true | HC | 43 | 1 | 1 |
+| hc1.holidays | holiday dates | string |   | true | HC | 67 | 13 | 1 |
+| hc1.vacations | vacation dates | string |   | true | HC | 80 | 13 | 1 |
 | hc1.program | program | enum |   | true | HC | 26 | 1 | 1 |
 uint8
-| hc1.pause | pause time | uint8 (&gt;=0&lt;=99) | hours | true | HC | 91 | 1 | 1 |
+| hc1.pause | pause time | uint8 (&gt;=0&lt;=99) | hours | true | HC | 93 | 1 | 1 |
 uint8
-| hc1.party | party time | uint8 (&gt;=0&lt;=99) | hours | true | HC | 92 | 1 | 1 |
+| hc1.party | party time | uint8 (&gt;=0&lt;=99) | hours | true | HC | 94 | 1 | 1 |
 uint8
 | hc1.tempautotemp | temporary set temperature automode | uint8 (&gt;=0&lt;=30) | C | true | HC | 27 | 1 | 1/2 |
 int8
-| hc1.noreducetemp | no reduce below temperature | int8 (&gt;=-31&lt;=10) | C | true | HC | 32 | 1 | 1 |
+| hc1.noreducetemp | no reduce below temperature | int8 (&gt;=-31&lt;=10) | C | true | HC | 34 | 1 | 1 |
 int8
-| hc1.reducetemp | off/reduce switch temperature | int8 (&gt;=-20&lt;=10) | C | true | HC | 33 | 1 | 1 |
+| hc1.reducetemp | off/reduce switch temperature | int8 (&gt;=-20&lt;=10) | C | true | HC | 35 | 1 | 1 |
 int8
-| hc1.vacreducetemp | vacations off/reduce switch temperature | int8 (&gt;=-20&lt;=10) | C | true | HC | 93 | 1 | 1 |
-| hc1.vacreducemode | vacations reduce mode | enum |   | true | HC | 94 | 1 | 1 |
-| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 42 | 1 | 1/10 |
-| hc1.dhwprio | dhw priority | boolean |   | true | HC | 34 | 1 | 1 |
-| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 30 | 1 | 1 |
-| hc1.switchtime1 | own1 program switchtime | string |   | true | HC | 95 | 8 | 1 |
-| hc1.switchtime2 | own2 program switchtime | string |   | true | HC | 103 | 8 | 1 |
+| hc1.vacreducetemp | vacations off/reduce switch temperature | int8 (&gt;=-20&lt;=10) | C | true | HC | 95 | 1 | 1 |
+| hc1.vacreducemode | vacations reduce mode | enum |   | true | HC | 96 | 1 | 1 |
+| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 44 | 1 | 1/10 |
+| hc1.dhwprio | dhw priority | boolean |   | true | HC | 36 | 1 | 1 |
+| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 32 | 1 | 1 |
+| hc1.switchtime1 | own1 program switchtime | string |   | true | HC | 97 | 8 | 1 |
+| hc1.switchtime2 | own2 program switchtime | string |   | true | HC | 105 | 8 | 1 |
 | dhw.mode | operating mode | enum |   | true | DHW | 0 | 1 | 1 |
 | dhw.circmode | circulation pump mode | enum |   | true | DHW | 4 | 1 | 1 |
 | dhw.progmode | program | enum |   | true | DHW | 13 | 1 | 1 |
@@ -6565,20 +6585,20 @@ int16
 | hc1.mode | operating mode | enum |   | true | HC | 3 | 1 | 1 |
 | hc1.modetype | mode type | enum |   | false | HC | 4 | 1 | 1 |
 uint8
-| hc1.daytemp | day temperature | uint8 (&gt;=10&lt;=30) | C | true | HC | 60 | 1 | 1/2 |
+| hc1.daytemp | day temperature | uint8 (&gt;=10&lt;=30) | C | true | HC | 62 | 1 | 1/2 |
 uint8
-| hc1.nighttemp | night temperature | uint8 (&gt;=10&lt;=30) | C | true | HC | 61 | 1 | 1/2 |
+| hc1.nighttemp | night temperature | uint8 (&gt;=10&lt;=30) | C | true | HC | 63 | 1 | 1/2 |
 uint8
 | hc1.designtemp | design temperature | uint8 (&gt;=30&lt;=90) | C | true | HC | 9 | 1 | 1 |
 int8
 | hc1.offsettemp | offset temperature | int8 (&gt;=-5&lt;=5) | C | true | HC | 10 | 1 | 1/2 |
 uint8
-| hc1.holidaytemp | holiday temperature | uint8 (&gt;=5&lt;=30) | C | true | HC | 62 | 1 | 1/2 |
+| hc1.holidaytemp | holiday temperature | uint8 (&gt;=5&lt;=30) | C | true | HC | 64 | 1 | 1/2 |
 | hc1.targetflowtemp | target flow temperature | uint8 | C | false | HC | 18 | 1 | 1 |
 uint8
 | hc1.summertemp | summer temperature | uint8 (&gt;=9&lt;=25) | C | true | HC | 8 | 1 | 1 |
 | hc1.summermode | summer mode | enum |   | false | HC | 22 | 1 | 1 |
-| hc1.holidaymode | holiday mode | boolean |   | false | HC | 63 | 1 | 1 |
+| hc1.holidaymode | holiday mode | boolean |   | false | HC | 65 | 1 | 1 |
 int8
 | hc1.nofrosttemp | nofrost temperature | int8 (&gt;=-20&lt;=10) | C | true | HC | 17 | 1 | 1 |
 | hc1.nofrostmode | nofrost mode | enum |   | true | HC | 16 | 1 | 1 |
@@ -6589,32 +6609,32 @@ uint8
 uint8
 | hc1.maxflowtemp | max flow temperature | uint8 (&gt;=30&lt;=90) | C | true | HC | 12 | 1 | 1 |
 uint8
-| hc1.flowtempoffset | flow temperature offset for mixer | uint8 (&gt;=0&lt;=20) | C | true | HC | 64 | 1 | 1 |
+| hc1.flowtempoffset | flow temperature offset for mixer | uint8 (&gt;=0&lt;=20) | C | true | HC | 66 | 1 | 1 |
 | hc1.heatingtype | heating type | enum |   | true | HC | 19 | 1 | 1 |
-| hc1.reducemode | reduce mode | enum |   | true | HC | 31 | 1 | 1 |
+| hc1.reducemode | reduce mode | enum |   | true | HC | 33 | 1 | 1 |
 | hc1.controlmode | control mode | enum |   | true | HC | 25 | 1 | 1 |
-| hc1.control | control device | enum |   | true | HC | 41 | 1 | 1 |
-| hc1.holidays | holiday dates | string |   | true | HC | 65 | 13 | 1 |
-| hc1.vacations | vacation dates | string |   | true | HC | 78 | 13 | 1 |
+| hc1.control | control device | enum |   | true | HC | 43 | 1 | 1 |
+| hc1.holidays | holiday dates | string |   | true | HC | 67 | 13 | 1 |
+| hc1.vacations | vacation dates | string |   | true | HC | 80 | 13 | 1 |
 | hc1.program | program | enum |   | true | HC | 26 | 1 | 1 |
 uint8
-| hc1.pause | pause time | uint8 (&gt;=0&lt;=99) | hours | true | HC | 91 | 1 | 1 |
+| hc1.pause | pause time | uint8 (&gt;=0&lt;=99) | hours | true | HC | 93 | 1 | 1 |
 uint8
-| hc1.party | party time | uint8 (&gt;=0&lt;=99) | hours | true | HC | 92 | 1 | 1 |
+| hc1.party | party time | uint8 (&gt;=0&lt;=99) | hours | true | HC | 94 | 1 | 1 |
 uint8
 | hc1.tempautotemp | temporary set temperature automode | uint8 (&gt;=0&lt;=30) | C | true | HC | 27 | 1 | 1/2 |
 int8
-| hc1.noreducetemp | no reduce below temperature | int8 (&gt;=-31&lt;=10) | C | true | HC | 32 | 1 | 1 |
+| hc1.noreducetemp | no reduce below temperature | int8 (&gt;=-31&lt;=10) | C | true | HC | 34 | 1 | 1 |
 int8
-| hc1.reducetemp | off/reduce switch temperature | int8 (&gt;=-20&lt;=10) | C | true | HC | 33 | 1 | 1 |
+| hc1.reducetemp | off/reduce switch temperature | int8 (&gt;=-20&lt;=10) | C | true | HC | 35 | 1 | 1 |
 int8
-| hc1.vacreducetemp | vacations off/reduce switch temperature | int8 (&gt;=-20&lt;=10) | C | true | HC | 93 | 1 | 1 |
-| hc1.vacreducemode | vacations reduce mode | enum |   | true | HC | 94 | 1 | 1 |
-| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 42 | 1 | 1/10 |
-| hc1.dhwprio | dhw priority | boolean |   | true | HC | 34 | 1 | 1 |
-| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 30 | 1 | 1 |
-| hc1.switchtime1 | own1 program switchtime | string |   | true | HC | 95 | 8 | 1 |
-| hc1.switchtime2 | own2 program switchtime | string |   | true | HC | 103 | 8 | 1 |
+| hc1.vacreducetemp | vacations off/reduce switch temperature | int8 (&gt;=-20&lt;=10) | C | true | HC | 95 | 1 | 1 |
+| hc1.vacreducemode | vacations reduce mode | enum |   | true | HC | 96 | 1 | 1 |
+| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 44 | 1 | 1/10 |
+| hc1.dhwprio | dhw priority | boolean |   | true | HC | 36 | 1 | 1 |
+| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 32 | 1 | 1 |
+| hc1.switchtime1 | own1 program switchtime | string |   | true | HC | 97 | 8 | 1 |
+| hc1.switchtime2 | own2 program switchtime | string |   | true | HC | 105 | 8 | 1 |
 | dhw.mode | operating mode | enum |   | true | DHW | 0 | 1 | 1 |
 | dhw.circmode | circulation pump mode | enum |   | true | DHW | 4 | 1 | 1 |
 | dhw.progmode | program | enum |   | true | DHW | 13 | 1 | 1 |
@@ -6660,21 +6680,21 @@ int16
 | hc1.mode | operating mode | enum |   | true | HC | 3 | 1 | 1 |
 | hc1.modetype | mode type | enum |   | false | HC | 4 | 1 | 1 |
 uint8
-| hc1.heattemp | heat temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 202 | 1 | 1/2 |
+| hc1.heattemp | heat temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 204 | 1 | 1/2 |
 uint8
 | hc1.ecotemp | eco temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 5 | 1 | 1/2 |
 int8
 | hc1.nofrosttemp | nofrost temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 17 | 1 | 1/2 |
-| hc1.control | control device | enum |   | true | HC | 41 | 1 | 1 |
+| hc1.control | control device | enum |   | true | HC | 43 | 1 | 1 |
 | hc1.program | program | enum |   | true | HC | 26 | 1 | 1 |
-| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 42 | 1 | 1/10 |
+| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 44 | 1 | 1/10 |
 | hc1.targetflowtemp | target flow temperature | uint8 | C | false | HC | 18 | 1 | 1 |
 uint8
 | hc1.summertemp | summer temperature | uint8 (&gt;=9&lt;=25) | C | true | HC | 8 | 1 | 1/2 |
-| hc1.roomsensor | room sensor | enum |   | true | HC | 203 | 1 | 1 |
-| hc1.holidaymode | holiday mode | enum |   | true | HC | 63 | 1 | 1 |
-| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 30 | 1 | 1 |
-| hc1.heatup | heatup | enum |   | true | HC | 204 | 1 | 1 |
+| hc1.roomsensor | room sensor | enum |   | true | HC | 205 | 1 | 1 |
+| hc1.holidaymode | holiday mode | enum |   | true | HC | 65 | 1 | 1 |
+| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 32 | 1 | 1 |
+| hc1.heatup | heatup | enum |   | true | HC | 206 | 1 | 1 |
 uint8
 | hc1.minflowtemp | min flow temperature | uint8 (&gt;=5&lt;=70) | C | true | HC | 11 | 1 | 1 |
 uint8
@@ -6717,21 +6737,21 @@ int16
 | hc1.mode | operating mode | enum |   | true | HC | 3 | 1 | 1 |
 | hc1.modetype | mode type | enum |   | false | HC | 4 | 1 | 1 |
 uint8
-| hc1.heattemp | heat temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 202 | 1 | 1/2 |
+| hc1.heattemp | heat temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 204 | 1 | 1/2 |
 uint8
 | hc1.ecotemp | eco temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 5 | 1 | 1/2 |
 int8
 | hc1.nofrosttemp | nofrost temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 17 | 1 | 1/2 |
-| hc1.control | control device | enum |   | true | HC | 41 | 1 | 1 |
+| hc1.control | control device | enum |   | true | HC | 43 | 1 | 1 |
 | hc1.program | program | enum |   | true | HC | 26 | 1 | 1 |
-| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 42 | 1 | 1/10 |
+| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 44 | 1 | 1/10 |
 | hc1.targetflowtemp | target flow temperature | uint8 | C | false | HC | 18 | 1 | 1 |
 uint8
 | hc1.summertemp | summer temperature | uint8 (&gt;=9&lt;=25) | C | true | HC | 8 | 1 | 1/2 |
-| hc1.roomsensor | room sensor | enum |   | true | HC | 203 | 1 | 1 |
-| hc1.holidaymode | holiday mode | enum |   | true | HC | 63 | 1 | 1 |
-| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 30 | 1 | 1 |
-| hc1.heatup | heatup | enum |   | true | HC | 204 | 1 | 1 |
+| hc1.roomsensor | room sensor | enum |   | true | HC | 205 | 1 | 1 |
+| hc1.holidaymode | holiday mode | enum |   | true | HC | 65 | 1 | 1 |
+| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 32 | 1 | 1 |
+| hc1.heatup | heatup | enum |   | true | HC | 206 | 1 | 1 |
 uint8
 | hc1.minflowtemp | min flow temperature | uint8 (&gt;=5&lt;=70) | C | true | HC | 11 | 1 | 1 |
 uint8
@@ -6772,21 +6792,21 @@ int16
 | hc1.mode | operating mode | enum |   | true | HC | 3 | 1 | 1 |
 | hc1.modetype | mode type | enum |   | false | HC | 4 | 1 | 1 |
 uint8
-| hc1.heattemp | heat temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 202 | 1 | 1/2 |
+| hc1.heattemp | heat temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 204 | 1 | 1/2 |
 uint8
 | hc1.ecotemp | eco temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 5 | 1 | 1/2 |
 int8
 | hc1.nofrosttemp | nofrost temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 17 | 1 | 1/2 |
-| hc1.control | control device | enum |   | true | HC | 41 | 1 | 1 |
+| hc1.control | control device | enum |   | true | HC | 43 | 1 | 1 |
 | hc1.program | program | enum |   | true | HC | 26 | 1 | 1 |
-| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 42 | 1 | 1/10 |
+| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 44 | 1 | 1/10 |
 | hc1.targetflowtemp | target flow temperature | uint8 | C | false | HC | 18 | 1 | 1 |
 uint8
 | hc1.summertemp | summer temperature | uint8 (&gt;=9&lt;=25) | C | true | HC | 8 | 1 | 1/2 |
-| hc1.roomsensor | room sensor | enum |   | true | HC | 203 | 1 | 1 |
-| hc1.holidaymode | holiday mode | enum |   | true | HC | 63 | 1 | 1 |
-| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 30 | 1 | 1 |
-| hc1.heatup | heatup | enum |   | true | HC | 204 | 1 | 1 |
+| hc1.roomsensor | room sensor | enum |   | true | HC | 205 | 1 | 1 |
+| hc1.holidaymode | holiday mode | enum |   | true | HC | 65 | 1 | 1 |
+| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 32 | 1 | 1 |
+| hc1.heatup | heatup | enum |   | true | HC | 206 | 1 | 1 |
 uint8
 | hc1.minflowtemp | min flow temperature | uint8 (&gt;=5&lt;=70) | C | true | HC | 11 | 1 | 1 |
 uint8
@@ -6827,21 +6847,21 @@ int16
 | hc1.mode | operating mode | enum |   | true | HC | 3 | 1 | 1 |
 | hc1.modetype | mode type | enum |   | false | HC | 4 | 1 | 1 |
 uint8
-| hc1.heattemp | heat temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 202 | 1 | 1/2 |
+| hc1.heattemp | heat temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 204 | 1 | 1/2 |
 uint8
 | hc1.ecotemp | eco temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 5 | 1 | 1/2 |
 int8
 | hc1.nofrosttemp | nofrost temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 17 | 1 | 1/2 |
-| hc1.control | control device | enum |   | true | HC | 41 | 1 | 1 |
+| hc1.control | control device | enum |   | true | HC | 43 | 1 | 1 |
 | hc1.program | program | enum |   | true | HC | 26 | 1 | 1 |
-| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 42 | 1 | 1/10 |
+| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 44 | 1 | 1/10 |
 | hc1.targetflowtemp | target flow temperature | uint8 | C | false | HC | 18 | 1 | 1 |
 uint8
 | hc1.summertemp | summer temperature | uint8 (&gt;=9&lt;=25) | C | true | HC | 8 | 1 | 1/2 |
-| hc1.roomsensor | room sensor | enum |   | true | HC | 203 | 1 | 1 |
-| hc1.holidaymode | holiday mode | enum |   | true | HC | 63 | 1 | 1 |
-| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 30 | 1 | 1 |
-| hc1.heatup | heatup | enum |   | true | HC | 204 | 1 | 1 |
+| hc1.roomsensor | room sensor | enum |   | true | HC | 205 | 1 | 1 |
+| hc1.holidaymode | holiday mode | enum |   | true | HC | 65 | 1 | 1 |
+| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 32 | 1 | 1 |
+| hc1.heatup | heatup | enum |   | true | HC | 206 | 1 | 1 |
 uint8
 | hc1.minflowtemp | min flow temperature | uint8 (&gt;=5&lt;=70) | C | true | HC | 11 | 1 | 1 |
 uint8
@@ -6884,21 +6904,21 @@ int16
 | hc1.mode | operating mode | enum |   | true | HC | 3 | 1 | 1 |
 | hc1.modetype | mode type | enum |   | false | HC | 4 | 1 | 1 |
 uint8
-| hc1.heattemp | heat temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 202 | 1 | 1/2 |
+| hc1.heattemp | heat temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 204 | 1 | 1/2 |
 uint8
 | hc1.ecotemp | eco temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 5 | 1 | 1/2 |
 int8
 | hc1.nofrosttemp | nofrost temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 17 | 1 | 1/2 |
-| hc1.control | control device | enum |   | true | HC | 41 | 1 | 1 |
+| hc1.control | control device | enum |   | true | HC | 43 | 1 | 1 |
 | hc1.program | program | enum |   | true | HC | 26 | 1 | 1 |
-| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 42 | 1 | 1/10 |
+| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 44 | 1 | 1/10 |
 | hc1.targetflowtemp | target flow temperature | uint8 | C | false | HC | 18 | 1 | 1 |
 uint8
 | hc1.summertemp | summer temperature | uint8 (&gt;=9&lt;=25) | C | true | HC | 8 | 1 | 1/2 |
-| hc1.roomsensor | room sensor | enum |   | true | HC | 203 | 1 | 1 |
-| hc1.holidaymode | holiday mode | enum |   | true | HC | 63 | 1 | 1 |
-| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 30 | 1 | 1 |
-| hc1.heatup | heatup | enum |   | true | HC | 204 | 1 | 1 |
+| hc1.roomsensor | room sensor | enum |   | true | HC | 205 | 1 | 1 |
+| hc1.holidaymode | holiday mode | enum |   | true | HC | 65 | 1 | 1 |
+| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 32 | 1 | 1 |
+| hc1.heatup | heatup | enum |   | true | HC | 206 | 1 | 1 |
 uint8
 | hc1.minflowtemp | min flow temperature | uint8 (&gt;=5&lt;=70) | C | true | HC | 11 | 1 | 1 |
 uint8
@@ -6941,21 +6961,21 @@ int16
 | hc1.mode | operating mode | enum |   | true | HC | 3 | 1 | 1 |
 | hc1.modetype | mode type | enum |   | false | HC | 4 | 1 | 1 |
 uint8
-| hc1.heattemp | heat temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 202 | 1 | 1/2 |
+| hc1.heattemp | heat temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 204 | 1 | 1/2 |
 uint8
 | hc1.ecotemp | eco temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 5 | 1 | 1/2 |
 int8
 | hc1.nofrosttemp | nofrost temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 17 | 1 | 1/2 |
-| hc1.control | control device | enum |   | true | HC | 41 | 1 | 1 |
+| hc1.control | control device | enum |   | true | HC | 43 | 1 | 1 |
 | hc1.program | program | enum |   | true | HC | 26 | 1 | 1 |
-| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 42 | 1 | 1/10 |
+| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 44 | 1 | 1/10 |
 | hc1.targetflowtemp | target flow temperature | uint8 | C | false | HC | 18 | 1 | 1 |
 uint8
 | hc1.summertemp | summer temperature | uint8 (&gt;=9&lt;=25) | C | true | HC | 8 | 1 | 1/2 |
-| hc1.roomsensor | room sensor | enum |   | true | HC | 203 | 1 | 1 |
-| hc1.holidaymode | holiday mode | enum |   | true | HC | 63 | 1 | 1 |
-| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 30 | 1 | 1 |
-| hc1.heatup | heatup | enum |   | true | HC | 204 | 1 | 1 |
+| hc1.roomsensor | room sensor | enum |   | true | HC | 205 | 1 | 1 |
+| hc1.holidaymode | holiday mode | enum |   | true | HC | 65 | 1 | 1 |
+| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 32 | 1 | 1 |
+| hc1.heatup | heatup | enum |   | true | HC | 206 | 1 | 1 |
 uint8
 | hc1.minflowtemp | min flow temperature | uint8 (&gt;=5&lt;=70) | C | true | HC | 11 | 1 | 1 |
 uint8
@@ -6996,21 +7016,21 @@ int16
 | hc1.mode | operating mode | enum |   | true | HC | 3 | 1 | 1 |
 | hc1.modetype | mode type | enum |   | false | HC | 4 | 1 | 1 |
 uint8
-| hc1.heattemp | heat temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 202 | 1 | 1/2 |
+| hc1.heattemp | heat temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 204 | 1 | 1/2 |
 uint8
 | hc1.ecotemp | eco temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 5 | 1 | 1/2 |
 int8
 | hc1.nofrosttemp | nofrost temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 17 | 1 | 1/2 |
-| hc1.control | control device | enum |   | true | HC | 41 | 1 | 1 |
+| hc1.control | control device | enum |   | true | HC | 43 | 1 | 1 |
 | hc1.program | program | enum |   | true | HC | 26 | 1 | 1 |
-| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 42 | 1 | 1/10 |
+| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 44 | 1 | 1/10 |
 | hc1.targetflowtemp | target flow temperature | uint8 | C | false | HC | 18 | 1 | 1 |
 uint8
 | hc1.summertemp | summer temperature | uint8 (&gt;=9&lt;=25) | C | true | HC | 8 | 1 | 1/2 |
-| hc1.roomsensor | room sensor | enum |   | true | HC | 203 | 1 | 1 |
-| hc1.holidaymode | holiday mode | enum |   | true | HC | 63 | 1 | 1 |
-| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 30 | 1 | 1 |
-| hc1.heatup | heatup | enum |   | true | HC | 204 | 1 | 1 |
+| hc1.roomsensor | room sensor | enum |   | true | HC | 205 | 1 | 1 |
+| hc1.holidaymode | holiday mode | enum |   | true | HC | 65 | 1 | 1 |
+| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 32 | 1 | 1 |
+| hc1.heatup | heatup | enum |   | true | HC | 206 | 1 | 1 |
 uint8
 | hc1.minflowtemp | min flow temperature | uint8 (&gt;=5&lt;=70) | C | true | HC | 11 | 1 | 1 |
 uint8
@@ -7053,21 +7073,21 @@ int16
 | hc1.mode | operating mode | enum |   | true | HC | 3 | 1 | 1 |
 | hc1.modetype | mode type | enum |   | false | HC | 4 | 1 | 1 |
 uint8
-| hc1.heattemp | heat temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 202 | 1 | 1/2 |
+| hc1.heattemp | heat temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 204 | 1 | 1/2 |
 uint8
 | hc1.ecotemp | eco temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 5 | 1 | 1/2 |
 int8
 | hc1.nofrosttemp | nofrost temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 17 | 1 | 1/2 |
-| hc1.control | control device | enum |   | true | HC | 41 | 1 | 1 |
+| hc1.control | control device | enum |   | true | HC | 43 | 1 | 1 |
 | hc1.program | program | enum |   | true | HC | 26 | 1 | 1 |
-| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 42 | 1 | 1/10 |
+| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 44 | 1 | 1/10 |
 | hc1.targetflowtemp | target flow temperature | uint8 | C | false | HC | 18 | 1 | 1 |
 uint8
 | hc1.summertemp | summer temperature | uint8 (&gt;=9&lt;=25) | C | true | HC | 8 | 1 | 1/2 |
-| hc1.roomsensor | room sensor | enum |   | true | HC | 203 | 1 | 1 |
-| hc1.holidaymode | holiday mode | enum |   | true | HC | 63 | 1 | 1 |
-| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 30 | 1 | 1 |
-| hc1.heatup | heatup | enum |   | true | HC | 204 | 1 | 1 |
+| hc1.roomsensor | room sensor | enum |   | true | HC | 205 | 1 | 1 |
+| hc1.holidaymode | holiday mode | enum |   | true | HC | 65 | 1 | 1 |
+| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 32 | 1 | 1 |
+| hc1.heatup | heatup | enum |   | true | HC | 206 | 1 | 1 |
 uint8
 | hc1.minflowtemp | min flow temperature | uint8 (&gt;=5&lt;=70) | C | true | HC | 11 | 1 | 1 |
 uint8
@@ -7108,21 +7128,21 @@ int16
 | hc1.mode | operating mode | enum |   | true | HC | 3 | 1 | 1 |
 | hc1.modetype | mode type | enum |   | false | HC | 4 | 1 | 1 |
 uint8
-| hc1.heattemp | heat temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 202 | 1 | 1/2 |
+| hc1.heattemp | heat temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 204 | 1 | 1/2 |
 uint8
 | hc1.ecotemp | eco temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 5 | 1 | 1/2 |
 int8
 | hc1.nofrosttemp | nofrost temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 17 | 1 | 1/2 |
-| hc1.control | control device | enum |   | true | HC | 41 | 1 | 1 |
+| hc1.control | control device | enum |   | true | HC | 43 | 1 | 1 |
 | hc1.program | program | enum |   | true | HC | 26 | 1 | 1 |
-| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 42 | 1 | 1/10 |
+| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 44 | 1 | 1/10 |
 | hc1.targetflowtemp | target flow temperature | uint8 | C | false | HC | 18 | 1 | 1 |
 uint8
 | hc1.summertemp | summer temperature | uint8 (&gt;=9&lt;=25) | C | true | HC | 8 | 1 | 1/2 |
-| hc1.roomsensor | room sensor | enum |   | true | HC | 203 | 1 | 1 |
-| hc1.holidaymode | holiday mode | enum |   | true | HC | 63 | 1 | 1 |
-| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 30 | 1 | 1 |
-| hc1.heatup | heatup | enum |   | true | HC | 204 | 1 | 1 |
+| hc1.roomsensor | room sensor | enum |   | true | HC | 205 | 1 | 1 |
+| hc1.holidaymode | holiday mode | enum |   | true | HC | 65 | 1 | 1 |
+| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 32 | 1 | 1 |
+| hc1.heatup | heatup | enum |   | true | HC | 206 | 1 | 1 |
 uint8
 | hc1.minflowtemp | min flow temperature | uint8 (&gt;=5&lt;=70) | C | true | HC | 11 | 1 | 1 |
 uint8
@@ -7163,21 +7183,21 @@ int16
 | hc1.mode | operating mode | enum |   | true | HC | 3 | 1 | 1 |
 | hc1.modetype | mode type | enum |   | false | HC | 4 | 1 | 1 |
 uint8
-| hc1.heattemp | heat temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 202 | 1 | 1/2 |
+| hc1.heattemp | heat temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 204 | 1 | 1/2 |
 uint8
 | hc1.ecotemp | eco temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 5 | 1 | 1/2 |
 int8
 | hc1.nofrosttemp | nofrost temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 17 | 1 | 1/2 |
-| hc1.control | control device | enum |   | true | HC | 41 | 1 | 1 |
+| hc1.control | control device | enum |   | true | HC | 43 | 1 | 1 |
 | hc1.program | program | enum |   | true | HC | 26 | 1 | 1 |
-| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 42 | 1 | 1/10 |
+| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 44 | 1 | 1/10 |
 | hc1.targetflowtemp | target flow temperature | uint8 | C | false | HC | 18 | 1 | 1 |
 uint8
 | hc1.summertemp | summer temperature | uint8 (&gt;=9&lt;=25) | C | true | HC | 8 | 1 | 1/2 |
-| hc1.roomsensor | room sensor | enum |   | true | HC | 203 | 1 | 1 |
-| hc1.holidaymode | holiday mode | enum |   | true | HC | 63 | 1 | 1 |
-| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 30 | 1 | 1 |
-| hc1.heatup | heatup | enum |   | true | HC | 204 | 1 | 1 |
+| hc1.roomsensor | room sensor | enum |   | true | HC | 205 | 1 | 1 |
+| hc1.holidaymode | holiday mode | enum |   | true | HC | 65 | 1 | 1 |
+| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 32 | 1 | 1 |
+| hc1.heatup | heatup | enum |   | true | HC | 206 | 1 | 1 |
 uint8
 | hc1.minflowtemp | min flow temperature | uint8 (&gt;=5&lt;=70) | C | true | HC | 11 | 1 | 1 |
 uint8
@@ -7220,21 +7240,21 @@ int16
 | hc1.mode | operating mode | enum |   | true | HC | 3 | 1 | 1 |
 | hc1.modetype | mode type | enum |   | false | HC | 4 | 1 | 1 |
 uint8
-| hc1.heattemp | heat temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 202 | 1 | 1/2 |
+| hc1.heattemp | heat temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 204 | 1 | 1/2 |
 uint8
 | hc1.ecotemp | eco temperature | uint8 (&gt;=0&lt;=0) | C | true | HC | 5 | 1 | 1/2 |
 int8
 | hc1.nofrosttemp | nofrost temperature | int8 (&gt;=0&lt;=0) | C | true | HC | 17 | 1 | 1/2 |
-| hc1.control | control device | enum |   | true | HC | 41 | 1 | 1 |
+| hc1.control | control device | enum |   | true | HC | 43 | 1 | 1 |
 | hc1.program | program | enum |   | true | HC | 26 | 1 | 1 |
-| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 42 | 1 | 1/10 |
+| hc1.remotetemp | room temperature from remote | cmd | C | true | HC | 44 | 1 | 1/10 |
 | hc1.targetflowtemp | target flow temperature | uint8 | C | false | HC | 18 | 1 | 1 |
 uint8
 | hc1.summertemp | summer temperature | uint8 (&gt;=9&lt;=25) | C | true | HC | 8 | 1 | 1/2 |
-| hc1.roomsensor | room sensor | enum |   | true | HC | 203 | 1 | 1 |
-| hc1.holidaymode | holiday mode | enum |   | true | HC | 63 | 1 | 1 |
-| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 30 | 1 | 1 |
-| hc1.heatup | heatup | enum |   | true | HC | 204 | 1 | 1 |
+| hc1.roomsensor | room sensor | enum |   | true | HC | 205 | 1 | 1 |
+| hc1.holidaymode | holiday mode | enum |   | true | HC | 65 | 1 | 1 |
+| hc1.switchonoptimization | switch-on optimization | boolean |   | true | HC | 32 | 1 | 1 |
+| hc1.heatup | heatup | enum |   | true | HC | 206 | 1 | 1 |
 uint8
 | hc1.minflowtemp | min flow temperature | uint8 (&gt;=5&lt;=70) | C | true | HC | 11 | 1 | 1 |
 uint8
