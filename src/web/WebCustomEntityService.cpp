@@ -184,13 +184,15 @@ bool WebCustomEntityService::command_setvalue(const char * value, const int8_t i
                     dat += len;
                 }
                 delete[] data;
+                // validate telegram
+                EMSESP::send_read_request(entityItem.type_id, entityItem.device_id, entityItem.offset, length);
                 return true;
             } else if (entityItem.value_type == DeviceValueType::BOOL) {
                 bool v;
                 if (!Helpers::value2bool(value, v)) {
                     return false;
                 }
-                EMSESP::send_write_request(entityItem.type_id, entityItem.device_id, entityItem.offset, v ? (uint8_t)entityItem.factor : 0, 0);
+                EMSESP::send_write_request(entityItem.type_id, entityItem.device_id, entityItem.offset, v ? (uint8_t)entityItem.factor : 0, entityItem.type_id);
             } else {
                 float f;
                 if (!Helpers::value2float(value, f)) {
@@ -198,13 +200,13 @@ bool WebCustomEntityService::command_setvalue(const char * value, const int8_t i
                 }
                 int v = (f / entityItem.factor + 0.5);
                 if (entityItem.value_type == DeviceValueType::UINT8 || entityItem.value_type == DeviceValueType::INT8) {
-                    EMSESP::send_write_request(entityItem.type_id, entityItem.device_id, entityItem.offset, v, 0);
+                    EMSESP::send_write_request(entityItem.type_id, entityItem.device_id, entityItem.offset, v, entityItem.type_id);
                 } else if (entityItem.value_type == DeviceValueType::UINT16 || entityItem.value_type == DeviceValueType::INT16) {
                     uint8_t v1[2] = {(uint8_t)(v >> 8), (uint8_t)(v & 0xFF)};
-                    EMSESP::send_write_request(entityItem.type_id, entityItem.device_id, entityItem.offset, v1, 2, 0);
+                    EMSESP::send_write_request(entityItem.type_id, entityItem.device_id, entityItem.offset, v1, 2, entityItem.type_id);
                 } else {
                     uint8_t v1[3] = {(uint8_t)(v >> 16), (uint8_t)((v & 0xFF00) >> 8), (uint8_t)(v & 0xFF)};
-                    EMSESP::send_write_request(entityItem.type_id, entityItem.device_id, entityItem.offset, v1, 3, 0);
+                    EMSESP::send_write_request(entityItem.type_id, entityItem.device_id, entityItem.offset, v1, 3, entityItem.type_id);
                 }
             }
 

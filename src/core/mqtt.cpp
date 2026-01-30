@@ -1446,7 +1446,7 @@ bool Mqtt::publish_ha_climate_config(const DeviceValue & dv, const bool has_room
                 found_auto = true;
             } else if (!strcmp(mode, FL_(heat)[0]) || !strcmp(mode, FL_(day)[0]) || !strcmp(mode, FL_(manual)[0])) {
                 found_heat = true; // we map day and manual to heat
-            } else if (!strcmp(mode, FL_(off)[0])) {
+            } else if (!strcmp(mode, FL_(off)[0]) || !strcmp(mode, FL_(night)[0]) || !strcmp(mode, FL_(eco)[0])) {
                 found_off = true;
             } else if (!strcmp(mode, FL_(cool)[0])) {
                 found_cool = true;

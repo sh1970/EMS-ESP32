@@ -17,7 +17,7 @@ void test_2() {
         "[{\"info\":\"list all values (verbose)\",\"values\":\"list all values\",\"commands\":\"list all commands\",\"entities\":\"list all "
         "entities\",\"boil2hystoff\":\"hysteresis stage 2 off temperature\",\"boil2hyston\":\"hysteresis stage 2 on temperature\",\"boilhystoff\":\"hysteresis "
         "off temperature\",\"boilhyston\":\"hysteresis on temperature\",\"burnmaxpower\":\"burner max power\",\"burnminperiod\":\"burner min "
-        "period\",\"burnminpower\":\"burner min power\",\"chimneysweeper\":\"chimney sweeper\",\"coldshot\":\"send a cold shot of "
+        "period\",\"chimneysweeper\":\"chimney sweeper\",\"coldshot\":\"send a cold shot of "
         "water\",\"curvebase\":\"heatingcurve base\",\"curveend\":\"heatingcurve end\",\"curveon\":\"heatingcurve "
         "on\",\"dhw[n].activated\":\"activated\",\"dhw[n].chargeoptimization\":\"charge optimization\",\"dhw[n].circ\":\"circulation "
         "active\",\"dhw[n].circmode\":\"circulation pump mode\",\"dhw[n].circpump\":\"circulation pump "
@@ -148,14 +148,14 @@ void test_12() {
 }
 
 void test_13() {
-    auto expected_response = "[{\"hc1\":{\"seltemp\":20.5,\"currtemp\":22.8,\"haclimate\":\"roomTemp\",\"modetype\":\"heat\",\"remotetemp\":null},\"hc2\":{"
-                             "\"seltemp\":20.6,\"currtemp\":22.9,\"haclimate\":\"roomTemp\",\"modetype\":\"eco\",\"remotetemp\":null},\"hc3\":{\"seltemp\":20."
-                             "7,\"currtemp\":23,\"haclimate\":\"roomTemp\",\"modetype\":\"nofrost\",\"remotetemp\":null},\"dhw\":{}}]";
+    auto expected_response = "[{\"hc1\":{\"seltemp\":20.5,\"currtemp\":22.8,\"modetype\":\"heat\",\"remotetemp\":null},\"hc2\":{"
+                             "\"seltemp\":20.6,\"currtemp\":22.9,\"modetype\":\"eco\",\"remotetemp\":null},\"hc3\":{\"seltemp\":20."
+                             "7,\"currtemp\":23,\"modetype\":\"nofrost\",\"remotetemp\":null},\"dhw\":{}}]";
     TEST_ASSERT_EQUAL_STRING(expected_response, call_url("/api/thermostat"));
 }
 
 void test_14() {
-    auto expected_response = "[{\"seltemp\":20.5,\"currtemp\":22.8,\"haclimate\":\"roomTemp\",\"modetype\":\"heat\",\"remotetemp\":null}]";
+    auto expected_response = "[{\"seltemp\":20.5,\"currtemp\":22.8,\"modetype\":\"heat\",\"remotetemp\":null}]";
     TEST_ASSERT_EQUAL_STRING(expected_response, call_url("/api/thermostat/hc1/values"));
 }
 
@@ -163,12 +163,11 @@ void test_15() {
     auto expected_response =
         "[{\"api_data\":\"# HELP emsesp_seltemp selected room temperature, °C, readable, writeable, visible\\n# TYPE emsesp_seltemp "
         "gauge\\nemsesp_seltemp{circuit=\\\"hc1\\\"} 20.50\\n# HELP emsesp_currtemp current room temperature, °C, readable, visible\\n# TYPE emsesp_currtemp "
-        "gauge\\nemsesp_currtemp{circuit=\\\"hc1\\\"} 22.80\\n# HELP emsesp_haclimate mqtt discovery current room temperature, enum, (0: selTemp; 1: "
-        "roomTemp), readable, visible\\n# TYPE emsesp_haclimate gauge\\nemsesp_haclimate{circuit=\\\"hc1\\\"} 1\\n# HELP emsesp_modetype mode type, enum, (0: "
+        "gauge\\nemsesp_currtemp{circuit=\\\"hc1\\\"} 22.80\\n# HELP emsesp_modetype mode type, enum, (0: "
         "nofrost; 1: eco; 2: heat), readable, visible\\n# TYPE emsesp_modetype gauge\\nemsesp_modetype{circuit=\\\"hc1\\\"} "
-        "2\\nemsesp_seltemp{circuit=\\\"hc2\\\"} 20.60\\nemsesp_currtemp{circuit=\\\"hc2\\\"} 22.90\\nemsesp_haclimate{circuit=\\\"hc2\\\"} "
-        "1\\nemsesp_modetype{circuit=\\\"hc2\\\"} 1\\nemsesp_seltemp{circuit=\\\"hc3\\\"} 20.70\\nemsesp_currtemp{circuit=\\\"hc3\\\"} "
-        "23\\nemsesp_haclimate{circuit=\\\"hc3\\\"} 1\\nemsesp_modetype{circuit=\\\"hc3\\\"} 0\\n\"}]";
+        "2\\nemsesp_seltemp{circuit=\\\"hc2\\\"} 20.60\\nemsesp_currtemp{circuit=\\\"hc2\\\"} "
+        "22.90\\nemsesp_modetype{circuit=\\\"hc2\\\"} 1\\nemsesp_seltemp{circuit=\\\"hc3\\\"} 20.70\\nemsesp_currtemp{circuit=\\\"hc3\\\"} "
+        "23\\nemsesp_modetype{circuit=\\\"hc3\\\"} 0\\n\"}]";
     TEST_ASSERT_EQUAL_STRING(expected_response, call_url("/api/thermostat/metrics"));
 }
 
@@ -237,7 +236,7 @@ void test_23() {
         "Boiler\",\"deviceID\":\"0x08\",\"productID\":123,\"brand\":\"\",\"version\":\"01.00\",\"entities\":39,\"handlersReceived\":\"0x18\","
         "\"handlersFetched\":\"0x14 0x33\",\"handlersPending\":\"0xBF 0x10 0x11 0xC2 0xC6 0x15 0x1C 0x19 0x1A 0x35 0x34 0x2A 0xD1 0xE3 0xE4 0xE5 0xE9 0x02E0 "
         "0x2E "
-        "0x3B\"},{\"type\":\"thermostat\",\"name\":\"FW120\",\"deviceID\":\"0x10\",\"productID\":192,\"brand\":\"\",\"version\":\"01.00\",\"entities\":15,"
+        "0x3B\"},{\"type\":\"thermostat\",\"name\":\"FW120\",\"deviceID\":\"0x10\",\"productID\":192,\"brand\":\"\",\"version\":\"01.00\",\"entities\":12,"
         "\"handlersReceived\":\"0x016F\",\"handlersFetched\":\"0x0170 0x0171\",\"handlersPending\":\"0xA3 0x06 0xA2 0x12 0x13 0x0172 0x0165 "
         "0x0168\"},{\"type\":\"temperaturesensor\",\"name\":\"temperaturesensor\",\"entities\":3},{\"type\":\"analogsensor\",\"name\":\"analogsensor\","
         "\"entities\":5},{\"type\":\"scheduler\",\"name\":\"scheduler\",\"entities\":2},{\"type\":\"custom\",\"name\":\"custom\",\"entities\":4}]}]";
@@ -267,7 +266,7 @@ void test_24() {
         "Boiler\",\"deviceID\":\"0x08\",\"productID\":123,\"brand\":\"\",\"version\":\"01.00\",\"entities\":39,\"handlersReceived\":\"0x18\","
         "\"handlersFetched\":\"0x14 0x33\",\"handlersPending\":\"0xBF 0x10 0x11 0xC2 0xC6 0x15 0x1C 0x19 0x1A 0x35 0x34 0x2A 0xD1 0xE3 0xE4 0xE5 0xE9 0x02E0 "
         "0x2E "
-        "0x3B\"},{\"type\":\"thermostat\",\"name\":\"FW120\",\"deviceID\":\"0x10\",\"productID\":192,\"brand\":\"\",\"version\":\"01.00\",\"entities\":15,"
+        "0x3B\"},{\"type\":\"thermostat\",\"name\":\"FW120\",\"deviceID\":\"0x10\",\"productID\":192,\"brand\":\"\",\"version\":\"01.00\",\"entities\":12,"
         "\"handlersReceived\":\"0x016F\",\"handlersFetched\":\"0x0170 0x0171\",\"handlersPending\":\"0xA3 0x06 0xA2 0x12 0x13 0x0172 0x0165 "
         "0x0168\"},{\"type\":\"temperaturesensor\",\"name\":\"temperaturesensor\",\"entities\":3},{\"type\":\"analogsensor\",\"name\":\"analogsensor\","
         "\"entities\":5},{\"type\":\"scheduler\",\"name\":\"scheduler\",\"entities\":2},{\"type\":\"custom\",\"name\":\"custom\",\"entities\":4}]}]";
@@ -353,7 +352,7 @@ void test_25() {
         "gauge\\nemsesp_device_entities{type=\\\"boiler\\\", name=\\\"My Custom Boiler\\\", deviceid=\\\"0x08\\\", version=\\\"01.00\\\"} "
         "39\\nemsesp_device_productid{type=\\\"thermostat\\\", name=\\\"FW120\\\", deviceid=\\\"0x10\\\", version=\\\"01.00\\\"} "
         "192\\nemsesp_device_entities{type=\\\"thermostat\\\", name=\\\"FW120\\\", deviceid=\\\"0x10\\\", version=\\\"01.00\\\"} "
-        "15\\nemsesp_device_entities{type=\\\"temperaturesensor\\\", name=\\\"temperaturesensor\\\"} 3\\nemsesp_device_entities{type=\\\"analogsensor\\\", "
+        "12\\nemsesp_device_entities{type=\\\"temperaturesensor\\\", name=\\\"temperaturesensor\\\"} 3\\nemsesp_device_entities{type=\\\"analogsensor\\\", "
         "name=\\\"analogsensor\\\"} 5\\nemsesp_device_entities{type=\\\"scheduler\\\", name=\\\"scheduler\\\"} 2\\nemsesp_device_entities{type=\\\"custom\\\", "
         "name=\\\"custom\\\"} 4\\n\"}]";
     TEST_ASSERT_EQUAL_STRING(expected_response, call_url("/api/system/metrics"));
