@@ -38,8 +38,6 @@ import type { LogEntry, LogSettings } from 'types';
 import { LogLevel } from 'types';
 import { updateValueDirty, useRest } from 'utils';
 
-const MAX_LOG_ENTRIES = 10000; // Limit log entries to prevent memory issues
-
 const TextColors: Record<LogLevel, string> = {
   [LogLevel.ERROR]: '#ff0000', // red
   [LogLevel.WARNING]: '#ff0000', // red
@@ -200,10 +198,6 @@ const SystemLog = () => {
         }
       }
       const newLog = [...log, logentry];
-      // Limit log entries to prevent memory issues - only slice when necessary
-      if (newLog.length > MAX_LOG_ENTRIES) {
-        return newLog.slice(-MAX_LOG_ENTRIES);
-      }
       return newLog;
     });
   }, []);
