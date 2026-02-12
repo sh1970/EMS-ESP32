@@ -111,13 +111,14 @@ const Customizations = () => {
   const [selectedDeviceTypeNameURL, setSelectedDeviceTypeNameURL] =
     useState<string>(''); // needed for API URL
   const [selectedDeviceName, setSelectedDeviceName] = useState<string>('');
+  const [selectedDeviceBrand, setSelectedDeviceBrand] = useState<string>('');
 
   const { send: sendResetCustomizations } = useRequest(resetCustomizations(), {
     immediate: false
   });
 
   const { send: sendDeviceName } = useRequest(
-    (data: { id: number; name: string }) => writeDeviceName(data),
+    (data: { id: number; name: string; brand: string }) => writeDeviceName(data),
     {
       immediate: false
     }
@@ -267,6 +268,7 @@ const Customizations = () => {
         if (device) {
           setSelectedDeviceTypeNameURL(device.url || '');
           setSelectedDeviceName(device.n);
+          setSelectedDeviceBrand(device.b);
         }
         setNumChanges(0);
         setRestartNeeded(false);
@@ -442,7 +444,11 @@ const Customizations = () => {
   }, [devices, deviceEntities, selectedDevice, sendCustomizationEntities, LL]);
 
   const renameDevice = useCallback(async () => {
-    await sendDeviceName({ id: selectedDevice, name: selectedDeviceName })
+    await sendDeviceName({
+      id: selectedDevice,
+      name: selectedDeviceName,
+      brand: selectedDeviceBrand
+    })
       .then(() => {
         toast.success(LL.UPDATED_OF(LL.NAME(1)));
       })
@@ -453,7 +459,14 @@ const Customizations = () => {
         setRename(false);
         await fetchCoreData();
       });
-  }, [selectedDevice, selectedDeviceName, sendDeviceName, LL, fetchCoreData]);
+  }, [
+    selectedDevice,
+    selectedDeviceName,
+    selectedDeviceBrand,
+    sendDeviceName,
+    LL,
+    fetchCoreData
+  ]);
 
   const renderDeviceList = () => (
     <>
@@ -462,15 +475,26 @@ const Customizations = () => {
       </Box>
       <Box display="flex" flexWrap="wrap" alignItems="center" gap={2}>
         {rename ? (
-          <TextField
-            name="device"
-            label={LL.EMS_DEVICE()}
-            fullWidth
-            variant="outlined"
-            value={selectedDeviceName}
-            onChange={(e) => setSelectedDeviceName(e.target.value)}
-            margin="normal"
-          />
+          <>
+            <TextField
+              name="device"
+              label={LL.EMS_DEVICE()}
+              style={{ minWidth: '48%' }}
+              variant="outlined"
+              value={selectedDeviceName}
+              onChange={(e) => setSelectedDeviceName(e.target.value)}
+              margin="normal"
+            />
+            <TextField
+              name="brand"
+              label={LL.BRAND()}
+              style={{ minWidth: '48%' }}
+              variant="outlined"
+              value={selectedDeviceBrand}
+              onChange={(e) => setSelectedDeviceBrand(e.target.value)}
+              margin="normal"
+            />
+          </>
         ) : (
           <TextField
             name="device"

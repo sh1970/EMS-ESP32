@@ -55,6 +55,7 @@ class EMSdevice {
     static const char * tag_to_mqtt(int8_t tag);
     static uint8_t      decode_brand(uint8_t value);
     static bool         export_values(uint8_t device_type, JsonObject output, const int8_t id, const uint8_t output_target);
+    static uint8_t      tag_to_flag(const uint8_t tag);
 
     // non static functions
 
@@ -124,6 +125,14 @@ class EMSdevice {
         return custom_name_;
     }
 
+    // set custom brand
+    void custom_brand(std::string const & custom_brand) {
+        custom_brand_ = custom_brand;
+    }
+
+    std::string custom_brand() const {
+        return custom_brand_;
+    }
     // set device model
     void model(std::string const & model) {
         model_ = model;
@@ -281,6 +290,8 @@ class EMSdevice {
                                const cmd_function_p  f,
                                int16_t               min,
                                uint32_t              max);
+
+    void erase_device_values();
 
     void
     register_device_value(int8_t tag, void * value_p, uint8_t type, const char * const ** options, const char * const * name, uint8_t uom, const cmd_function_p f);
@@ -524,12 +535,13 @@ class EMSdevice {
     uint8_t      device_id_   = 0;
     uint8_t      product_id_  = 0;
     char         version_[6];
-    const char * default_name_;     // the fixed name the EMS model taken from the device library
-    std::string  custom_name_ = ""; // custom name
-    std::string  model_       = ""; // model, taken from the 0x01 telegram. see process_deviceName()
-    uint8_t      flags_       = 0;
-    uint8_t      brand_       = Brand::NO_BRAND;
-    bool         active_      = true;
+    const char * default_name_;      // the fixed name the EMS model taken from the device library
+    std::string  custom_name_  = ""; // custom name
+    std::string  custom_brand_ = ""; // custom brand
+    std::string  model_        = ""; // model, taken from the 0x01 telegram. see process_deviceName()
+    uint8_t      flags_        = 0;
+    uint8_t      brand_        = Brand::NO_BRAND;
+    bool         active_       = true;
 
     bool ha_config_done_ = false;
     bool has_update_     = false;

@@ -1310,6 +1310,7 @@ bool EMSESP::add_device(const uint8_t device_id, const uint8_t product_id, const
             if (product_id == 0 || (*it)->product_id() != 0) { // update only with valid product_id
                 return true;
             }
+            (*it)->erase_device_values();
             emsdevices.erase(it); // erase the old device without product_id and re detect
             break;
         }
@@ -1450,6 +1451,7 @@ bool EMSESP::add_device(const uint8_t device_id, const uint8_t product_id, const
             if ((e.device_id == device_id) && (e.product_id == product_id)) {
                 LOG_DEBUG("Have customizations for %s with deviceID 0x%02X productID %d", e.custom_name.c_str(), device_id, product_id);
                 emsdevices.back()->custom_name(e.custom_name);
+                emsdevices.back()->custom_brand(e.custom_brand);
                 break;
             }
         }
@@ -1760,7 +1762,7 @@ void EMSESP::start() {
         nvs_.begin("ems-esp", false, "nvs");     // fallback to small nvs
     }
 
-    LOG_DEBUG("NVS device information: %s", system_.getBBQKeesGatewayDetails().isEmpty() ? "not set" : system_.getBBQKeesGatewayDetails().c_str());
+    LOG_DEBUG("Fuse device information: %s", system_.getBBQKeesGatewayDetails().isEmpty() ? "not set" : system_.getBBQKeesGatewayDetails().c_str());
 
     webSettingsService.begin(); // load EMS-ESP Application settings
 
