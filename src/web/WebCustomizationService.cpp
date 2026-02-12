@@ -469,7 +469,7 @@ void WebCustomizationService::load_test_data() {
         emsEntity.product_id   = 123;
         emsEntity.device_id    = 8;
         emsEntity.custom_name  = "My Custom Boiler";
-        emsEntity.custom_brand = "My Brand";
+        emsEntity.custom_brand = "";
         emsEntity.entity_ids.push_back("08heatingactive|is my heating on?");
         emsEntity.entity_ids.push_back("08tapwateractive");
         emsEntity.entity_ids.push_back("08selflowtemp|<90");
