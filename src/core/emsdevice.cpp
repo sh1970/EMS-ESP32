@@ -72,6 +72,21 @@ const char * EMSdevice::tag_to_mqtt(int8_t tag) {
     return (DeviceValue::DeviceValueTAG_mqtt[tag > DeviceValue::NUM_TAGS ? 0 : tag]);
 }
 
+uint8_t EMSdevice::tag_to_flag(const uint8_t tag) {
+    if (tag >= DeviceValueTAG::TAG_HC1 && tag <= DeviceValueTAG::TAG_HC8) {
+        return CommandFlag::CMD_FLAG_HC;
+    } else if (tag >= DeviceValueTAG::TAG_DHW1 && tag <= DeviceValueTAG::TAG_DHW10) {
+        return CommandFlag::CMD_FLAG_DHW;
+    } else if (tag >= DeviceValueTAG::TAG_HS1 && tag <= DeviceValueTAG::TAG_HS16) {
+        return CommandFlag::CMD_FLAG_HS;
+    } else if (tag >= DeviceValueTAG::TAG_AHS1 && tag <= DeviceValueTAG::TAG_AHS1) {
+        return CommandFlag::CMD_FLAG_AHS;
+    } else if (tag >= DeviceValueTAG::TAG_SRC1 && tag <= DeviceValueTAG::TAG_SRC16) {
+        return CommandFlag::CMD_FLAG_SRC;
+    }
+    return 0;
+}
+
 // convert UOM to a char string - translating only for hours/minutes/seconds
 const char * EMSdevice::uom_to_string(uint8_t uom) {
     switch (uom) {
@@ -90,6 +105,9 @@ const char * EMSdevice::uom_to_string(uint8_t uom) {
 }
 
 const char * EMSdevice::brand_to_char() {
+    if (!custom_brand().empty()) {
+        return custom_brand().c_str();
+    }
     switch (brand_) {
     case EMSdevice::Brand::BOSCH:
         return F_(bosch);
@@ -316,7 +334,7 @@ std::string EMSdevice::to_string() {
         return std::string(name()) + " (DeviceID:" + Helpers::hextoa(device_id_) + ")";
     }
 
-    if (brand_ == Brand::NO_BRAND) {
+    if (brand_ == Brand::NO_BRAND && custom_brand().empty()) {
         return std::string(name()) + " (DeviceID:" + Helpers::hextoa(device_id_) + ", ProductID:" + Helpers::itoa(product_id_) + ", Version:" + version_ + ")";
     }
 
@@ -332,7 +350,7 @@ std::string EMSdevice::to_string_version() {
 // returns out brand + device name
 // translated
 std::string EMSdevice::to_string_short() {
-    if (brand_ == Brand::NO_BRAND) {
+    if (brand_ == Brand::NO_BRAND && custom_brand().empty()) {
         return std::string(device_type_2_device_name_translated()) + ": " + name();
     }
 
@@ -650,23 +668,19 @@ void EMSdevice::add_device_value(int8_t                tag,              // to b
 
     // add a new command if it has a function attached
     if (has_cmd) {
-        uint8_t flags = CommandFlag::ADMIN_ONLY; // executing commands require admin privileges
-
-        if (tag >= DeviceValueTAG::TAG_HC1 && tag <= DeviceValueTAG::TAG_HC8) {
-            flags |= CommandFlag::CMD_FLAG_HC;
-        } else if (tag >= DeviceValueTAG::TAG_DHW1 && tag <= DeviceValueTAG::TAG_DHW10) {
-            flags |= CommandFlag::CMD_FLAG_DHW;
-        } else if (tag >= DeviceValueTAG::TAG_HS1 && tag <= DeviceValueTAG::TAG_HS16) {
-            flags |= CommandFlag::CMD_FLAG_HS;
-        } else if (tag >= DeviceValueTAG::TAG_AHS1 && tag <= DeviceValueTAG::TAG_AHS1) {
-            flags |= CommandFlag::CMD_FLAG_AHS;
-        } else if (tag >= DeviceValueTAG::TAG_SRC1 && tag <= DeviceValueTAG::TAG_SRC16) {
-            flags |= CommandFlag::CMD_FLAG_SRC;
-        }
-
+        uint8_t flags = CommandFlag::ADMIN_ONLY | tag_to_flag(tag); // executing commands require admin privileges
         // add the command to our library
         Command::add(device_type_, device_id_, short_name, f, fullname, flags);
     }
+}
+
+void EMSdevice::erase_device_values() {
+    for (auto & dv : devicevalues_) {
+        if (dv.has_cmd) {
+            Command::erase_command(device_type_, dv.short_name, tag_to_flag(dv.tag));
+        }
+    }
+    devicevalues_.clear();
 }
 
 // single list of options
