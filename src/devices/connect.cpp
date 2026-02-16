@@ -226,8 +226,9 @@ bool Connect::set_seltemp(const char * value, const int8_t id) {
     }
     float v;
     if (Helpers::value2float(value, v)) {
-        // write_command(0xBB5 + rc->room(), rc->mode_ == 2 ? 1 : 3, v == -1 ? 0xFF : uint8_t(v * 2));
-        write_command(0xBB5 + rc->room(), rc->mode_ == 0 ? 1 : 3, v == -1 ? 0xFF : uint8_t(v * 2));
+        // depends on mode, auto (2 for enum_mode2, 0 for enum_mode8) set in offset 1
+        write_command(0xBB5 + rc->room(), rc->mode_ == 2 ? 1 : 3, v == -1 ? 0xFF : uint8_t(v * 2));
+        // write_command(0xBB5 + rc->room(), rc->mode_ == 0 ? 1 : 3, v == -1 ? 0xFF : uint8_t(v * 2));
         return true;
     }
     return false;
