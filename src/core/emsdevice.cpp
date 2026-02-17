@@ -912,7 +912,7 @@ void EMSdevice::publish_value(void * value_p) const {
 // looks up the UOM for a given key from the device value table
 std::string EMSdevice::get_value_uom(const std::string & shortname) const {
     for (const auto & dv : devicevalues_) {
-        if ((!dv.has_state(DeviceValueState::DV_WEB_EXCLUDE)) && (dv.short_name == shortname)) {
+        if ((!dv.has_state(DeviceValueState::DV_WEB_EXCLUDE)) && !strcmp(dv.short_name, shortname.c_str())) {
             // ignore TIME since "minutes" is already added to the string value
             if ((dv.uom == DeviceValueUOM::NONE) || (dv.uom == DeviceValueUOM::MINUTES)) {
                 break;
@@ -1282,7 +1282,7 @@ void EMSdevice::setCustomizationEntity(const std::string & entity_id) {
             // set the min / max
             dv.set_custom_minmax();
 
-            if (Mqtt::ha_enabled() && dv.short_name == FL_(seltemp)[0] && (min != dv.min || max != dv.max)) {
+            if (Mqtt::ha_enabled() && dv.tag <= DeviceValueTAG::TAG_HC8 && !strcmp(dv.short_name, FL_(selRoomTemp)[0]) && (min != dv.min || max != dv.max)) {
                 set_climate_minmax(dv.tag, dv.min, dv.max);
             }
 
@@ -2166,8 +2166,8 @@ void EMSdevice::mqtt_ha_entity_config_create() {
                 count++;
             }
 
-            // SRC thermostats mapped to connect/src1/... always contains mode, seltemp, currtemp
-            if (dv.tag >= DeviceValueTAG::TAG_SRC1 && dv.tag <= DeviceValueTAG::TAG_SRC16 && !strcmp(dv.short_name, FL_(seltemp)[0])) {
+            // SRC thermostats mapped to connect/src1/... always contains mode, selRoomTemp, currtemp
+            if (dv.tag >= DeviceValueTAG::TAG_SRC1 && dv.tag <= DeviceValueTAG::TAG_SRC16 && !strcmp(dv.short_name, FL_(selRoomTemp)[0])) {
                 // add modes and icon if we have one
                 const char *          icon         = nullptr;
                 const char * const ** mode_options = nullptr;
