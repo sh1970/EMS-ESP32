@@ -10,6 +10,7 @@ For more details go to [emsesp.org](https://emsesp.org/).
 - customize device brand [#2784](https://github.com/emsesp/EMS-ESP32/issues/2784)
 - set model for ems-esp devices temperature, analog, etc. [#2958](https://github.com/emsesp/EMS-ESP32/discussions/2958)
 - prometheus metrics for temperature/analog/scheduler/custom [#2962](https://github.com/emsesp/EMS-ESP32/issues/2962)
+- boiler pumpkick [#2965](https://github.com/emsesp/EMS-ESP32/discussions/2965)
 
 ## Fixed
 

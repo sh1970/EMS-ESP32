@@ -424,6 +424,10 @@ MAKE_TRANSLATION(pumpOnTemp, "pumpontemp", "pump logic temperature", "Pumpenlogi
 MAKE_TRANSLATION(headertemp, "headertemp", "low loss header", "Hydr. Weiche", "open verdeler", "Fördelare", "sprzęgło hydrauliczne", "lav tap header", "bouteille de déc. hydr.", "isı bloğu gidiş suyu sıc.", "comp. idr.", "nízkostratová hlavica", "hydraulický oddělovač")
 MAKE_TRANSLATION(heatblock, "heatblock", "heating block", "Wärmezelle", "Aanvoertemp. warmtecel", "Värmeblock", "blok grzewczy", "varmeblokk", "départ corps de chauffe", "Hid.denge kabı sıcaklığı", "mandata scamb. pr.", "vykurovací blok", "blok topení")
 
+MAKE_TRANSLATION(pumpKickHour, "pumpkickhour", "pump kick hour", "Stunde Pumpkick")
+MAKE_TRANSLATION(pumpKickDay, "pumpkickday", "pump kick day", "Tag Pumpkick")
+MAKE_TRANSLATION(pumpKickDelay, "pumpkickdelay", "pump kick delay", "Pause vor Pumpkick")
+
 MAKE_TRANSLATION(curveOn, "curveon", "heatingcurve on", "Heizkurve an", "stookkromme aan", "Värmekurva På", "krzywa grzewcza włączona", "varmekurve på", "courbe de chauffage activée", "ısıtma eğrisi açık", "curva di riscaldamento attiva", "vykurovacia krivka zapnutá", "topná křivka zapnutá")
 MAKE_TRANSLATION(curveBase, "curvebase", "heatingcurve base", "Heizkurve Basis", "stookkromme basis", "Värmekurva Bas", "podstawa krzywej grzewczej", "varmekurve basis", "base de courbe de chauffage", "ısıtma eğrisi tabanı", "base curva di riscaldamento", "základňa vykurovacej krivky", "základ topné křivky")
 MAKE_TRANSLATION(curveEnd, "curveend", "heatingcurve end", "Heizkurve Ende", "stookkromme einde", "Värmekurva Slut", "koniec krzywej grzewczej", "varmekurve slutt", "fin de courbe de chauffage", "ısıtma eğrisi sonu", "fine curva di riscaldamento", "koniec vykurovacej krivky", "konec topné křivky")
