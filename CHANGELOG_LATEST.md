@@ -24,3 +24,4 @@ For more details go to [emsesp.org](https://emsesp.org/).
 - remove wrong burnMinPower [#2918](https://github.com/emsesp/EMS-ESP32/issues/2918)
 - store scheduler active state to nvs [#2946](https://github.com/emsesp/EMS-ESP32/discussions/2946)
 - translated modes `heat` and `eco` for HA-climate mode-str-tpl
+- support `minflowtemp` and `baseflowtemp` [#2969](https://github.com/emsesp/EMS-ESP32/discussions/2969)

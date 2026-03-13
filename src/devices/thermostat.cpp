@@ -1255,16 +1255,9 @@ void Thermostat::process_RC300Summer(std::shared_ptr<const Telegram> telegram) {
     } else {
         has_update(telegram, hc->designtemp, 5);
     }
-
-    // minflowtemp could be in 8 or 13, see #2879 and #2969
-    // for testing! Check for non-zero value in 13 and 8, only if we have both in telegram
-    has_update(telegram, hc->minflowtemp2, 13);
-    if (hc->minflowtemp2 > 0 && hc->minflowtemp2 != EMS_VALUE_UINT8_NOTSET) {
-        has_update(hc->minflowtemp, hc->minflowtemp2);
-    } else {
-        has_update(telegram, hc->minflowtemp, 8);
-    }
-
+    // minflowtemp could be in 8 or 13 #2969
+    has_update(telegram, hc->minflowtemp, 13);
+    has_update(telegram, hc->baseflowtemp, 8);
     has_update(telegram, hc->fastHeatup, 10);
     has_update(telegram, hc->comfortPointOffset, 11);
     has_update(telegram, hc->comfortPointTemp, 12);
@@ -4095,10 +4088,16 @@ bool Thermostat::set_temperature(const float temperature, const uint8_t mode, co
             }
             factor = 1;
             break;
+        case HeatingCircuit::Mode::BASEFLOW:
+            set_typeid      = summer_typeids[hc->hc()];
+            validate_typeid = set_typeid;
+            offset          = 8;
+            factor          = 1;
+            break;
         case HeatingCircuit::Mode::MINFLOW:
             set_typeid      = summer_typeids[hc->hc()];
             validate_typeid = set_typeid;
-            offset          = (hc->minflowtemp2 > 0 && hc->minflowtemp2 != EMS_VALUE_UINT8_NOTSET) ? 13 : 8;
+            offset          = 13;
             factor          = 1;
             break;
         case HeatingCircuit::Mode::MAXFLOW:
@@ -4914,6 +4913,7 @@ void Thermostat::register_device_values_hc(std::shared_ptr<Thermostat::HeatingCi
         register_device_value(tag, &hc->summertemp, DeviceValueType::UINT8, FL_(summertemp), DeviceValueUOM::DEGREES, MAKE_CF_CB(set_summertemp), 10, 30);
         register_device_value(tag, &hc->designtemp, DeviceValueType::UINT8, FL_(designtemp), DeviceValueUOM::DEGREES, MAKE_CF_CB(set_designtemp));
         register_device_value(tag, &hc->offsettemp, DeviceValueType::INT8, FL_(offsettemp), DeviceValueUOM::DEGREES_R, MAKE_CF_CB(set_offsettemp));
+        register_device_value(tag, &hc->baseflowtemp, DeviceValueType::UINT8, FL_(baseflowtemp), DeviceValueUOM::DEGREES, MAKE_CF_CB(set_baseflowtemp));
         register_device_value(tag, &hc->minflowtemp, DeviceValueType::UINT8, FL_(minflowtemp), DeviceValueUOM::DEGREES, MAKE_CF_CB(set_minflowtemp));
         register_device_value(tag, &hc->maxflowtemp, DeviceValueType::UINT8, FL_(maxflowtemp), DeviceValueUOM::DEGREES, MAKE_CF_CB(set_maxflowtemp));
         register_device_value(tag, &hc->roominfluence, DeviceValueType::UINT8, FL_(roominfluence), DeviceValueUOM::DEGREES_R, MAKE_CF_CB(set_roominfluence));
