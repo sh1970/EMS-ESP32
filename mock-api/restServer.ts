@@ -363,6 +363,8 @@ function export_data(type: string) {
       return emsesp_modules;
     case 'allvalues':
       return emsesp_allvalues;
+    case 'systembackup':
+      return emsesp_systembackup;
     default:
       return status(404);
   }
@@ -731,6 +733,8 @@ const emsesp_info = {
     }
   ]
 };
+
+const emsesp_systembackup = {};
 
 const emsesp_allvalues = {
   'Boiler Nefit Trendline HRC30 (DeviceID:0x08, ProductID:123, Version:06.01)': {
@@ -4564,7 +4568,7 @@ router
     let sorted_devices = [...emsesp_coredata.devices].sort((a, b) => a.t - b.t);
     // append emsesp_coredata to sorted_devices so Custom is always at the end of the list
     sorted_devices.push(emsesp_coredata_custom);
-    // sorted_devices = []; // uncomment if simulating no devices...
+    // return { connected: false, devices: [] }; // uncomment if simulating no devices...
     return { connected: true, devices: sorted_devices };
   })
   .get(EMSESP_SENSOR_DATA_ENDPOINT, () => {

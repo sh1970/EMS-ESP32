@@ -186,7 +186,8 @@ const pl: BaseTranslation = {
   BUFFER_SIZE: 'Maksymalna pojemność bufora (ilość wpisów)',
   COMPACT: 'Kompaktowy',
   DOWNLOAD_SETTINGS_TEXT: 'Utwórz kopię swoich ustawień i konfiguracji',
-  DOWNLOAD_SETTINGS_TEXT2: 'Eksportuj wszystkie dane',
+  DOWNLOAD_SETTINGS_TEXT2: 'Eksportuj wszystkie wartości',
+  DOWNLOAD_SYSTEM_BACKUP: 'Kopia zapasowa systemu',
   UPLOAD_TEXT: 'Wgraj nowy plik firmware (.bin) lub kopię ustawień (.json)',
   UPLOAD_DROP_TEXT: 'Upuść plik firmware .bin lub kliknij tutaj',
   ERROR: 'Nieoczekiwany błąd, spróbuj ponownie!',
@@ -357,7 +358,8 @@ const pl: BaseTranslation = {
   FIRMWARE_VERSION_INFO: 'Informacje o wersji firmware',
   NO_DATA: 'Brak danych',
   USER_PROFILE: 'Profil użytkownika',
-  STORED_VERSIONS: 'Zapisane wersje'
+  STORED_VERSIONS: 'Zapisane wersje',
+  ONLINE_HELP: 'pomoc online'
 };
 
 export default pl;

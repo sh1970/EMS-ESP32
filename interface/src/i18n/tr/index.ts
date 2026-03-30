@@ -186,7 +186,8 @@ const tr: Translation = {
   BUFFER_SIZE: 'En fazla bellek boyutu',
   COMPACT: 'Sıkışık',
   DOWNLOAD_SETTINGS_TEXT: 'Yapılandırma ve ayarlarınızın yedekleme yapın',
-  DOWNLOAD_SETTINGS_TEXT2: 'Tüm verileri dışarı al',
+  DOWNLOAD_SETTINGS_TEXT2: 'Tüm değerleri dışarı al',
+  DOWNLOAD_SYSTEM_BACKUP: 'Sistem yedekleme',
   UPLOAD_TEXT: 'Yeni bir firmware dosyası (.bin) veya yedek dosyası (.json) yükle',
   UPLOAD_DROP_TEXT: 'Bir firmware .bin dosyası veya buraya tıklayın',
   ERROR: 'Beklenemedik hata, lütfen tekrar deneyin.',
@@ -357,7 +358,8 @@ const tr: Translation = {
   FIRMWARE_VERSION_INFO: 'Firmware Sürüm Bilgisi',
   NO_DATA: 'Hiçbir veri yok',
   USER_PROFILE: 'Kullanıcı Profili',
-  STORED_VERSIONS: 'Kaydedilmiş Sürümler'
+  STORED_VERSIONS: 'Kaydedilmiş Sürümler',
+  ONLINE_HELP: 'online yardım'
 };
 
 export default tr;

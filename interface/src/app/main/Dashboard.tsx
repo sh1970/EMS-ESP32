@@ -262,10 +262,6 @@ const Dashboard = memo(() => {
 
     return (
       <>
-        {!data.connected && (
-          <MessageBox level="error" message={LL.EMS_BUS_WARNING()} />
-        )}
-
         {data.connected && data.nodes.length > 0 && !hasFavEntities && (
           <MessageBox mb={2} level="warning">
             <Typography>

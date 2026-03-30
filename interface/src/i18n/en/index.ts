@@ -186,7 +186,8 @@ const en: Translation = {
   BUFFER_SIZE: 'Max Buffer Size',
   COMPACT: 'Compact',
   DOWNLOAD_SETTINGS_TEXT: 'Create a backup of your configuration and settings',
-  DOWNLOAD_SETTINGS_TEXT2: 'Export all data',
+  DOWNLOAD_SETTINGS_TEXT2: 'Export all values',
+  DOWNLOAD_SYSTEM_BACKUP: 'System Backup',
   UPLOAD_TEXT: 'Upload a new firmware file (.bin) or a backup file (.json)',
   UPLOAD_DROP_TEXT: 'Drop a firmware .bin file or click here',
   ERROR: 'Unexpected Error, please try again',
@@ -357,7 +358,8 @@ const en: Translation = {
   FIRMWARE_VERSION_INFO: 'Firmware Version Information',
   NO_DATA: 'No data',
   USER_PROFILE: 'User Profile',
-  STORED_VERSIONS: 'Stored Versions'
+  STORED_VERSIONS: 'Stored Versions',
+  ONLINE_HELP: 'online help'
 };
 
 export default en;

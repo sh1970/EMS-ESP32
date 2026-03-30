@@ -186,7 +186,8 @@ const de: Translation = {
   BUFFER_SIZE: 'Max. Puffergröße',
   COMPACT: 'Kompakte Darstellung',
   DOWNLOAD_SETTINGS_TEXT: 'Erstellen Sie eine Sicherung Ihrer Konfigurationen und Einstellungen',
-  DOWNLOAD_SETTINGS_TEXT2: 'Exportiere alle Daten',
+  DOWNLOAD_SETTINGS_TEXT2: 'Exportiere alle Werte',
+  DOWNLOAD_SYSTEM_BACKUP: 'System Sicherung',
   UPLOAD_TEXT: 'Laden Sie eine neue Firmware-Datei (.bin) oder eine Sicherungsdatei (.json) hoch',
   UPLOAD_DROP_TEXT: 'Legen Sie eine Firmware-Datei (.bin) ab oder klicken Sie hier',
   ERROR: 'Unerwarteter Fehler, bitte versuchen Sie es erneut.',
@@ -357,7 +358,8 @@ const de: Translation = {
   FIRMWARE_VERSION_INFO: 'Firmware-Versionsinformation',
   NO_DATA: 'Keine Daten',
   USER_PROFILE: 'Benutzerprofil',
-  STORED_VERSIONS: 'Gespeicherte Versionen'
+  STORED_VERSIONS: 'Gespeicherte Versionen',
+  ONLINE_HELP: 'Online-Hilfe'
 };
 
 export default de;
