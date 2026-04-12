@@ -1649,6 +1649,7 @@ bool System::check_upgrade() {
 }
 
 // map each config filename to its human-readable section key
+#ifndef EMSESP_STANDALONE
 static const std::pair<const char *, const char *> SECTION_MAP[] = {
     {NETWORK_SETTINGS_FILE, "Network"},
     {AP_SETTINGS_FILE, "AP"},
@@ -1661,6 +1662,7 @@ static const std::pair<const char *, const char *> SECTION_MAP[] = {
     {EMSESP_CUSTOMENTITY_FILE, "Entities"},
     {EMSESP_MODULES_FILE, "Modules"},
 };
+#endif
 
 // convert a single config file into a section of the output json object
 void System::exportSettings(const std::string & type, const char * filename, JsonObject output) {
