@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import EditIcon from '@mui/icons-material/Edit';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutlineOutlined';
 import UnfoldLessIcon from '@mui/icons-material/UnfoldLess';
 import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
 import {
@@ -380,7 +380,7 @@ const Dashboard = memo(() => {
             // whiteSpace="nowrap"
           >
             <Typography mt={1} color="warning.main" variant="body1">
-              no data
+              {LL.NO_DATA()}
             </Typography>
             <Tooltip title={LL.DASHBOARD_1()}>
               <HelpOutlineIcon

@@ -7,7 +7,7 @@ import DoneIcon from '@mui/icons-material/Done';
 import EditOffOutlinedIcon from '@mui/icons-material/EditOffOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import InsertCommentOutlinedIcon from '@mui/icons-material/InsertCommentOutlined';
-import RemoveIcon from '@mui/icons-material/RemoveCircleOutline';
+import RemoveIcon from '@mui/icons-material/RemoveCircleOutlineOutlined';
 import {
   Box,
   Button,
