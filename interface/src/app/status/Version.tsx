@@ -307,7 +307,7 @@ const InstallDialog = memo(
           {`${LL.INSTALL()} ${fetchDevVersion ? LL.DEVELOPMENT() : LL.STABLE()} Firmware`}
         </DialogTitle>
         <DialogContent dividers>
-          <Typography mb={2}>
+          <Typography sx={{ mb: 2 }}>
             {LL.INSTALL_VERSION(
               downloadOnly ? LL.DOWNLOAD(1) : LL.INSTALL(),
               fetchDevVersion ? latestDevVersion?.name : latestVersion?.name
@@ -371,7 +371,9 @@ const InstallPartitionDialog = memo(
           {LL.INSTALL()} {LL.STORED_VERSIONS()}
         </DialogTitle>
         <DialogContent dividers>
-          <Typography mb={2}>{LL.INSTALL_VERSION(LL.INSTALL(), version)}</Typography>
+          <Typography sx={{ mb: 2 }}>
+            {LL.INSTALL_VERSION(LL.INSTALL(), version)}
+          </Typography>
         </DialogContent>
         <DialogActions>
           <Button
@@ -637,8 +639,8 @@ const Version = () => {
 
     return (
       <>
-        <Box p={2} border="1px solid grey" borderRadius={2}>
-          <Typography mb={1} variant="h6" color="primary">
+        <Box sx={{ p: 2, border: '1px solid #565656', borderRadius: 2 }}>
+          <Typography sx={{ mb: 1 }} variant="h6" color="primary">
             {LL.THIS_VERSION()}
           </Typography>
 
@@ -703,7 +705,7 @@ const Version = () => {
 
           {internetLive ? (
             <>
-              <Typography mt={4} mb={1} variant="h6" color="primary">
+              <Typography sx={{ mt: 4, mb: 1 }} variant="h6" color="primary">
                 {LL.AVAILABLE_VERSION()}
               </Typography>
 
@@ -725,7 +727,7 @@ const Version = () => {
                     </Grid>
                     <Grid size={{ xs: 8, md: 10 }}>
                       {otherPartitions.map((partition) => (
-                        <Typography key={partition.partition} mb={1}>
+                        <Typography key={partition.partition} sx={{ mb: 1 }}>
                           {partition.version}
                           <IconButton
                             onClick={() =>
@@ -791,7 +793,7 @@ const Version = () => {
               </Grid>
             </>
           ) : (
-            <Typography mt={2} color="warning">
+            <Typography sx={{ mt: 2 }} color="warning">
               <WarningIcon color="warning" sx={{ verticalAlign: 'middle', mr: 2 }} />
               {LL.INTERNET_CONNECTION_REQUIRED()}
             </Typography>
@@ -832,7 +834,7 @@ const Version = () => {
               <Typography sx={{ pt: 2, pb: 2 }} variant="h6" color="primary">
                 {LL.UPLOAD()}
               </Typography>
-              <SingleUpload text={LL.UPLOAD_DROP_TEXT()} doRestart={doRestart} />
+              <SingleUpload doRestart={doRestart} />
             </>
           )}
         </Box>

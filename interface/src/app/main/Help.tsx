@@ -71,7 +71,6 @@ const HelpComponent = () => {
   });
   const [imgError, setImgError] = useState<boolean>(false);
 
-  // Memoize the request method to prevent re-creation on every render
   const getCustomSupportMethod = useMemo(
     () => callAction({ action: 'getCustomSupport' }),
     []
@@ -146,11 +145,9 @@ const HelpComponent = () => {
     <SectionContent>
       {customSupport.html && (
         <Stack
-          padding={1}
-          mb={2}
           direction="row"
           divider={<Divider orientation="vertical" flexItem />}
-          sx={SUPPORT_BOX_STYLES}
+          sx={{ padding: 1, mb: 2, ...SUPPORT_BOX_STYLES }}
         >
           <Typography variant="subtitle1">
             <div dangerouslySetInnerHTML={{ __html: customSupport.html }} />
@@ -185,23 +182,21 @@ const HelpComponent = () => {
         </List>
       )}
 
-      <Box p={2} color="warning.main">
-        <Typography mb={1} variant="body1">
-          {LL.HELP_INFORMATION_4()}.
-        </Typography>
-        <Button
-          startIcon={<DownloadIcon />}
-          variant="outlined"
-          color="primary"
-          onClick={handleDownloadSystemInfo}
-        >
-          {LL.SUPPORT_INFORMATION(0)}
-        </Button>
-      </Box>
+      <Typography sx={{ mb: 1 }} color="warning" variant="body1">
+        {LL.HELP_INFORMATION_4()}.
+      </Typography>
+      <Button
+        startIcon={<DownloadIcon />}
+        variant="outlined"
+        color="primary"
+        onClick={handleDownloadSystemInfo}
+      >
+        {LL.SUPPORT_INFORMATION(0)}
+      </Button>
 
       <Divider sx={{ mt: 4 }} />
 
-      <Typography color="white" variant="subtitle1" align="center" mt={1}>
+      <Typography color="white" variant="subtitle1" align="center" sx={{ mt: 1 }}>
         &copy;&nbsp;
         <Link
           target="_blank"

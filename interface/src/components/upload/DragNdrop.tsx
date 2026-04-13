@@ -1,4 +1,4 @@
-// Code inspired by Prince Azubuike from https://medium.com/@dprincecoder/creating-a-drag-and-drop-file-upload-component-in-react-a-step-by-step-guide-4d93b6cc21e0
+// drag/drop code inspired by Prince Azubuike from https://medium.com/@dprincecoder/creating-a-drag-and-drop-file-upload-component-in-react-a-step-by-step-guide-4d93b6cc21e0
 import {
   type ChangeEvent,
   type DragEvent,
@@ -6,12 +6,27 @@ import {
   useRef,
   useState
 } from 'react';
+import { toast } from 'react-toastify';
 
 import CancelIcon from '@mui/icons-material/Cancel';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import UploadIcon from '@mui/icons-material/Upload';
-import { Box, Button, Typography, styled } from '@mui/material';
+import WarningIcon from '@mui/icons-material/Warning';
+import {
+  Box,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Typography,
+  styled
+} from '@mui/material';
 
+import { callAction } from 'api/app';
+
+import { dialogStyle } from '@/CustomTheme';
+import { useRequest } from 'alova/client';
 import { useI18nContext } from 'i18n/i18n-react';
 
 const DocumentUploader = styled(Box)<{ active?: boolean }>(({ theme, active }) => ({
@@ -58,6 +73,23 @@ const DragNdrop = ({ text, onFileSelected }: DragNdropProps) => {
   const [dragged, setDragged] = useState(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const { LL } = useI18nContext();
+  const [showUpgradeDialog, setShowUpgradeDialog] = useState(false);
+  const [upgradeImportantMessageType, setUpgradeImportantMessageType] =
+    useState<number>(0);
+
+  const { send: checkUpgradeImportantMessages } = useRequest(
+    (type: string) =>
+      callAction({ action: 'upgradeImportantMessages', param: type }),
+    {
+      immediate: false
+    }
+  )
+    .onSuccess((event: { data: number }) => {
+      setUpgradeImportantMessageType(event.data);
+    })
+    .onError((error: { error?: { message?: string } }) => {
+      toast.error(String(error.error?.message || 'An error occurred'));
+    });
 
   const checkFileExtension = (file: File) => {
     const validExtensions = ['.json', '.bin', '.md5'];
@@ -97,9 +129,8 @@ const DragNdrop = ({ text, onFileSelected }: DragNdropProps) => {
 
   const handleUploadClick = (event: MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
-    if (file) {
-      onFileSelected(file);
-    }
+    void checkUpgradeImportantMessages(file?.name || '');
+    setShowUpgradeDialog(true);
   };
 
   const handleBrowseClick = () => {
@@ -158,6 +189,46 @@ const DragNdrop = ({ text, onFileSelected }: DragNdropProps) => {
               {LL.UPLOAD()}
             </Button>
           </Box>
+          {showUpgradeDialog && (
+            <Dialog
+              sx={dialogStyle}
+              open={showUpgradeDialog}
+              onClose={() => setShowUpgradeDialog(false)}
+            >
+              <DialogTitle>
+                <WarningIcon
+                  color="warning"
+                  sx={{ fontSize: 18, verticalAlign: 'middle' }}
+                />
+                &nbsp;&nbsp;
+                {LL.UPGRADE_IMPORTANT_MESSAGES()}
+              </DialogTitle>
+              <DialogContent dividers>
+                {upgradeImportantMessageType === 1 &&
+                  LL.UPGRADE_IMPORTANT_MESSAGES_1()}
+                {upgradeImportantMessageType === 2 &&
+                  LL.UPGRADE_IMPORTANT_MESSAGES_2()}
+              </DialogContent>
+              <DialogActions>
+                <Button
+                  startIcon={<CancelIcon />}
+                  variant="outlined"
+                  onClick={() => setShowUpgradeDialog(false)}
+                  color="secondary"
+                >
+                  {LL.CANCEL()}
+                </Button>
+                <Button
+                  startIcon={<UploadIcon />}
+                  variant="outlined"
+                  onClick={() => onFileSelected(file)}
+                  color="primary"
+                >
+                  {LL.UPLOAD()}
+                </Button>
+              </DialogActions>
+            </Dialog>
+          )}
         </>
       )}
     </DocumentUploader>

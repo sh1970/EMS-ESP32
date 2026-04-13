@@ -771,7 +771,7 @@ const ApplicationSettings = () => {
           label={LL.REMOTE_TIMEOUT_EN()}
         />
         {data.remote_timeout_en && (
-          <Box mt={2}>
+          <Box sx={{ mt: 2 }}>
             <ValidatedTextField
               fieldErrors={fieldErrors || {}}
               name="remote_timeout"

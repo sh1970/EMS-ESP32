@@ -5170,6 +5170,32 @@ router
         // set partition
         console.log('setting partition to', content.param);
         return status(200);
+      } else if (action === 'upgradeImportantMessages') {
+        // check upgrade important messages
+        console.log(
+          'checking upgrade important messages for version ',
+          content.param
+        );
+        // determine message based on if we're upgrading a minor or major version
+        // TODO finish this
+        let message = 0;
+        const version = content.param;
+        const majorVersion = version.split('.')[0];
+        const minorVersion = version.split('.')[1];
+        const currentMajorVersion = THIS_VERSION.split('.')[0];
+        const currentMinorVersion = THIS_VERSION.split('.')[1];
+        if (majorVersion > currentMajorVersion) {
+          message = 1;
+        } else if (majorVersion < currentMajorVersion) {
+          message = 2;
+        } else if (minorVersion > currentMinorVersion) {
+          message = 1;
+        } else if (minorVersion < currentMinorVersion) {
+          message = 2;
+        } else {
+          message = 0;
+        }
+        return message;
       }
     }
     return status(404); // cmd not found
