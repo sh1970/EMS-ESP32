@@ -191,9 +191,6 @@ const pl: BaseTranslation = {
   WARNING_SYSTEM_BACKUP: 'To utworzy kopię swoich ustawień i konfiguracji. Wszystkie hasła będą widoczne w kopii zapasowej. Czy na pewno chcesz kontynuować?',
   UPLOAD_TEXT: 'Wgraj nowy plik firmware (.bin) lub kopię ustawień (.json)',
   UPLOAD_DROP_TEXT: 'Upuść plik firmware .bin lub kliknij tutaj',
-  UPGRADE_IMPORTANT_MESSAGES: 'Ważne informacje dotyczące aktualizacji',
-  UPGRADE_IMPORTANT_MESSAGES_1: 'Aktualizujesz się z głównej wersji. Proszę mieć świadomość, że to może spowodować problemy z konfiguracją.',
-  UPGRADE_IMPORTANT_MESSAGES_2: 'Aktualizujesz się z drugorzędnej wersji. Proszę mieć świadomość, że to może spowodować problemy z konfiguracją.',
   ERROR: 'Nieoczekiwany błąd, spróbuj ponownie!',
   TIME_SET: 'Zegar został ustawiony.',
   MANAGE_USERS: 'Zarządzanie użytkownikami',
@@ -363,7 +360,11 @@ const pl: BaseTranslation = {
   NO_DATA: 'Brak danych',
   USER_PROFILE: 'Profil użytkownika',
   STORED_VERSIONS: 'Zapisane wersje',
-  ONLINE_HELP: 'pomoc online'
+  ONLINE_HELP: 'pomoc online',
+  UPGRADE_IMPORTANT_MESSAGES: 'Upgrade Important Messages',
+  UPGRADE_IMPORTANT_MESSAGES_1: 'This upgrade requires a factory reset. Make sure you have made a backup of your configuration and settings, and upload after the new version is installed.',
+  UPGRADE_IMPORTANT_MESSAGES_2: 'You are upgrading to a new major version. Make sure you have read the ChangeLog for any breakijng changes.',
+
 };
 
 export default pl;

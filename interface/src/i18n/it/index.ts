@@ -191,9 +191,6 @@ const it: Translation = {
   WARNING_SYSTEM_BACKUP: 'Questo creerà un backup delle tue configurazioni e impostazioni. Tutte le password saranno leggibili nel file di backup. Vuoi continuare?',
   UPLOAD_TEXT: 'Upload a new firmware file (.bin) or a backup file (.json)',
   UPLOAD_DROP_TEXT: 'Drop a firmware .bin file or click here',
-  UPGRADE_IMPORTANT_MESSAGES: 'Messaggi importanti per l\'aggiornamento',
-  UPGRADE_IMPORTANT_MESSAGES_1: 'Stai aggiornando da una versione principale. Si prega di essere consapevoli che questo può causare problemi con la tua configurazione.',
-  UPGRADE_IMPORTANT_MESSAGES_2: 'Stai aggiornando da una versione secondaria. Si prega di essere consapevoli che questo può causare problemi con la tua configurazione.',
   ERROR: 'Errore Inaspettato, prego tenta ancora',
   TIME_SET: 'Imposta Ora',
   MANAGE_USERS: 'Gestione Utenti',
@@ -363,7 +360,11 @@ const it: Translation = {
   NO_DATA: 'Nessun dato',
   USER_PROFILE: 'Profilo utente',
   STORED_VERSIONS: 'Versioni memorizzate',
-  ONLINE_HELP: 'aiuto online'
+  ONLINE_HELP: 'aiuto online',
+  UPGRADE_IMPORTANT_MESSAGES: 'Upgrade Important Messages',
+  UPGRADE_IMPORTANT_MESSAGES_1: 'This upgrade requires a factory reset. Make sure you have made a backup of your configuration and settings, and upload after the new version is installed.',
+  UPGRADE_IMPORTANT_MESSAGES_2: 'You are upgrading to a new major version. Make sure you have read the ChangeLog for any breakijng changes.',
+
 };
 
 export default it;

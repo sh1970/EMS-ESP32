@@ -388,7 +388,7 @@ function custom_support() {
         '',
         "For help and questions please <a target='_blank' href='https://emsesp.org'>contact</a> your installer."
       ],
-      img_url: 'https://emsesp.org/_media/images/designer.png'
+      img_url: 'https://emsesp.org/media/images/designer.png'
       // img_url: 'https://picsum.photos/200/300'
     }
   };
@@ -5173,29 +5173,16 @@ router
       } else if (action === 'upgradeImportantMessages') {
         // check upgrade important messages
         console.log(
-          'checking upgrade important messages for version ',
+          'checking upgrade important messages for version',
           content.param
         );
         // determine message based on if we're upgrading a minor or major version
         // TODO finish this
-        let message = 0;
         const version = content.param;
-        const majorVersion = version.split('.')[0];
-        const minorVersion = version.split('.')[1];
-        const currentMajorVersion = THIS_VERSION.split('.')[0];
-        const currentMinorVersion = THIS_VERSION.split('.')[1];
-        if (majorVersion > currentMajorVersion) {
-          message = 1;
-        } else if (majorVersion < currentMajorVersion) {
-          message = 2;
-        } else if (minorVersion > currentMinorVersion) {
-          message = 1;
-        } else if (minorVersion < currentMinorVersion) {
-          message = 2;
-        } else {
-          message = 0;
-        }
-        return message;
+        const data = {
+          upgradeImportantMessageType: 1
+        };
+        return data;
       }
     }
     return status(404); // cmd not found

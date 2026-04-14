@@ -191,9 +191,6 @@ const sv: Translation = {
   WARNING_SYSTEM_BACKUP: 'Detta kommer att skapa en säkerhetskopia av dina inställningar och konfiguration. Alla lösenord kommer att vara läsbara i säkerhetskopian. Är du säker på att du vill fortsätta?',
   UPLOAD_TEXT: 'Ladda upp en ny firmwarefil (.bin) eller en säkerhetskopiafil (.json)',
   UPLOAD_DROP_TEXT: 'Droppa en firmware .bin fil eller klicka här',
-  UPGRADE_IMPORTANT_MESSAGES: 'Viktiga meddelanden för uppgradering',
-  UPGRADE_IMPORTANT_MESSAGES_1: 'Du uppgraderar från en major version. Vänligen var medveten om att detta kan orsaka problem med din konfiguration.',
-  UPGRADE_IMPORTANT_MESSAGES_2: 'Du uppgraderar från en minor version. Vänligen var medveten om att detta kan orsaka problem med din konfiguration.',
   ERROR: 'Okänt fel, var god försök igen',
   TIME_SET: 'Ställ in tid',
   MANAGE_USERS: 'Användare',
@@ -363,7 +360,11 @@ const sv: Translation = {
   NO_DATA: 'Ingen data',
   USER_PROFILE: 'Användarprofil',
   STORED_VERSIONS: 'Lagrad versioner',
-  ONLINE_HELP: 'online hjälp'
+  ONLINE_HELP: 'online hjälp',
+  UPGRADE_IMPORTANT_MESSAGES: 'Upgrade Important Messages',
+  UPGRADE_IMPORTANT_MESSAGES_1: 'This upgrade requires a factory reset. Make sure you have made a backup of your configuration and settings, and upload after the new version is installed.',
+  UPGRADE_IMPORTANT_MESSAGES_2: 'You are upgrading to a new major version. Make sure you have read the ChangeLog for any breakijng changes.',
+
 };
 
 export default sv;

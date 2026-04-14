@@ -191,9 +191,6 @@ const de: Translation = {
   WARNING_SYSTEM_BACKUP: 'Dies wird eine Sicherung Ihrer Konfigurationen und Einstellungen erstellen. Alle Passwörter werden im Sicherungsdatei lesbar. Möchten Sie fortfahren?',
   UPLOAD_TEXT: 'Laden Sie eine neue Firmware-Datei (.bin) oder eine Sicherungsdatei (.json) hoch',
   UPLOAD_DROP_TEXT: 'Legen Sie eine Firmware-Datei (.bin) ab oder klicken Sie hier',
-  UPGRADE_IMPORTANT_MESSAGES: 'Wichtige Nachrichten für das Upgrade',
-  UPGRADE_IMPORTANT_MESSAGES_1: 'Sie sind von einer Major-Version auf eine neue Version aktualisiert. Bitte beachten Sie, dass dies zu Problemen mit Ihrer Konfiguration führen kann.',
-  UPGRADE_IMPORTANT_MESSAGES_2: 'Sie sind von einer Minor-Version auf eine neue Version aktualisiert. Bitte beachten Sie, dass dies zu Problemen mit Ihrer Konfiguration führen kann.',
   ERROR: 'Unerwarteter Fehler, bitte versuchen Sie es erneut.',
   TIME_SET: 'Zeit gesetzt',
   MANAGE_USERS: 'Nutzerverwaltung',
@@ -363,7 +360,11 @@ const de: Translation = {
   NO_DATA: 'Keine Daten',
   USER_PROFILE: 'Benutzerprofil',
   STORED_VERSIONS: 'Gespeicherte Versionen',
-  ONLINE_HELP: 'Online-Hilfe'
+  ONLINE_HELP: 'Online-Hilfe',
+  UPGRADE_IMPORTANT_MESSAGES: 'Upgrade Important Messages',
+  UPGRADE_IMPORTANT_MESSAGES_1: 'This upgrade requires a factory reset. Make sure you have made a backup of your configuration and settings, and upload after the new version is installed.',
+  UPGRADE_IMPORTANT_MESSAGES_2: 'You are upgrading to a new major version. Make sure you have read the ChangeLog for any breakijng changes.',
+
 };
 
 export default de;

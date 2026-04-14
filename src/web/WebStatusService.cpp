@@ -217,7 +217,7 @@ void WebStatusService::action(AsyncWebServerRequest * request, JsonVariant json)
         EMSESP::mqtt_.reset_mqtt();
         ok = true;
     } else if (action == "upgradeImportantMessages") {
-        ok = upgradeImportantMessages(param.c_str());
+        ok = upgradeImportantMessages(root, param);
     }
 
 #if defined(EMSESP_STANDALONE) && !defined(EMSESP_UNITY)
@@ -240,26 +240,76 @@ void WebStatusService::action(AsyncWebServerRequest * request, JsonVariant json)
 }
 
 // action = upgradeImportantMessages
-// returns the type of upgrade important message to show\
-// 0 = no message
-// 1 = major version upgrade
-// 2 = minor version upgrade
-// TODO finish this
-bool WebStatusService::upgradeImportantMessages(const char * version) {
-    version::Semver200_version current_version(current_version_s);
-    version::Semver200_version latest_version(version);
-    if (latest_version > current_version) {
-        return 1;
+// returns the type of upgrade important message to display in the UI
+// 0 = no message (if just a minor version upgrade)
+// 1 = going from <= 3.8 to 3.9 (new partition layout)
+// 2 = major version upgrade
+// version can be like 3.8.2 or a filename like EMS-ESP-3_8_2-dev_13-ESP32-16MB+.bin
+bool WebStatusService::upgradeImportantMessages(JsonObject root, std::string & version) {
+    if (version.empty()) {
+        return false;
     }
+
+    uint8_t upgradeImportantMessageType = 0;
+
+    // it's a filename with a .bin extension, try and extract the version from it
+    version::Semver200_version latest_version;
+    if (version.find(".bin") != std::string::npos) {
+        // e.g. EMS-ESP-3_8_2-dev_13-ESP32-16MB+.bin -> major=3 minor=8 patch=2
+        std::string filename = version;
+        auto        pos      = filename.find("EMS-ESP-");
+        if (pos == std::string::npos) {
+            EMSESP::logger().err("Invalid version string: %s", version.c_str());
+            return false;
+        }
+        pos += 8; // skip past "EMS-ESP-"
+        auto underscore1 = filename.find('_', pos);
+        auto underscore2 = filename.find('_', underscore1 + 1);
+        auto dash        = filename.find('-', underscore2 + 1);
+        if (underscore1 == std::string::npos || underscore2 == std::string::npos || dash == std::string::npos) {
+            EMSESP::logger().err("Invalid version string: %s", version.c_str());
+            return false;
+        }
+        std::string major_version = filename.substr(pos, underscore1 - pos);
+        std::string minor_version = filename.substr(underscore1 + 1, underscore2 - underscore1 - 1);
+        std::string patch_version = filename.substr(underscore2 + 1, dash - underscore2 - 1);
+        latest_version            = version::Semver200_version(major_version + "." + minor_version + "." + patch_version);
+    } else {
+        latest_version = version::Semver200_version(version);
+    }
+
+    // check if it's a valid version string
+    if (!latest_version.major()) {
+        EMSESP::logger().err("Invalid version string: %s", version.c_str());
+        return false;
+    }
+
+    version::Semver200_version current_version(current_version_s); // get current version
+
+    if (current_version.major() <= 3 && current_version.minor() <= 8) {
+        upgradeImportantMessageType = 1; // if moving from below 3.8.x to 3.9.x return 1
+    } else if (latest_version > current_version && current_version.minor() < latest_version.minor()) {
+        upgradeImportantMessageType = 0; // if it's just a minor version upgrade return 0
+    } else if (latest_version > current_version && current_version.major() < latest_version.major()) {
+        upgradeImportantMessageType = 2; // if it's a major version upgrade return 2
+    }
+
+    // #if defined(EMSESP_DEBUG)
+    //     EMSESP::logger().debug("upgradeImportantMessageType: %s %d", version.c_str(), upgradeImportantMessageType);
+    // #endif
+
+    root["upgradeImportantMessageType"] = upgradeImportantMessageType;
+
+    return true;
 }
 
 // action = checkUpgrade
 // versions holds the latest development version and stable version in one string, comma separated
-bool WebStatusService::checkUpgrade(JsonObject root, std::string & versions) {
-    if (!versions.empty()) {
+bool WebStatusService::checkUpgrade(JsonObject root, std::string & version) {
+    if (!version.empty()) {
         version::Semver200_version current_version(current_version_s);
-        version::Semver200_version latest_dev_version(versions.substr(0, versions.find(',')));
-        version::Semver200_version latest_stable_version(versions.substr(versions.find(',') + 1));
+        version::Semver200_version latest_dev_version(version.substr(0, version.find(',')));
+        version::Semver200_version latest_stable_version(version.substr(version.find(',') + 1));
 
         bool dev_upgradeable    = latest_dev_version > current_version;
         bool stable_upgradeable = latest_stable_version > current_version;
@@ -358,7 +408,7 @@ bool WebStatusService::getCustomSupport(JsonObject root) {
 
 #if defined(EMSESP_STANDALONE)
     // dummy test data for "test api3"
-    deserializeJson(doc, "{\"type\":\"customSupport\",\"Support\":{\"html\":[\"html code\",\"here\"], \"img_url\": \"https://emsesp.org/_media/images/designer.png\"}");
+    deserializeJson(doc, "{\"type\":\"customSupport\",\"Support\":{\"html\":[\"html code\",\"here\"], \"img_url\": \"https://emsesp.org/media/images/designer.png\"}");
 #else
     // check if we have custom support file uploaded
     File file = LittleFS.open(EMSESP_CUSTOMSUPPORT_FILE, "r");

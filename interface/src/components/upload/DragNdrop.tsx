@@ -78,16 +78,19 @@ const DragNdrop = ({ text, onFileSelected }: DragNdropProps) => {
     useState<number>(0);
 
   const { send: checkUpgradeImportantMessages } = useRequest(
-    (type: string) =>
-      callAction({ action: 'upgradeImportantMessages', param: type }),
+    (version: string) =>
+      callAction({ action: 'upgradeImportantMessages', param: version }),
     {
       immediate: false
     }
   )
-    .onSuccess((event: { data: number }) => {
-      setUpgradeImportantMessageType(event.data);
+    .onSuccess((event) => {
+      setUpgradeImportantMessageType(
+        (event.data as { upgradeImportantMessageType: number })
+          .upgradeImportantMessageType
+      );
     })
-    .onError((error: { error?: { message?: string } }) => {
+    .onError((error) => {
       toast.error(String(error.error?.message || 'An error occurred'));
     });
 
@@ -189,7 +192,7 @@ const DragNdrop = ({ text, onFileSelected }: DragNdropProps) => {
               {LL.UPLOAD()}
             </Button>
           </Box>
-          {showUpgradeDialog && (
+          {showUpgradeDialog && upgradeImportantMessageType > 0 && (
             <Dialog
               sx={dialogStyle}
               open={showUpgradeDialog}

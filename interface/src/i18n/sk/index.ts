@@ -191,9 +191,6 @@ const sk: Translation = {
   WARNING_SYSTEM_BACKUP: 'Toto vytvorí zálohu vašich nastavení a konfigurácií. Všetky hesla budú v zálohovom súbore čitateľné. Naozaj chcete pokračovať?',
   UPLOAD_TEXT: 'Nahrajte nový súbor firmvéru (.bin) alebo súbor zálohy (.json)',
   UPLOAD_DROP_TEXT: 'Presuňte súbor .bin firmvéru alebo kliknite sem',
-  UPGRADE_IMPORTANT_MESSAGES: 'Dôležité informácie pre aktualizáciu',
-  UPGRADE_IMPORTANT_MESSAGES_1: 'Aktualizujete sa z hlavného verzie. Prosím, buďte si vedomí, že to môže spôsobiť problémy s vašou konfiguráciou.',
-  UPGRADE_IMPORTANT_MESSAGES_2: 'Aktualizujete sa z menšieho verzie. Prosím, buďte si vedomí, že to môže spôsobiť problémy s vašou konfiguráciou.',
   ERROR: 'Neočakávaná chyba, prosím skúste to znova',
   TIME_SET: 'Nastavený čas',
   MANAGE_USERS: 'Správa používateľov',
@@ -363,7 +360,11 @@ const sk: Translation = {
   NO_DATA: 'Žiadne dáta',
   USER_PROFILE: 'Profil používateľa',
   STORED_VERSIONS: 'Uložené verzie',
-  ONLINE_HELP: 'online pomoc'
+  ONLINE_HELP: 'online pomoc',
+  UPGRADE_IMPORTANT_MESSAGES: 'Upgrade Important Messages',
+  UPGRADE_IMPORTANT_MESSAGES_1: 'This upgrade requires a factory reset. Make sure you have made a backup of your configuration and settings, and upload after the new version is installed.',
+  UPGRADE_IMPORTANT_MESSAGES_2: 'You are upgrading to a new major version. Make sure you have read the ChangeLog for any breakijng changes.',
+
 };
 
 export default sk;

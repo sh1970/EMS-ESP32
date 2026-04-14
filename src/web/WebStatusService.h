@@ -36,7 +36,7 @@ class WebStatusService {
     bool uploadURL(const char * url);
     bool setSystemStatus(const char * status);
     void allvalues(JsonObject output);
-    bool upgradeImportantMessages(const char * version);
+    bool upgradeImportantMessages(JsonObject root, std::string & version);
 
     std::string current_version_s = EMSESP_APP_VERSION;
 };

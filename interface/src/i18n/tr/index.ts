@@ -191,9 +191,6 @@ const tr: Translation = {
   WARNING_SYSTEM_BACKUP: 'Bu, yapılandırma ve ayarlarınızın bir yedeklemesi oluşturacaktır. Tüm şifreler yedekleme dosyasında okunabilir olacaktır. Devam etmek istediğinize emin misiniz?',
   UPLOAD_TEXT: 'Yeni bir firmware dosyası (.bin) veya yedek dosyası (.json) yükle',
   UPLOAD_DROP_TEXT: 'Bir firmware .bin dosyası veya buraya tıklayın',
-  UPGRADE_IMPORTANT_MESSAGES: 'Yükseltme Önemli Mesajları',
-  UPGRADE_IMPORTANT_MESSAGES_1: 'Bir ana sürümden yükselteysiniz. Lütfen bu, yapılandırmanızın sorunlarına neden olabileceğini unutmayın.',
-  UPGRADE_IMPORTANT_MESSAGES_2: 'Bir küçük sürümden yükselteysiniz. Lütfen bu, yapılandırmanızın sorunlarına neden olabileceğini unutmayın.',
   ERROR: 'Beklenemedik hata, lütfen tekrar deneyin.',
   TIME_SET: 'Zaman ayarı',
   MANAGE_USERS: 'Kullanıcıları yönet',
@@ -363,7 +360,11 @@ const tr: Translation = {
   NO_DATA: 'Hiçbir veri yok',
   USER_PROFILE: 'Kullanıcı Profili',
   STORED_VERSIONS: 'Kaydedilmiş Sürümler',
-  ONLINE_HELP: 'online yardım'
+  ONLINE_HELP: 'online yardım',
+  UPGRADE_IMPORTANT_MESSAGES: 'Upgrade Important Messages',
+  UPGRADE_IMPORTANT_MESSAGES_1: 'This upgrade requires a factory reset. Make sure you have made a backup of your configuration and settings, and upload after the new version is installed.',
+  UPGRADE_IMPORTANT_MESSAGES_2: 'You are upgrading to a new major version. Make sure you have read the ChangeLog for any breakijng changes.',
+
 };
 
 export default tr;
