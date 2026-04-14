@@ -251,8 +251,6 @@ uint8_t WebStatusService::upgradeImportantMessages(std::string & version) {
         return 0;
     }
 
-    uint8_t upgradeImportantMessageType = 0;
-
     // it's a filename with a .bin or .md extension, try and extract the version from it
     // e.g. EMS-ESP-3_8_2-dev_13-ESP32-16MB+.bin -> major=3 minor=8 patch=2
     version::Semver200_version latest_version;
