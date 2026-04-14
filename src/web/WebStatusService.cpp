@@ -216,6 +216,8 @@ void WebStatusService::action(AsyncWebServerRequest * request, JsonVariant json)
     } else if (action == "resetMQTT" && is_admin) {
         EMSESP::mqtt_.reset_mqtt();
         ok = true;
+    } else if (action == "upgradeImportantMessages") {
+        ok = upgradeImportantMessages(param.c_str());
     }
 
 #if defined(EMSESP_STANDALONE) && !defined(EMSESP_UNITY)
@@ -235,6 +237,20 @@ void WebStatusService::action(AsyncWebServerRequest * request, JsonVariant json)
     // send response
     response->setLength();
     request->send(response);
+}
+
+// action = upgradeImportantMessages
+// returns the type of upgrade important message to show\
+// 0 = no message
+// 1 = major version upgrade
+// 2 = minor version upgrade
+// TODO finish this
+bool WebStatusService::upgradeImportantMessages(const char * version) {
+    version::Semver200_version current_version(current_version_s);
+    version::Semver200_version latest_version(version);
+    if (latest_version > current_version) {
+        return 1;
+    }
 }
 
 // action = checkUpgrade
