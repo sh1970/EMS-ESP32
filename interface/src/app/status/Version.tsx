@@ -7,6 +7,7 @@ import {
   useRef,
   useState
 } from 'react';
+import { Link } from 'react-router';
 import { toast } from 'react-toastify';
 
 import CancelIcon from '@mui/icons-material/Cancel';
@@ -24,7 +25,6 @@ import {
   DialogTitle,
   Grid,
   IconButton,
-  Link,
   Table,
   TableBody,
   TableCell,
@@ -315,13 +315,22 @@ const InstallDialog = memo(
               fetchDevVersion ? latestDevVersion?.name : latestVersion?.name
             )}
           </Typography>
-
-          {upgradeImportantMessageType === 1 && LL.UPGRADE_IMPORTANT_MESSAGES_1()}
           {upgradeImportantMessageType === 2 && LL.UPGRADE_IMPORTANT_MESSAGES_2()}
+          {upgradeImportantMessageType === 1 && (
+            <>
+              {LL.UPGRADE_IMPORTANT_MESSAGES_1()}
+              <Typography sx={{ mt: 2 }}>
+                <Link to="/settings/downloadUpload" style={{ color: 'lightblue' }}>
+                  {LL.DOWNLOAD_SYSTEM_BACKUP()}
+                </Link>
+              </Typography>
+            </>
+          )}
           <Typography sx={{ mt: 2 }}>
             <Link
-              target="_blank"
               to="https://docs.emsesp.org/FAQ#upgrading-the-firmware"
+              target="_blank"
+              rel="noreferrer"
               style={{ color: 'lightblue' }}
             >
               {LL.ONLINE_HELP()}
@@ -343,7 +352,12 @@ const InstallDialog = memo(
             onClick={onClose}
             color="primary"
           >
-            <Link underline="none" target="_blank" href={binURL} color="primary">
+            <Link
+              to={binURL}
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: 'lightblue', textDecoration: 'none' }}
+            >
               {LL.DOWNLOAD(0)}
             </Link>
           </Button>
