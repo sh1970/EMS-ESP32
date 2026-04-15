@@ -186,7 +186,8 @@ const sk: Translation = {
   BUFFER_SIZE: 'Buffer-max. veľkosť',
   COMPACT: 'Kompaktné',
   DOWNLOAD_SETTINGS_TEXT: 'Vytvorte zálohu svojej konfigurácie a nastavení',
-  DOWNLOAD_SETTINGS_TEXT2: 'Exportovať všetky dáta',
+  DOWNLOAD_SETTINGS_TEXT2: 'Exportovať všetky hodnoty',
+  DOWNLOAD_SYSTEM_BACKUP: 'Systémová záloha',
   UPLOAD_TEXT: 'Nahrajte nový súbor firmvéru (.bin) alebo súbor zálohy (.json)',
   UPLOAD_DROP_TEXT: 'Presuňte súbor .bin firmvéru alebo kliknite sem',
   ERROR: 'Neočakávaná chyba, prosím skúste to znova',
@@ -357,7 +358,13 @@ const sk: Translation = {
   FIRMWARE_VERSION_INFO: 'Informácie o verzii firmware',
   NO_DATA: 'Žiadne dáta',
   USER_PROFILE: 'Profil používateľa',
-  STORED_VERSIONS: 'Uložené verzie'
+  STORED_VERSIONS: 'Uložené verzie',
+  ONLINE_HELP: 'online pomoc',
+  UPGRADE_IMPORTANT_MESSAGES: 'Aktualizovať dôležité správy',
+  UPGRADE_IMPORTANT_MESSAGES_1: 'Táto aktualizácia vyžaduje reštart základných nastavení. Uistite sa, že ste vytvorili zálohu svojich konfigurácií a nastavení pred pokračovaním a nahrajte ju po instalácii novej verzie.',
+  UPGRADE_IMPORTANT_MESSAGES_2: 'Aktualizujete sa na novú hlavnú verziu. Uistite sa, že ste prečítali ChangeLog pre akékoľvek dôležité zmeny.',
+  WARNING_SYSTEM_BACKUP: 'Toto vytvorí zálohu všetkých vašich celých systémových konfigurácií a nastavení. Všetky hesla budú čitateľné v zálohovom súbore. Buďte opatrní pri zdieľaní! Chcete pokračovať?'
+
 };
 
 export default sk;

@@ -1,7 +1,7 @@
 {
   "type": "systembackup",
   "version": "3.8.2",
-  "date": "2026-03-29T13:28:15",
+  "date": "2026-04-15T08:06:45",
   "systembackup": [
     {
       "type": "settings",
@@ -25,38 +25,38 @@
         "channel": 1,
         "ssid_hidden": false,
         "max_clients": 4,
-        "local_ip": "192.168.4.1",
-        "gateway_ip": "192.168.4.1",
+        "local_ip": "192.168.X.X",
+        "gateway_ip": "192.168.X.X",
         "subnet_mask": "255.255.255.0"
       },
       "MQTT": {
         "enableTLS": false,
         "rootCA": "",
-        "enabled": false,
-        "host": "",
+        "enabled": true,
+        "host": "192.168.X.X",
         "port": 1883,
         "base": "ems-esp",
-        "username": "",
-        "password": "",
-        "client_id": "esp32-b8ffc9ec",
+        "username": "xxxx",
+        "password": "xxxx",
+        "client_id": "esp32-395c7bcc",
         "keep_alive": 60,
         "clean_session": false,
         "entity_format": 1,
-        "publish_time_boiler": 10,
-        "publish_time_thermostat": 10,
-        "publish_time_solar": 10,
-        "publish_time_mixer": 10,
-        "publish_time_water": 10,
+        "publish_time_boiler": 60,
+        "publish_time_thermostat": 60,
+        "publish_time_solar": 60,
+        "publish_time_mixer": 60,
+        "publish_time_water": 60,
         "publish_time_other": 60,
-        "publish_time_sensor": 10,
-        "publish_time_heartbeat": 60,
+        "publish_time_sensor": 60,
+        "publish_time_heartbeat": 10,
         "mqtt_qos": 0,
         "mqtt_retain": false,
-        "ha_enabled": false,
+        "ha_enabled": true,
         "nested_format": 1,
         "discovery_prefix": "homeassistant",
         "discovery_type": 0,
-        "ha_number_mode": 0,
+        "ha_number_mode": 1,
         "publish_single": false,
         "publish_single2cmd": false,
         "send_response": false
@@ -84,7 +84,7 @@
       },
       "Settings": {
         "version": "3.8.2",
-        "board_profile": "E32V2_2",
+        "board_profile": "E32V2",
         "platform": "ESP32",
         "locale": "en",
         "tx_mode": 1,
@@ -98,7 +98,7 @@
         "boiler_heatingoff": false,
         "remote_timeout": 24,
         "remote_timeout_en": false,
-        "shower_timer": false,
+        "shower_timer": true,
         "shower_alert": false,
         "shower_alert_coldshot": 10,
         "shower_alert_trigger": 7,
@@ -107,9 +107,9 @@
         "tx_gpio": 5,
         "dallas_gpio": 14,
         "dallas_parasite": false,
-        "led_gpio": 32,
-        "hide_led": false,
-        "led_type": 1,
+        "led_gpio": 2,
+        "hide_led": true,
+        "led_type": 0,
         "low_clock": false,
         "telnet_enabled": true,
         "notoken_api": false,
@@ -122,7 +122,7 @@
         "bool_dashboard": 1,
         "enum_format": 1,
         "weblog_level": 6,
-        "weblog_buffer": 50,
+        "weblog_buffer": 75,
         "weblog_compact": true,
         "phy_type": 1,
         "eth_power": 15,
@@ -132,17 +132,7 @@
         "modbus_port": 502,
         "modbus_max_clients": 10,
         "modbus_timeout": 300,
-        "developer_mode": true,
-        "email_enabled": false,
-        "email_ssl": false,
-        "email_starttls": true,
-        "email_server": "smtp.example.net",
-        "email_port": 587,
-        "email_login": "",
-        "email_pass": "",
-        "email_sender": "ems-esp@example.net",
-        "email_recp": "",
-        "email_subject": "ems-esp notification"
+        "developer_mode": true
       }
     },
     {
@@ -154,44 +144,38 @@
     {
       "type": "customizations",
       "Customizations": {
-        "ts": [
+        "ts": [],
+        "as": [],
+        "masked_entities": [
           {
-            "id": "28_1767_7B13_2502",
-            "name": "gateway_temperature",
-            "offset": 0,
-            "is_system": true
-          }
-        ],
-        "as": [
-          {
-            "gpio": 39,
-            "name": "core_voltage",
-            "offset": 0,
-            "factor": 0.003771,
-            "uom": 23,
-            "type": 3,
-            "is_system": true
+            "product_id": 77,
+            "device_id": 23,
+            "custom_name": "",
+            "custom_brand": "",
+            "entity_ids": [
+              "08datetime",
+              "08hc1/seltemp|<30",
+              "08hc1/currtemp",
+              "08hc1/mode"
+            ]
           },
           {
-            "gpio": 36,
-            "name": "supply_voltage",
-            "offset": 0,
-            "factor": 0.017,
-            "uom": 23,
-            "type": 3,
-            "is_system": true
-          },
-          {
-            "gpio": 2,
-            "name": "led",
-            "offset": 0,
-            "factor": 1,
-            "uom": 0,
-            "type": 6,
-            "is_system": true
+            "product_id": 123,
+            "device_id": 8,
+            "custom_name": "",
+            "custom_brand": "",
+            "entity_ids": [
+              "08heatingactive",
+              "08burngas",
+              "08fanwork",
+              "08ignwork",
+              "08burnmaxpower|>23<121",
+              "08burnminperiod|<120",
+              "08lastcode",
+              "08servicecode"
+            ]
           }
-        ],
-        "masked_entities": []
+        ]
       }
     },
     {
@@ -207,22 +191,59 @@
       }
     },
     {
-      "type": "customSupport",
-      "Support": {
-        "html": [
-          "This product is installed and managed by:",
-          "",
-          "<b>Bosch Installer Example</b>",
-          "",
-          "Nefit Road 12",
-          "1234 AB Amsterdam",
-          "Phone: +31 123 456 789",
-          "email: support@boschinstaller.nl",
-          "",
-          "For help and questions please <a target='_blank' href='https://emsesp.org'>contact</a> your installer."
-        ],
-        "img_url": "https://emsesp.org/media/images/designer.png"
-      }
+      "type": "nvs",
+      "nvs": [
+        {
+          "type": 1,
+          "key": "nompower",
+          "value": 30
+        },
+        {
+          "type": 33,
+          "key": "boot",
+          "value": "3.8.1-dev.4"
+        },
+        {
+          "type": 4,
+          "key": "d_boot",
+          "value": 1767525325
+        },
+        {
+          "type": 33,
+          "key": "app1",
+          "value": "3.8.2-dev.13"
+        },
+        {
+          "type": 33,
+          "key": "app0",
+          "value": "3.8.1"
+        },
+        {
+          "type": 4,
+          "key": "d_app0",
+          "value": 1774988066
+        },
+        {
+          "type": 1,
+          "key": "fresh_firmware",
+          "value": 0
+        },
+        {
+          "type": 4,
+          "key": "d_app1",
+          "value": 1776194060
+        },
+        {
+          "type": 66,
+          "key": "nrgheat",
+          "value": 485871.5481
+        },
+        {
+          "type": 66,
+          "key": "nrgww",
+          "value": 101649.2176
+        }
+      ]
     }
   ]
 }

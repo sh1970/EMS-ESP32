@@ -186,7 +186,8 @@ const en: Translation = {
   BUFFER_SIZE: 'Max Buffer Size',
   COMPACT: 'Compact',
   DOWNLOAD_SETTINGS_TEXT: 'Create a backup of your configuration and settings',
-  DOWNLOAD_SETTINGS_TEXT2: 'Export all data',
+  DOWNLOAD_SETTINGS_TEXT2: 'Export all values',
+  DOWNLOAD_SYSTEM_BACKUP: 'System Backup',
   UPLOAD_TEXT: 'Upload a new firmware file (.bin) or a backup file (.json)',
   UPLOAD_DROP_TEXT: 'Drop a firmware .bin file or click here',
   ERROR: 'Unexpected Error, please try again',
@@ -357,7 +358,13 @@ const en: Translation = {
   FIRMWARE_VERSION_INFO: 'Firmware Version Information',
   NO_DATA: 'No data',
   USER_PROFILE: 'User Profile',
-  STORED_VERSIONS: 'Stored Versions'
+  STORED_VERSIONS: 'Stored Versions',
+  ONLINE_HELP: 'online help',
+  UPGRADE_IMPORTANT_MESSAGES: 'Upgrade Important Messages',
+  UPGRADE_IMPORTANT_MESSAGES_1: 'This upgrade requires a factory reset. Make sure you have made a backup of your configuration and settings before continuing, and upload this after the new version is installed.',
+  UPGRADE_IMPORTANT_MESSAGES_2: 'You are upgrading to a new major version. Make sure you have read the ChangeLog for any breaking changes.',
+  WARNING_SYSTEM_BACKUP: 'This will create a backup of your full system configuration and settings. All passwords will be readable in the backup file. Be careful with sharing! Do you want to continue?'
+
 };
 
 export default en;
