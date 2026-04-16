@@ -188,12 +188,8 @@ const en: Translation = {
   DOWNLOAD_SETTINGS_TEXT: 'Create a backup of your configuration and settings',
   DOWNLOAD_SETTINGS_TEXT2: 'Export all values',
   DOWNLOAD_SYSTEM_BACKUP: 'System Backup',
-  WARNING_SYSTEM_BACKUP: 'This will create a backup of your configuration and settings. All passwords will be readable in the backup file. Do you want to continue?',
   UPLOAD_TEXT: 'Upload a new firmware file (.bin) or a backup file (.json)',
   UPLOAD_DROP_TEXT: 'Drop a firmware .bin file or click here',
-  UPGRADE_IMPORTANT_MESSAGES: 'Upgrade Important Messages',
-  UPGRADE_IMPORTANT_MESSAGES_1: 'You are upgrading from a major version. Please be aware that this may cause issues with your configuration.',
-  UPGRADE_IMPORTANT_MESSAGES_2: 'You are upgrading from a minor version. Please be aware that this may cause issues with your configuration.',
   ERROR: 'Unexpected Error, please try again',
   TIME_SET: 'Time set',
   MANAGE_USERS: 'Manage Users',
@@ -364,7 +360,12 @@ const en: Translation = {
   NO_DATA: 'No data',
   USER_PROFILE: 'User Profile',
   STORED_VERSIONS: 'Stored Versions',
-  ONLINE_HELP: 'online help'
+  ONLINE_HELP: 'online help',
+  UPGRADE_IMPORTANT_MESSAGES: 'Upgrade Important Messages',
+  UPGRADE_IMPORTANT_MESSAGES_1: 'This upgrade requires a factory reset. Make sure you have made a backup of your configuration and settings before continuing, and upload this after the new version is installed.',
+  UPGRADE_IMPORTANT_MESSAGES_2: 'You are upgrading to a new major version. Make sure you have read the ChangeLog for any breaking changes.',
+  WARNING_SYSTEM_BACKUP: 'This will create a backup of your full system configuration and settings. All passwords will be readable in the backup file. Be careful with sharing! Do you want to continue?'
+
 };
 
 export default en;

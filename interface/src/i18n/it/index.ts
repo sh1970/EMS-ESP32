@@ -188,12 +188,8 @@ const it: Translation = {
   DOWNLOAD_SETTINGS_TEXT: 'Create a backup of your configuration and settings',
   DOWNLOAD_SETTINGS_TEXT2: 'Esporta tutti i valori',
   DOWNLOAD_SYSTEM_BACKUP: 'Backup sistema',
-  WARNING_SYSTEM_BACKUP: 'Questo creerà un backup delle tue configurazioni e impostazioni. Tutte le password saranno leggibili nel file di backup. Vuoi continuare?',
   UPLOAD_TEXT: 'Upload a new firmware file (.bin) or a backup file (.json)',
   UPLOAD_DROP_TEXT: 'Drop a firmware .bin file or click here',
-  UPGRADE_IMPORTANT_MESSAGES: 'Messaggi importanti per l\'aggiornamento',
-  UPGRADE_IMPORTANT_MESSAGES_1: 'Stai aggiornando da una versione principale. Si prega di essere consapevoli che questo può causare problemi con la tua configurazione.',
-  UPGRADE_IMPORTANT_MESSAGES_2: 'Stai aggiornando da una versione secondaria. Si prega di essere consapevoli che questo può causare problemi con la tua configurazione.',
   ERROR: 'Errore Inaspettato, prego tenta ancora',
   TIME_SET: 'Imposta Ora',
   MANAGE_USERS: 'Gestione Utenti',
@@ -364,7 +360,12 @@ const it: Translation = {
   NO_DATA: 'Nessun dato',
   USER_PROFILE: 'Profilo utente',
   STORED_VERSIONS: 'Versioni memorizzate',
-  ONLINE_HELP: 'aiuto online'
+  ONLINE_HELP: 'aiuto online',
+  UPGRADE_IMPORTANT_MESSAGES: 'Aggiorna Messaggi Importanti',
+  UPGRADE_IMPORTANT_MESSAGES_1: 'Questa aggiornamento richiede un ripristino di fabbrica. Assicurati di aver creato un backup delle tue configurazioni e impostazioni prima di continuare e di caricarlo dopo l\'installazione della nuova versione.',
+  UPGRADE_IMPORTANT_MESSAGES_2: 'Stai aggiornando a una nuova versione principale. Assicurati di aver letto il ChangeLog per qualsiasi cambiamento importante.',
+  WARNING_SYSTEM_BACKUP: 'Questo creerà un backup delle tue configurazioni e impostazioni complete. Tutte le password saranno leggibili nel file di backup. Sei sicuro di voler continuare?'
+
 };
 
 export default it;

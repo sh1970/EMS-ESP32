@@ -188,12 +188,8 @@ const cz: Translation = {
   DOWNLOAD_SETTINGS_TEXT: 'Vytvořte zálohu svého nastavení a konfigurace',
   DOWNLOAD_SETTINGS_TEXT2: 'Exportovat všechny hodnoty',
   DOWNLOAD_SYSTEM_BACKUP: 'Systémová záloha',
-  WARNING_SYSTEM_BACKUP: 'Toto vytvoří zálohu vašich nastavení a konfigurace. Všechna hesla budou v zálohovém souboru čitelná. Opravdu chcete pokračovat?',
   UPLOAD_TEXT: 'Nahrajte nový soubor firmwaru (.bin) nebo záložní soubor (.json)',
   UPLOAD_DROP_TEXT: 'Přetáhněte soubor sem nebo klikněte pro výběr',
-  UPGRADE_IMPORTANT_MESSAGES: 'Důležité zprávy pro aktualizaci',
-  UPGRADE_IMPORTANT_MESSAGES_1: 'Aktualizujete se z hlavní verze. Vezměte prosím na vědomí, že to může způsobit problémy s vaší konfigurací.',
-  UPGRADE_IMPORTANT_MESSAGES_2: 'Aktualizujete se z dílčí verze. Vezměte prosím na vědomí, že to může způsobit problémy s vaší konfigurací.',
   ERROR: 'Neočekávaná chyba, zkuste to prosím znovu',
   TIME_SET: 'Čas nastaven',
   MANAGE_USERS: 'Spravovat uživatele',
@@ -351,7 +347,6 @@ const cz: Translation = {
   BITMASK: 'Bit Mask',
   DUPLICATE: 'Duplikát',
   DASHBOARD_1: 'Všechny aktivní entity EMS jsou označené jako oblíbené. Všechny vlastní entity, harmonogramy a externí sensory jsou zobrazeny níže.',
-  NO_DATA: 'žádné údaje',
   NO_DATA_1: 'Nebyly nalezeny žádné oblíbené entity. Použijte modul',
   NO_DATA_2: 'pro jejich výběr.',
   NO_DATA_3: 'Pro zobrazení všech dostupných entit navštivte stránku',
@@ -362,9 +357,15 @@ const cz: Translation = {
   INTERNET_CONNECTION_REQUIRED: 'Pro automatickou kontrolu a instalaci aktualizací je třeba internetové připojení',
   SWITCH_RELEASE_TYPE: 'Přepnout na {0} verzi',
   FIRMWARE_VERSION_INFO: 'Informace o verzi firmwaru',
+  NO_DATA: 'žádné údaje',
   USER_PROFILE: 'Uživatelský profil',
   STORED_VERSIONS: 'Uložené verze',
-  ONLINE_HELP: 'online nápověda'
+  ONLINE_HELP: 'online nápověda',
+  UPGRADE_IMPORTANT_MESSAGES: 'Aktualizovat důležité zprávy',
+  UPGRADE_IMPORTANT_MESSAGES_1: 'Tato aktualizace vyžaduje obnovení továrního nastavení. Ujistěte se, že jste vytvořili zálohu své konfigurace a nastavení před pokračováním a nahrajte ji po instalaci nové verze.',
+  UPGRADE_IMPORTANT_MESSAGES_2: 'Aktualizujete se na novou hlavní verzi. Ujistěte se, že jste přečetli ChangeLog pro jakékoliv závažné změny.',
+  WARNING_SYSTEM_BACKUP: 'Toto vytvoří zálohu vašich celých systémových konfigurací a nastavení. Všechna hesla budou v zálohovém souboru čitelná. Buďte opatrní při sdílení! Opravdu chcete pokračovat?'
+
 };
 
 export default cz;

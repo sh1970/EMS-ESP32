@@ -6,6 +6,7 @@ import {
   useRef,
   useState
 } from 'react';
+import { Link } from 'react-router';
 import { toast } from 'react-toastify';
 
 import CancelIcon from '@mui/icons-material/Cancel';
@@ -78,16 +79,22 @@ const DragNdrop = ({ text, onFileSelected }: DragNdropProps) => {
     useState<number>(0);
 
   const { send: checkUpgradeImportantMessages } = useRequest(
-    (type: string) =>
-      callAction({ action: 'upgradeImportantMessages', param: type }),
+    (version: string) =>
+      callAction({ action: 'upgradeImportantMessages', param: version }),
     {
       immediate: false
     }
   )
-    .onSuccess((event: { data: number }) => {
-      setUpgradeImportantMessageType(event.data);
+    .onSuccess((event) => {
+      const upgradeImportantMessageType_n = (
+        event.data as { upgradeImportantMessageType: number }
+      ).upgradeImportantMessageType;
+      setUpgradeImportantMessageType(upgradeImportantMessageType_n);
+      if (upgradeImportantMessageType_n === 0) {
+        onFileSelected(file);
+      }
     })
-    .onError((error: { error?: { message?: string } }) => {
+    .onError((error) => {
       toast.error(String(error.error?.message || 'An error occurred'));
     });
 
@@ -189,7 +196,7 @@ const DragNdrop = ({ text, onFileSelected }: DragNdropProps) => {
               {LL.UPLOAD()}
             </Button>
           </Box>
-          {showUpgradeDialog && (
+          {showUpgradeDialog && upgradeImportantMessageType > 0 && (
             <Dialog
               sx={dialogStyle}
               open={showUpgradeDialog}
@@ -204,10 +211,31 @@ const DragNdrop = ({ text, onFileSelected }: DragNdropProps) => {
                 {LL.UPGRADE_IMPORTANT_MESSAGES()}
               </DialogTitle>
               <DialogContent dividers>
-                {upgradeImportantMessageType === 1 &&
-                  LL.UPGRADE_IMPORTANT_MESSAGES_1()}
                 {upgradeImportantMessageType === 2 &&
                   LL.UPGRADE_IMPORTANT_MESSAGES_2()}
+                {upgradeImportantMessageType === 1 && (
+                  <>
+                    {LL.UPGRADE_IMPORTANT_MESSAGES_1()}
+                    <Typography sx={{ mt: 2 }}>
+                      <Link
+                        to="/settings/downloadUpload"
+                        style={{ color: 'lightblue' }}
+                      >
+                        {LL.DOWNLOAD_SYSTEM_BACKUP()}
+                      </Link>
+                    </Typography>
+                  </>
+                )}{' '}
+                <Typography sx={{ mt: 2 }}>
+                  <Link
+                    to="https://docs.emsesp.org/FAQ#upgrading-the-firmware"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{ color: 'lightblue' }}
+                  >
+                    {LL.ONLINE_HELP()}
+                  </Link>
+                </Typography>
               </DialogContent>
               <DialogActions>
                 <Button

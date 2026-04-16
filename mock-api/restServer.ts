@@ -141,8 +141,8 @@ let system_status = {
 let DEV_VERSION_IS_UPGRADEABLE: boolean;
 let STABLE_VERSION_IS_UPGRADEABLE: boolean;
 let THIS_VERSION: string;
-let LATEST_STABLE_VERSION = '3.8.0';
-let LATEST_DEV_VERSION = '3.8.1-dev.2';
+let LATEST_STABLE_VERSION = '3.8.2';
+let LATEST_DEV_VERSION = '3.8.3-dev.2';
 
 // scenarios for testing versioning
 let version_test = 0; // on latest stable, or switch to dev
@@ -388,13 +388,34 @@ function custom_support() {
         '',
         "For help and questions please <a target='_blank' href='https://emsesp.org'>contact</a> your installer."
       ],
-      img_url: 'https://emsesp.org/_media/images/designer.png'
+      img_url: 'https://emsesp.org/media/images/designer.png'
       // img_url: 'https://picsum.photos/200/300'
     }
   };
 }
 
-// called by Action endpoint
+// called by Action endpoint upgradeImportantMessages
+function upgradeImportantMessages(version: string) {
+  // 0 is do nothing
+  // 1 means 3.9 and factory reset required
+  // 2 means a major version upgrade
+  let upgradeImportantMessageType_n = 0;
+
+  // see if its a filename with a .bin extension
+  if (version.endsWith('.bin')) {
+    upgradeImportantMessageType_n = 1; // 1 means 3.9 and factory reset required
+  } else if (version.endsWith('.md')) {
+    upgradeImportantMessageType_n = 0;
+  } else {
+    // this is a version string like "3.9.0"
+    upgradeImportantMessageType_n = 2;
+  }
+
+  console.log('upgradeImportantMessageType: ' + upgradeImportantMessageType_n);
+  return { upgradeImportantMessageType: upgradeImportantMessageType_n };
+}
+
+// called by Action endpoint checkUpgrade
 function check_upgrade(version: string) {
   let data = {};
   if (version) {
@@ -5172,30 +5193,7 @@ router
         return status(200);
       } else if (action === 'upgradeImportantMessages') {
         // check upgrade important messages
-        console.log(
-          'checking upgrade important messages for version ',
-          content.param
-        );
-        // determine message based on if we're upgrading a minor or major version
-        // TODO finish this
-        let message = 0;
-        const version = content.param;
-        const majorVersion = version.split('.')[0];
-        const minorVersion = version.split('.')[1];
-        const currentMajorVersion = THIS_VERSION.split('.')[0];
-        const currentMinorVersion = THIS_VERSION.split('.')[1];
-        if (majorVersion > currentMajorVersion) {
-          message = 1;
-        } else if (majorVersion < currentMajorVersion) {
-          message = 2;
-        } else if (minorVersion > currentMinorVersion) {
-          message = 1;
-        } else if (minorVersion < currentMinorVersion) {
-          message = 2;
-        } else {
-          message = 0;
-        }
-        return message;
+        return upgradeImportantMessages(content.param);
       }
     }
     return status(404); // cmd not found

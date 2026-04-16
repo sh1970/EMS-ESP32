@@ -7,6 +7,7 @@ import {
   useRef,
   useState
 } from 'react';
+import { Link } from 'react-router';
 import { toast } from 'react-toastify';
 
 import CancelIcon from '@mui/icons-material/Cancel';
@@ -24,7 +25,6 @@ import {
   DialogTitle,
   Grid,
   IconButton,
-  Link,
   Table,
   TableBody,
   TableCell,
@@ -274,6 +274,7 @@ const InstallDialog = memo(
     fetchDevVersion,
     latestVersion,
     latestDevVersion,
+    upgradeImportantMessageType,
     downloadOnly,
     platform,
     LL,
@@ -284,6 +285,7 @@ const InstallDialog = memo(
     fetchDevVersion: boolean;
     latestVersion?: VersionInfo;
     latestDevVersion?: VersionInfo;
+    upgradeImportantMessageType: number;
     downloadOnly: boolean;
     platform: string;
     LL: TranslationFunctions;
@@ -313,6 +315,27 @@ const InstallDialog = memo(
               fetchDevVersion ? latestDevVersion?.name : latestVersion?.name
             )}
           </Typography>
+          {upgradeImportantMessageType === 2 && LL.UPGRADE_IMPORTANT_MESSAGES_2()}
+          {upgradeImportantMessageType === 1 && (
+            <>
+              {LL.UPGRADE_IMPORTANT_MESSAGES_1()}
+              <Typography sx={{ mt: 2 }}>
+                <Link to="/settings/downloadUpload" style={{ color: 'lightblue' }}>
+                  {LL.DOWNLOAD_SYSTEM_BACKUP()}
+                </Link>
+              </Typography>
+            </>
+          )}
+          <Typography sx={{ mt: 2 }}>
+            <Link
+              to="https://docs.emsesp.org/FAQ#upgrading-the-firmware"
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: 'lightblue' }}
+            >
+              {LL.ONLINE_HELP()}
+            </Link>
+          </Typography>
         </DialogContent>
         <DialogActions>
           <Button
@@ -329,7 +352,12 @@ const InstallDialog = memo(
             onClick={onClose}
             color="primary"
           >
-            <Link underline="none" target="_blank" href={binURL} color="primary">
+            <Link
+              to={binURL}
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: 'lightblue', textDecoration: 'none' }}
+            >
               {LL.DOWNLOAD(0)}
             </Link>
           </Button>
@@ -469,6 +497,26 @@ const Version = () => {
     immediate: false
   });
 
+  const [upgradeImportantMessageType, setUpgradeImportantMessageType] =
+    useState<number>(0);
+
+  const { send: checkUpgradeImportantMessages } = useRequest(
+    (version: string) =>
+      callAction({ action: 'upgradeImportantMessages', param: version }),
+    {
+      immediate: false
+    }
+  )
+    .onSuccess((event) => {
+      const upgradeImportantMessageType_n = (
+        event.data as { upgradeImportantMessageType: number }
+      ).upgradeImportantMessageType;
+      setUpgradeImportantMessageType(upgradeImportantMessageType_n);
+    })
+    .onError((error) => {
+      toast.error(String(error.error?.message || 'An error occurred'));
+    });
+
   // Memoized values
   const platform = useMemo(() => (data ? getPlatform(data) : ''), [data]);
 
@@ -534,10 +582,16 @@ const Version = () => {
     []
   );
 
-  const showFirmwareDialog = useCallback((useDevVersion: boolean) => {
-    setFetchDevVersion(useDevVersion);
-    setOpenInstallDialog(true);
-  }, []);
+  const showFirmwareDialog = useCallback(
+    (useDevVersion: boolean) => {
+      setFetchDevVersion(useDevVersion);
+      void checkUpgradeImportantMessages(
+        useDevVersion ? latestDevVersion?.name : latestVersion?.name
+      );
+      setOpenInstallDialog(true);
+    },
+    [latestDevVersion, latestVersion, fetchDevVersion]
+  );
 
   const closeInstallDialog = useCallback(() => {
     setOpenInstallDialog(false);
@@ -817,6 +871,7 @@ const Version = () => {
                 fetchDevVersion={fetchDevVersion}
                 latestVersion={latestVersion}
                 latestDevVersion={latestDevVersion}
+                upgradeImportantMessageType={upgradeImportantMessageType}
                 downloadOnly={downloadOnly}
                 platform={platform}
                 LL={LL}
