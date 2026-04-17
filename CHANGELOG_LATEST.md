@@ -13,6 +13,7 @@ For more details go to [emsesp.org](https://emsesp.org/).
 - boiler pumpkick [#2965](https://github.com/emsesp/EMS-ESP32/discussions/2965)
 - heatpump reset [#2933](https://github.com/emsesp/EMS-ESP32/issues/2933)
 - 2.nd freshwater module (dhw4, dhw5) [#2991](https://github.com/emsesp/EMS-ESP32/issues/2991)
+- full system backup and restore
 
 ## Fixed
 
