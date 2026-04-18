@@ -44,7 +44,7 @@
     "react-router": "^7.14.1",
     "react-toastify": "^11.0.5",
     "typesafe-i18n": "^5.27.1",
-    "typescript": "^6.0.2"
+    "typescript": "^6.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
