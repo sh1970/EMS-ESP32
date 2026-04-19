@@ -350,7 +350,7 @@ const cz: Translation = {
   NO_DATA_1: 'Nebyly nalezeny žádné oblíbené entity. Použijte modul',
   NO_DATA_2: 'pro jejich výběr.',
   NO_DATA_3: 'Pro zobrazení všech dostupných entit navštivte stránku',
-  NO_GPIO:'Nebylo nalezeno žádné volné GPIO',
+  NO_GPIO: 'Nebylo nalezeno žádné volné GPIO',
   THIS_VERSION: 'Tato verze',
   PLATFORM: 'Platforma',
   RELEASE_TYPE: 'Typ sestavení',
@@ -362,7 +362,7 @@ const cz: Translation = {
   STORED_VERSIONS: 'Uložené verze',
   ONLINE_HELP: 'online nápověda',
   UPGRADE_IMPORTANT_MESSAGES: 'Aktualizovat důležité zprávy',
-  UPGRADE_IMPORTANT_MESSAGES_1: 'Tato aktualizace vyžaduje obnovení továrního nastavení. Ujistěte se, že jste vytvořili zálohu své konfigurace a nastavení před pokračováním a nahrajte ji po instalaci nové verze.',
+  UPGRADE_IMPORTANT_MESSAGES_1: 'Tato aktualizace vyžaduje obnovení továrního nastavení. Ujistěte se, že nejprve stáhnete systémovou zálohu před pokračováním a poté nahrajte tento soubor po instalaci nové verze.',
   UPGRADE_IMPORTANT_MESSAGES_2: 'Aktualizujete se na novou hlavní verzi. Ujistěte se, že jste přečetli ChangeLog pro jakékoliv závažné změny.',
   WARNING_SYSTEM_BACKUP: 'Toto vytvoří zálohu vašich celých systémových konfigurací a nastavení. Všechna hesla budou v zálohovém souboru čitelná. Buďte opatrní při sdílení! Opravdu chcete pokračovat?'
 
