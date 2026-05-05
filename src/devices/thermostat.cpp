@@ -207,6 +207,7 @@ Thermostat::Thermostat(uint8_t device_type, uint8_t device_id, uint8_t product_i
         register_telegram_type(0x16E, "Absent", true, MAKE_PF_CB(process_Absent), 1);
         register_telegram_type(0xBF, "ErrorMessage", false, MAKE_PF_CB(process_ErrorMessageBF));
         register_telegram_type(0xC0, "RCErrorMessage", false, MAKE_PF_CB(process_RCErrorMessage2));
+        register_telegram_type(0x470, "RC300Summer2", true, MAKE_PF_CB(process_RC300Summer2), 8);
         EMSESP::send_read_request(0xC0, device_id, 0, 20); // read last errorcode on start (only published on errors)
 
         // JUNKERS/HT3
@@ -1268,7 +1269,13 @@ void Thermostat::process_RC300Summer(std::shared_ptr<const Telegram> telegram) {
 void Thermostat::process_RC300Summer2(std::shared_ptr<const Telegram> telegram) {
     auto hc = heating_circuit(telegram);
     if (hc == nullptr) {
-        return;
+        // telegram 0x470 see https://github.com/emsesp/EMS-ESP32/issues/2686
+        if (telegram->type_id == 0x470 && telegram->message_length > 2) {
+            hc                 = heating_circuit(1);
+            summer2_typeids[0] = 0x470;
+        } else {
+            return;
+        }
     }
     if (hc->statusbyte & 1) {
         has_update(telegram, hc->summersetmode, 0);
