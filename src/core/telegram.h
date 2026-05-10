@@ -173,7 +173,8 @@ class EMSbus {
     }
 
     static void set_ems2() {
-        isEMS2_ = true;;
+        isEMS2_ = true;
+        ;
     }
 
     static uint8_t ems_mask() {
