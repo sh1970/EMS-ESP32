@@ -1,7 +1,6 @@
 {
   "type": "systembackup",
   "version": "3.8.2",
-  "date": "2026-03-29T13:28:15",
   "systembackup": [
     {
       "type": "settings",
@@ -19,7 +18,7 @@
         "tx_power": 0
       },
       "AP": {
-        "provision_mode": 2,
+        "provision_mode": 1,
         "ssid": "ems-esp",
         "password": "ems-esp-neo",
         "channel": 1,
@@ -62,7 +61,7 @@
         "send_response": false
       },
       "NTP": {
-        "enabled": true,
+        "enabled": false,
         "server": "time.google.com",
         "tz_label": "Europe/Amsterdam",
         "tz_format": "CET-1CEST,M3.5.0,M10.5.0/3"
@@ -83,12 +82,12 @@
         ]
       },
       "Settings": {
-        "version": "3.8.2",
+        "version": "3.8.2-dev.22",
         "board_profile": "E32V2_2",
         "platform": "ESP32",
         "locale": "en",
-        "tx_mode": 1,
-        "ems_bus_id": 11,
+        "tx_mode": 5,
+        "ems_bus_id": 73,
         "syslog_enabled": false,
         "syslog_level": 3,
         "trace_raw": false,
@@ -132,17 +131,7 @@
         "modbus_port": 502,
         "modbus_max_clients": 10,
         "modbus_timeout": 300,
-        "developer_mode": true,
-        "email_enabled": false,
-        "email_ssl": false,
-        "email_starttls": true,
-        "email_server": "smtp.example.net",
-        "email_port": 587,
-        "email_login": "",
-        "email_pass": "",
-        "email_sender": "ems-esp@example.net",
-        "email_recp": "",
-        "email_subject": "ems-esp notification"
+        "developer_mode": false
       }
     },
     {
@@ -207,22 +196,14 @@
       }
     },
     {
-      "type": "customSupport",
-      "Support": {
-        "html": [
-          "This product is installed and managed by:",
-          "",
-          "<b>Bosch Installer Example</b>",
-          "",
-          "Nefit Road 12",
-          "1234 AB Amsterdam",
-          "Phone: +31 123 456 789",
-          "email: support@boschinstaller.nl",
-          "",
-          "For help and questions please <a target='_blank' href='https://emsesp.org'>contact</a> your installer."
-        ],
-        "img_url": "https://emsesp.org/media/images/designer.png"
-      }
+      "type": "nvs",
+      "nvs": [
+        {
+          "type": 1,
+          "key": "fresh_firmware",
+          "value": 0
+        }
+      ]
     }
   ]
 }
