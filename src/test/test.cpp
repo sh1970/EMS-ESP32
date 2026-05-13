@@ -450,7 +450,7 @@ void Test::run_test(uuid::console::Shell & shell, const std::string & cmd, const
 // THESE ONLY WORK WITH AN ESP32, not in standalone/native mode
 #ifndef EMSESP_STANDALONE
     if (command == "ls") {
-        listDir(LittleFS, "/", 3);
+        System::listDir("/", 3);
         ok = true;
     }
 
@@ -2675,45 +2675,6 @@ void Test::uart_telegram(const char * rx_data) {
 void Test::add_device(uint8_t device_id, uint8_t product_id) {
     uart_telegram({device_id, EMSESP_DEFAULT_EMS_BUS_ID, EMSdevice::EMS_TYPE_VERSION, 0, product_id, 1, 0});
 }
-
-#ifdef EMSESP_TEST
-#ifndef EMSESP_STANDALONE
-void Test::listDir(fs::FS & fs, const char * dirname, uint8_t levels) {
-    Serial.println();
-    Serial.printf("%s\r\n", dirname);
-
-    File root = fs.open(dirname);
-    if (!root) {
-        Serial.println("- failed to open directory");
-        return;
-    }
-    if (!root.isDirectory()) {
-        Serial.println(" - not a directory");
-        return;
-    }
-
-    File file = root.openNextFile();
-    while (file) {
-        if (file.isDirectory()) {
-            Serial.print(file.name());
-            Serial.println("/");
-            if (levels) {
-                // prefix a / to the name to make it a full path
-                listDir(fs, ("/" + String(file.name())).c_str(), levels - 1);
-            }
-            Serial.println();
-        } else {
-            Serial.print(" ");
-            Serial.print(file.name());
-            Serial.print(" (");
-            Serial.print(file.size());
-            Serial.println(" bytes)");
-        }
-        file = root.openNextFile();
-    }
-}
-#endif
-#endif
 
 } // namespace emsesp
 
