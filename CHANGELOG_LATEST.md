@@ -8,4 +8,6 @@ For more details go to [emsesp.org](https://emsesp.org/).
 
 ## Fixed
 
+- signed value for solarInfuence [#3077](https://github.com/emsesp/EMS-ESP32/issues/3077)
+
 ## Changed
