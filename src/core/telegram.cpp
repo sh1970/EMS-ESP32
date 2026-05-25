@@ -161,9 +161,9 @@ void RxService::add(uint8_t * data, uint8_t length) {
         }
         if (data[0] != EMSuart::last_tx_src()) { // do not count echos as errors
             telegram_error_count_++;
-            LOG_WARNING("Incomplete Rx: %s", Helpers::data_to_hex(data, length).c_str()); // include CRC
+            LOG_WARNING("Incomplete Rx: %s (crc: %02X)", Helpers::data_to_hex(data, length).c_str(), crc); // include CRC
         } else {
-            LOG_TRACE("Incomplete Rx: %s", Helpers::data_to_hex(data, length).c_str()); // include CRC
+            LOG_TRACE("Incomplete Rx: %s (crc: %02X)", Helpers::data_to_hex(data, length).c_str(), crc); // include CRC
         }
         return;
     }
