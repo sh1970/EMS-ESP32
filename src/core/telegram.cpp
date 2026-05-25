@@ -276,7 +276,7 @@ void TxService::start() {
 // sends a 1 byte poll which is our own deviceID
 void TxService::send_poll() const {
     // LOG_DEBUG("Ack %02X",ems_bus_id() ^ ems_mask());
-    if (tx_mode() != EMS_TXMODE_OFF) {
+    if (tx_mode() != EMS_TXMODE_OFF && ems_bus_id() != 0x0D) {
         EMSuart::send_poll(ems_bus_id() ^ ems_mask());
     }
 }
