@@ -673,7 +673,6 @@ const ApplicationSettings = () => {
               sx={{ width: '15ch' }}
               select
             >
-              <MenuItem value={0}>{LL.OFF()}</MenuItem>
               <MenuItem value={1}>EMS</MenuItem>
               <MenuItem value={2}>EMS+</MenuItem>
               <MenuItem value={3}>HT3</MenuItem>
