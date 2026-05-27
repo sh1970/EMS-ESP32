@@ -296,6 +296,16 @@ class Thermostat : public EMSdevice {
     uint8_t absent_;
     uint8_t hasSolar_;
 
+    // BC400/UI800 telegram 0x470
+    uint8_t hpoperatingmode;
+    uint8_t summertemp;
+    uint8_t heatondelay;
+    uint8_t heatoffdelay;
+    uint8_t instantstart;
+    uint8_t coolstart;
+    uint8_t coolondelay;
+    uint8_t cooloffdelay;    
+
     // HybridHP
     uint8_t hybridStrategy_;  // co2 = 1, cost = 2, temperature = 3, mix = 4
     int8_t  switchOverTemp_;  // degrees
@@ -451,6 +461,7 @@ class Thermostat : public EMSdevice {
     void process_RC300Set2(std::shared_ptr<const Telegram> telegram);
     void process_RC300Summer(std::shared_ptr<const Telegram> telegram);
     void process_RC300Summer2(std::shared_ptr<const Telegram> telegram);
+    void process_RC300Summer3(std::shared_ptr<const Telegram> telegram);
     void process_RC300WWmode(std::shared_ptr<const Telegram> telegram);
     void process_RC300WWmode2(std::shared_ptr<const Telegram> telegram);
     void process_RC300WWtemp(std::shared_ptr<const Telegram> telegram);
