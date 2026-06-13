@@ -23,6 +23,8 @@
 #include <Arduino.h>
 #include <ArduinoJson.h>
 
+#include <memory>
+
 #include "helpers.h"          // for conversions
 #include "default_settings.h" // for enum types
 
@@ -177,7 +179,6 @@ class DeviceValue {
     int8_t                numeric_operator;
     const char * const    short_name;      // used in MQTT and API
     const char * const *  fullname;        // used in Web and Console, is translated
-    std::string           custom_fullname; // optional, from customization
     uint8_t               uom;             // DeviceValueUOM::*
     bool                  has_cmd;         // true if there is a Console/MQTT command which matches the short_name
     int16_t               min;             // min range
@@ -214,6 +215,13 @@ class DeviceValue {
     std::string        get_fullname() const;
     static std::string get_name(const std::string & entity);
 
+    // raw stored custom name (including any >min<max suffix), empty if none. Stored on heap only when set.
+    const std::string & custom_fullname() const;
+    void                set_custom_fullname(const std::string & name);
+    bool                has_custom_fullname() const {
+        return (bool)custom_fullname_;
+    }
+
     // dv state flags
     void add_state(uint8_t s) {
         state |= s;
@@ -232,6 +240,11 @@ class DeviceValue {
     static const char * const * DeviceValueTAG_s[];
     static const char * const   DeviceValueTAG_mqtt[];
     static uint8_t              NUM_TAGS; // # tags
+
+  private:
+    // optional custom name from customization. Allocated on heap only when actually set,
+    // so unnamed entities (the vast majority) don't pay for an inline std::string.
+    std::unique_ptr<std::string> custom_fullname_;
 };
 
 }; // namespace emsesp
