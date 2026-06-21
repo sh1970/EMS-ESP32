@@ -14,3 +14,5 @@ For more details go to [emsesp.org](https://emsesp.org/).
 - set bin file upload limit to 1M again [3086](https://github.com/emsesp/EMS-ESP32/issues/3086)
 
 ## Changed
+
+- call compute value direct, enlarge TCP stack [#3127](https://github.com/emsesp/EMS-ESP32/discussions/3127)
