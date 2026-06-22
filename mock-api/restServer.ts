@@ -4139,7 +4139,7 @@ let emsesp_schedule = {
       id: 5,
       active: false,
       flags: 130,
-      time: 'system/network info/rssi < -70',
+      time: 'system/network/rssi < -70',
       cmd: 'system/restart',
       value: '',
       name: 'bad_wifi'
