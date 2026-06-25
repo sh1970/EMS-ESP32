@@ -377,19 +377,23 @@ void Roomctrl::temperature(uint8_t addr, uint8_t dst, uint8_t hc) {
 
 // send telegram 0x047B only for RC100H
 void Roomctrl::humidity(uint8_t addr, uint8_t dst, uint8_t hc) {
+    int16_t dew  = calc_dew(remotetemp_[hc], remotehum_[hc]);
+    int8_t  dew8 = EMS_VALUE_INT8_NOTSET;
+    if (dew != EMS_VALUE_INT16_NOTSET) {
+        dew8 = static_cast<int8_t>((dew >= 0 ? dew + 5 : dew - 5) / 10);
+    }
     uint8_t data[11];
-    data[0]      = addr | EMSbus::ems_mask();
-    data[1]      = dst & 0x7F;
-    uint16_t dew = calc_dew(remotetemp_[hc], remotehum_[hc]);
-    data[2]      = 0xFF;
-    data[3]      = 0;
-    data[4]      = 3;
-    data[5]      = 0x7B + hc;
-    data[6]      = dew == EMS_VALUE_INT16_NOTSET ? EMS_VALUE_INT8_NOTSET : (uint8_t)((dew + 5) / 10);
-    data[7]      = remotehum_[hc];
-    data[8]      = (uint8_t)(dew << 8);
-    data[9]      = (uint8_t)(dew & 0xFF);
-    data[10]     = EMSbus::calculate_crc(data, 10); // append CRC
+    data[0]  = addr | EMSbus::ems_mask();
+    data[1]  = dst & 0x7F;
+    data[2]  = 0xFF;
+    data[3]  = 0;
+    data[4]  = 3;
+    data[5]  = 0x7B + hc;
+    data[6]  = static_cast<uint8_t>(dew8);
+    data[7]  = remotehum_[hc];
+    data[8]  = static_cast<uint8_t>(static_cast<uint16_t>(dew) >> 8);
+    data[9]  = static_cast<uint8_t>(static_cast<uint16_t>(dew) & 0xFF);
+    data[10] = EMSbus::calculate_crc(data, 10); // append CRC
     EMSuart::transmit(data, 11);
 }
 
