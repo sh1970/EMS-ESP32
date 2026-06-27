@@ -38,9 +38,9 @@ void WiFiScanner::listNetworks(AsyncWebServerRequest * request) {
     } else if (numNetworks == -1) {
         request->send(202); // special code to indicate scan in progress
     } else {
-        auto *     response = new AsyncJsonResponse(false);
-        JsonObject root     = response->getRoot();
-        JsonArray  networks = root["networks"].to<JsonArray>();
+        auto * response = new AsyncJsonResponse(false);
+        JsonObject root = response->getRoot();
+        root["networks"].to<JsonArray>();
         response->setLength();
         request->send(response);
     }
