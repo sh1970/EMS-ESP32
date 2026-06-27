@@ -222,22 +222,10 @@ bool System::command_message(const char * value, const int8_t id, JsonObject out
         LOG_WARNING("Message is empty");
         return false; // must have a string value
     }
-
-    EMSESP::webSchedulerService.computed_value.clear();
-    EMSESP::webSchedulerService.raw_value = value;
-    for (uint16_t wait = 0; wait < 2000 && !EMSESP::webSchedulerService.raw_value.empty(); wait++) {
-        delay(1);
-    }
-
-    if (EMSESP::webSchedulerService.computed_value.empty()) {
-        LOG_WARNING("Message result is empty");
-        return false;
-    }
-
-    LOG_INFO("Message: %s", EMSESP::webSchedulerService.computed_value.c_str());  // send to log
-    Mqtt::queue_publish(F_(message), EMSESP::webSchedulerService.computed_value); // send to MQTT if enabled
-    output["api_data"] = EMSESP::webSchedulerService.computed_value;              // send to API
-
+    std::string computed_value = EMSESP::webSchedulerService.compute_value(value);
+    LOG_INFO("Message: %s", computed_value.c_str());  // send to log
+    Mqtt::queue_publish(F_(message), computed_value); // send to MQTT if enabled
+    output["api_data"] = computed_value;              // send to API
     return true;
 }
 

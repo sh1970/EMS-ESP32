@@ -333,7 +333,10 @@ std::deque<Token> shuntingYard(const std::deque<Token> & tokens) {
 
 // check if string is a number
 bool isnum(const std::string & s) {
-    if (!s.empty() && (s.find_first_not_of("0123456789.") == std::string::npos || (s[0] == '-' && s.find_first_not_of("0123456789.", 1) == std::string::npos))) {
+    if (s.empty() || s.find_first_of("0123456789") == std::string::npos) {
+        return false;
+    }
+    if (s.find_first_not_of("0123456789.") == std::string::npos || (s[0] == '-' && s.find_first_not_of("0123456789.", 1) == std::string::npos)) {
         return true;
     }
     return false;
@@ -634,6 +637,10 @@ std::string calculate(const std::string & expr) {
             stack.pop_back();
             if (token.str[0] == '+' && (!isnum(rhs) || !isnum(lhs))) {
                 stack.push_back(lhs + rhs);
+                break;
+            }
+            if (!isnum(rhs) || !isnum(lhs)) {
+                stack.push_back(lhs + token.str + rhs);
                 break;
             }
             auto lhd = std::stod(lhs);
