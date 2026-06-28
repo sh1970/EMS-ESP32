@@ -1271,9 +1271,9 @@ void EMSdevice::setCustomizationEntity(const std::string & entity_id) {
 
             // set the custom name if it has one, or clear it
             if (has_custom_name) {
-                dv.set_custom_fullname(entity_id.substr(custom_name_pos + 1));
+                dv.custom_fullname = entity_id.substr(custom_name_pos + 1);
             } else {
-                dv.set_custom_fullname("");
+                dv.custom_fullname = "";
             }
 
             auto min = dv.min;
@@ -1312,11 +1312,11 @@ void EMSdevice::getCustomizationEntities(std::vector<std::string> & entity_ids) 
                 break;
             }
         }
-        if (!is_set && (mask || dv.has_custom_fullname())) {
-            if (!dv.has_custom_fullname()) {
+        if (!is_set && (mask || !dv.custom_fullname.empty())) {
+            if (dv.custom_fullname.empty()) {
                 entity_ids.push_back(Helpers::hextoa(mask, false) + entity_name);
             } else {
-                entity_ids.push_back(Helpers::hextoa(mask, false) + entity_name + "|" + dv.custom_fullname());
+                entity_ids.push_back(Helpers::hextoa(mask, false) + entity_name + "|" + dv.custom_fullname);
             }
         }
     }
